@@ -1,0 +1,18 @@
+one:
+  id: 1
+  screen_name: uedayo
+  last_name_kanji: 上田
+  first_name_kanji: 佳典
+  last_name_hiragana: うえだ
+  first_name_hiragana: よしのり
+  image_url: https://pbs.twimg.com/profile_images/2284174758/v65oai7fxn47qv9nectx_bigger.png
+  division_id: 1
+two:
+  id: 2
+  screen_name:
+  last_name_kanji: 名無
+  first_name_kanji: 権兵衛
+  last_name_hiragana: ななし
+  first_name_hiragana: ごんべえ
+  image_url:
+  division_id: 2
