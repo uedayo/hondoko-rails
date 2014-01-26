@@ -1,0 +1,28 @@
+one:
+  id: 1
+  name: モバイルアプリ
+  color: pink
+two:
+  id: 2
+  name: Webバックエンド
+  color: red
+three:
+  id: 3
+  name: Webフロントエンド
+  color: viridian
+four:
+  id: 4
+  name: プラクティス
+  color: blue
+five:
+  id: 5
+  name: 設計
+  color: orange
+six:
+  id: 6
+  name: インフラ・MW
+  color: yellow
+seven:
+  id: 7
+  name: マネジメント・その他
+  color: green

@@ -1,0 +1,14 @@
+defaults: &defaults
+  associate_tag:
+  AWS_access_key_id:
+  AWS_secret_key:
+  country: jp
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

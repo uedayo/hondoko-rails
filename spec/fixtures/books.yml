@@ -1,0 +1,19 @@
+one:
+  id: 1
+  title: Clean Code アジャイルソフトウェア達人の技
+  author: Robert C. Martin
+  manufacturer: アスキー・メディアワークス
+  small_image: http://ecx.images-amazon.com/images/I/51uWxRrPyYL._SL160_.jpg
+  medium_image: http://ecx.images-amazon.com/images/I/51uWxRrPyYL._SL160_.jpg
+  detail_page_url: http://www.amazon.co.jp/Clean-Code-%E3%82%A2%E3%82%B8%E3%83%A3%E3%82%A4%E3%83%AB%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E9%81%94%E4%BA%BA%E3%81%AE%E6%8A%80-Robert-Martin/dp/4048676881
+  category_id: 4
+
+two:
+  id: 2
+  title: パーフェクトRuby (PERFECT SERIES 6)
+  author: [Rubyサポーターズ, すがわら まさのり, 寺田 玄太郎, 三村 益隆, 近藤 宇智朗, 橋立 友宏, 関口 亮一]
+  manufacturer: 技術評論社
+  small_image: http://ecx.images-amazon.com/images/I/51K0jUf%2BiEL._SL160_.jpg
+  medium_image: http://ecx.images-amazon.com/images/I/51K0jUf%2BiEL._SL160_.jpg
+  detail_page_url: http://www.amazon.co.jp/%E3%83%91%E3%83%BC%E3%83%95%E3%82%A7%E3%82%AF%E3%83%88Ruby-PERFECT-SERIES-6-Ruby%E3%82%B5%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%BC%E3%82%BA/dp/4774158798
+  category_id: 2

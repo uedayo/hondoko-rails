@@ -11,6 +11,8 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+ENV.update YAML.load_file('config/settings.yml')[Rails.env] rescue {}
+
 module Hondoko
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
