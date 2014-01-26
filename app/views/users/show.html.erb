@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Screen name:</strong>
+  <%= @user.screen_name %>
+</p>
+
+<p>
+  <strong>Last name kanji:</strong>
+  <%= @user.last_name_kanji %>
+</p>
+
+<p>
+  <strong>First name kanji:</strong>
+  <%= @user.first_name_kanji %>
+</p>
+
+<p>
+  <strong>Last name hiragana:</strong>
+  <%= @user.last_name_hiragana %>
+</p>
+
+<p>
+  <strong>First name hiragana:</strong>
+  <%= @user.first_name_hiragana %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @user.image_url %>
+</p>
+
+<p>
+  <strong>Division:</strong>
+  <%= @user.division %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

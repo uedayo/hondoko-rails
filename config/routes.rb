@@ -1,4 +1,18 @@
 Hondoko::Application.routes.draw do
+  resources :divisions
+
+  resources :categories
+
+  resources :areas
+
+  resources :users
+
+  resources :books
+
+  resources :items
+
+  resources :operations
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
