@@ -15,7 +15,7 @@ Hondoko::Application.routes.draw do
 
   get 'search/result/:value' => 'search#result'
 
-  get 'lend/scan/:book_id' => 'lend#scan'
+  get 'lend/scan/:isbn' => 'lend#scan'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

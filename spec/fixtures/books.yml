@@ -1,5 +1,7 @@
 one:
   id: 1
+  isbn: 4048676881
+  asin:
   title: Clean Code アジャイルソフトウェア達人の技
   author: Robert C. Martin
   manufacturer: アスキー・メディアワークス
@@ -10,6 +12,7 @@ one:
 
 two:
   id: 2
+  isbn: 4774158798
   title: パーフェクトRuby (PERFECT SERIES 6)
   author: [Rubyサポーターズ, すがわら まさのり, 寺田 玄太郎, 三村 益隆, 近藤 宇智朗, 橋立 友宏, 関口 亮一]
   manufacturer: 技術評論社

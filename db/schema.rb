@@ -21,12 +21,16 @@ ActiveRecord::Schema.define(version: 20140126101233) do
   end
 
   create_table "books", force: true do |t|
+    t.string   "isbn"
+    t.string   "asin"
     t.string   "title"
     t.string   "author"
     t.string   "manufacturer"
     t.string   "small_image"
     t.string   "medium_image"
-    t.string   "detail_page_url"
+    t.string   "large_image"
+    t.integer  "price"
+    t.string   "currency"
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
