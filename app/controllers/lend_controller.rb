@@ -2,7 +2,7 @@ class LendController < ApplicationController
   require "amazon/ecs"
 
   def scan
-    repo = ItemRepository.new
+    repo = BookItemRepository.new
     item = repo.find params[:isbn]
     render text: item.book.title
   end
