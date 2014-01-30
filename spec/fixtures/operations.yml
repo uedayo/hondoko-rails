@@ -3,33 +3,51 @@ one:
   item_id: 1
   user_id: 1
   operation: 1
+  due_date: 2014-01-30
+  created_at: 2014-01-30
+  updated_at: 2014-01-30
 
 two:
   id: 2
   item_id: 1
   user_id: 1
   operation: 0
+  due_date: 2014-01-30
+  created_at: 2014-02-28
+  updated_at: 2014-02-28
 
 three:
   id: 3
   item_id: 2
   user_id: 2
   operation: 1
+  due_date: 2014-01-30
+  created_at: 2014-03-30
+  updated_at: 2014-03-30
 
 four:
   id: 4
   item_id: 3
   user_id: 1
   operation: 1
+  due_date: 2014-01-30
+  created_at: 2014-04-30
+  updated_at: 2014-04-30
 
 five:
   id: 5
   item_id: 1
   user_id: 1
   operation: 1
+  due_date: 2014-01-30
+  created_at: 2014-04-30
+  updated_at: 2014-04-30
 
 six:
   id: 6
   item_id: 2
   user_id: 2
   operation: 0
+  due_date: 2014-01-30
+  created_at: 2014-05-30
+  updated_at: 2014-05-30

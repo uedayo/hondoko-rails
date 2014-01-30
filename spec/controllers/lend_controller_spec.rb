@@ -41,4 +41,18 @@ describe LendController do
     end
   end
 
+  describe 'regist lend operation' do
+    before do
+      post :regist, { operation: {
+          item_id: 1,
+          user_id: 1,
+          operation: 1,
+          due_date: '2014-01-30'}
+      }
+    end
+
+    it '200OK' do
+      expect(response).to be_success
+    end
+  end
 end

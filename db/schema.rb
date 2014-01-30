@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20140126101233) do
     t.integer  "item_id"
     t.integer  "user_id"
     t.integer  "operation"
+    t.date     "due_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -81,6 +82,7 @@ ActiveRecord::Schema.define(version: 20140126101233) do
     t.string   "first_name_kanji"
     t.string   "last_name_hiragana"
     t.string   "first_name_hiragana"
+    t.string   "email"
     t.string   "image_url"
     t.integer  "division_id"
     t.datetime "created_at"

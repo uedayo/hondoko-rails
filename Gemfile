@@ -49,3 +49,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'amazon-ecs'
+
+group :test do
+  gem 'factory_girl_rails', '~> 4.0'
+end

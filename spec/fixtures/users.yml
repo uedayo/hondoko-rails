@@ -5,6 +5,7 @@ one:
   first_name_kanji: 佳典
   last_name_hiragana: うえだ
   first_name_hiragana: よしのり
+  email: example@example.com
   image_url: https://pbs.twimg.com/profile_images/2284174758/v65oai7fxn47qv9nectx_bigger.png
   division_id: 1
 two:
@@ -14,5 +15,6 @@ two:
   first_name_kanji: 権兵衛
   last_name_hiragana: ななし
   first_name_hiragana: ごんべえ
+  email:
   image_url:
   division_id: 2

@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :first_name_kanji
       t.string :last_name_hiragana
       t.string :first_name_hiragana
-      t.string :mail
+      t.string :email
       t.string :image_url
       t.references :division, index: true
 

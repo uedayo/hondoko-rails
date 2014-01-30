@@ -7,10 +7,18 @@ class LendController < ApplicationController
     render text: item.book.title
   end
 
-  private
+  def regist
+    operation = Operation.new operation_params
+    operation.save
+    render text: operation
+  end
 
-  def get_book_detail book_id
-    #TODO if not found, store data from Amazon
-    #TODO check DB again
+  def operation_params
+    params.require(:operation).permit(
+      :item_id,
+      :user_id,
+      :operation,
+      :due_date
+    )
   end
 end
