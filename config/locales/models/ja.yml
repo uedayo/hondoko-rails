@@ -1,0 +1,50 @@
+ja:
+  activerecord:
+    attributes:
+      models:
+        operation: 貸出/返却操作
+        item: アイテム
+        book: 本
+        user: ユーザ
+        area: 場所
+        category: カテゴリ
+        division: 部署名
+      operation:
+        item: アイテム
+        user: ユーザ
+        operation: 貸出/返却操作
+        due_date: 返却予定日
+      item:
+        book: 本
+        volume: 番号
+        area: 場所
+        donor_id: 寄贈者
+      book:
+        isbn: ISBN
+        asin: ASIN
+        title: タイトル
+        author: 著者
+        manufacturer: 出版社
+        small_image: イメージ小
+        medium_image: イメージ中
+        detail_page_url: イメージ大
+        category: カテゴリー
+      user:
+        screen_name: スクリーン名
+        last_name_kanji: 姓
+        first_name_kanji: 名
+        last_name_hiragana: せい
+        first_name_hiragana: めい
+        email: メールアドレス
+        image_url: プロフィール画像
+        division: 部署
+      area:
+        name: 名前
+        description: 説明
+      category:
+        name: 名前
+        color: 色
+        description: 説明
+      division:
+        name: 名前
+        description: 説明

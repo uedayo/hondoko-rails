@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140126101233) do
     t.integer  "book_id"
     t.integer  "volume"
     t.integer  "area_id"
+    t.integer  "donor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

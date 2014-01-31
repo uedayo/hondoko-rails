@@ -4,6 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.references :book, index: true
       t.integer :volume
       t.references :area, index: true
+      t.integer :donor_id
 
       t.timestamps
     end
