@@ -18,13 +18,13 @@ describe LendRepository do
   context 'when single operation exits' do
     describe 'get_last_operation' do
       before do
-        create(:operation)
+        create(:check_in)
         repo = LendRepository.new
         @result = repo.get_last_operation 1
       end
 
       it 'should return operation' do
-        expect(@result).to be_instance_of Operation
+        expect(@result).to be_instance_of CheckOut
       end
     end
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140126101233) do
+ActiveRecord::Schema.define(version: 20140131065717) do
 
   create_table "areas", force: true do |t|
     t.string   "name"
@@ -46,6 +46,25 @@ ActiveRecord::Schema.define(version: 20140126101233) do
     t.datetime "updated_at"
   end
 
+  create_table "check_ins", force: true do |t|
+    t.integer  "check_out_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "check_ins", ["check_out_id"], name: "index_check_ins_on_check_out_id", using: :btree
+
+  create_table "check_outs", force: true do |t|
+    t.integer  "item_id"
+    t.integer  "user_id"
+    t.date     "due_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "check_outs", ["item_id"], name: "index_check_outs_on_item_id", using: :btree
+  add_index "check_outs", ["user_id"], name: "index_check_outs_on_user_id", using: :btree
+
   create_table "divisions", force: true do |t|
     t.string   "name"
     t.string   "description"
@@ -64,18 +83,6 @@ ActiveRecord::Schema.define(version: 20140126101233) do
 
   add_index "items", ["area_id"], name: "index_items_on_area_id", using: :btree
   add_index "items", ["book_id"], name: "index_items_on_book_id", using: :btree
-
-  create_table "operations", force: true do |t|
-    t.integer  "item_id"
-    t.integer  "user_id"
-    t.integer  "operation"
-    t.date     "due_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "operations", ["item_id"], name: "index_operations_on_item_id", using: :btree
-  add_index "operations", ["user_id"], name: "index_operations_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "screen_name"

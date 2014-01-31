@@ -1,10 +1,10 @@
-<%= form_for(@operation) do |f| %>
-  <% if @operation.errors.any? %>
+<%= form_for(@check_out) do |f| %>
+  <% if @check_out.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@operation.errors.count, "error") %> prohibited this operation from being saved:</h2>
+      <h2><%= pluralize(@check_out.errors.count, "error") %> prohibited this check_out from being saved:</h2>
 
       <ul>
-      <% @operation.errors.full_messages.each do |msg| %>
+      <% @check_out.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -20,8 +20,8 @@
     <%= f.text_field :user_id %>
   </div>
   <div class="field">
-    <%= f.label :operation %><br>
-    <%= f.number_field :operation %>
+    <%= f.label :due_date %><br>
+    <%= f.date_select :due_date %>
   </div>
   <div class="actions">
     <%= f.submit %>

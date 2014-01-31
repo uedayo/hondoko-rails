@@ -1,4 +1,8 @@
 Hondoko::Application.routes.draw do
+  resources :check_ins
+
+  resources :check_outs
+
   resources :divisions
 
   resources :categories
@@ -10,8 +14,6 @@ Hondoko::Application.routes.draw do
   resources :books
 
   resources :items
-
-  resources :operations
 
   get 'search/result/:value' => 'search#result'
 

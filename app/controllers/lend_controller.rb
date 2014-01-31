@@ -8,16 +8,15 @@ class LendController < ApplicationController
   end
 
   def regist
-    operation = Operation.new operation_params
-    operation.save
-    render text: operation
+    check_out = CheckOut.new check_out_params
+    check_out.save
+    render text: check_out
   end
 
-  def operation_params
-    params.require(:operation).permit(
+  def check_out_params
+    params.require(:check_out).permit(
       :item_id,
       :user_id,
-      :operation,
       :due_date
     )
   end

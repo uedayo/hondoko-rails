@@ -1,10 +1,10 @@
-class CreateOperations < ActiveRecord::Migration
+class CreateCheckOuts < ActiveRecord::Migration
   def change
-    create_table :operations do |t|
+    create_table :check_outs do |t|
       t.references :item, index: true
       t.references :user, index: true
-      t.integer :operation
       t.date :due_date
+
       t.timestamps
     end
   end

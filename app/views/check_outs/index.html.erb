@@ -1,0 +1,31 @@
+<h1>Listing check_outs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>User</th>
+      <th>Due date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @check_outs.each do |check_out| %>
+      <tr>
+        <td><%= check_out.item %></td>
+        <td><%= check_out.user %></td>
+        <td><%= check_out.due_date %></td>
+        <td><%= link_to 'Show', check_out %></td>
+        <td><%= link_to 'Edit', edit_check_out_path(check_out) %></td>
+        <td><%= link_to 'Destroy', check_out, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Check out', new_check_out_path %>

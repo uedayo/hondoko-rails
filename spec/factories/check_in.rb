@@ -1,9 +1,12 @@
 FactoryGirl.define do
-  factory :operation do
+  factory :check_in do
+    check_out
+  end
+
+  factory :check_out do
     id                  1
     item
     user
-    operation           1
     due_date            '2014-01-30'
   end
 
