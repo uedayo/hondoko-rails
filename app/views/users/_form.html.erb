@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :screen_name %><br>
-    <%= f.text_field :screen_name %>
+    <span>@ </span><%= f.text_field :screen_name %>
   </div>
   <div class="field">
     <%= f.label :last_name_kanji %><br>
@@ -32,11 +32,15 @@
     <%= f.text_field :first_name_hiragana %>
   </div>
   <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email, value: EXAMPLE_EMAIL %>
+  </div>
+  <div class="field">
     <%= f.label :image_url %><br>
     <%= f.text_field :image_url %>
   </div>
   <div class="field">
-    <%= f.label :division_id %><br>
+    <%= f.label :division %><br>
     <%= f.text_field :division_id %>
   </div>
   <div class="actions">

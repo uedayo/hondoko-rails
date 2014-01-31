@@ -1,7 +1,24 @@
 ja:
   view:
-    title: ほんどこ
+    # layout
+    service_name: ほんどこ
+    producer: 上田
+    footer: "%{service_name} への要望は %{producer} まで"
+
+    # title
+    users_index: ユーザリスト
+    users_edit: ユーザ編集
+
+    # action
     edit: 編集
     back: 戻る
     show: 表示
     destroy: 削除
+    operation: 操作
+    user_new: ユーザの新規登録
+
+    # label
+    name: 名前
+
+    # value
+    nil: 未設定
