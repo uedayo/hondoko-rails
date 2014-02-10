@@ -5,6 +5,8 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
+    @check_out = CheckOut.all
+    @check_in = CheckIn.all
   end
 
   # GET /items/1

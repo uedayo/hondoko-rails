@@ -31,5 +31,22 @@ describe 'BookItemRepository' do
         expect(@res).not_to be_nil
       end
     end
+
+    describe 'BookItemRepository#new_initial_item' do
+      before do
+        @isbn = '9784844332763'
+        repo = BookItemRepository.new
+        @res = repo.new_initial_item @isbn
+      end
+
+      it 'should save book data' do
+        book = Book.find_by_isbn(@isbn)
+        expect(book).to be_instance_of Book
+      end
+
+      it 'should save item data' do
+        expect(@res).not_to be_nil
+      end
+    end
   end
 end

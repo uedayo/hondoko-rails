@@ -4,27 +4,37 @@ one:
   volume: 1
   area_id: 1
   donor_id:
+  created_at: '2014-02-01 00:00:00'
+  updated_at: '2014-02-01 00:00:00'
 two:
   id: 2
   book_id: 2
   volume: 1
   area_id: 2
   donor_id:
+  created_at: '2014-02-02 00:00:00'
+  updated_at: '2014-02-02 00:00:00'
 three:
   id: 3
   book_id: 1
   volume: 2
   area_id: 1
   donor_id:
+  created_at: '2014-02-03 00:00:00'
+  updated_at: '2014-02-03 00:00:00'
 four:
   id: 4
   book_id: 3
   volume: 1
   area_id: 1
   donor_id: 1
+  created_at: '2014-02-04 00:00:00'
+  updated_at: '2014-02-04 00:00:00'
 five:
   id: 5
   book_id: 4
   volume: 1
   area_id: 1
   donor_id:
+  created_at: '2014-02-01 00:00:00'
+  updated_at: '2014-02-01 00:00:00'
