@@ -2,6 +2,8 @@ Hondoko::Application.routes.draw do
   resources :check_ins
 
   resources :check_outs
+  get 'check_outs/scan/:isbn' => 'check_outs#scan'
+  post 'check_outs/regist' => 'check_outs#regist'
 
   resources :divisions
 
@@ -16,10 +18,6 @@ Hondoko::Application.routes.draw do
   resources :items
 
   get 'search/result/:value' => 'search#result'
-
-  get 'lend/scan/:isbn' => 'lend#scan'
-
-  post 'lend/regist/' => 'lend#regist'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

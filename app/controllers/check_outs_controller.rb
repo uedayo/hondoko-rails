@@ -61,6 +61,18 @@ class CheckOutsController < ApplicationController
     end
   end
 
+  def scan
+    repo = BookItemRepository.new
+    item = repo.find params[:isbn]
+    render text: item.book.title
+  end
+
+  def regist
+    check_out = CheckOut.new check_out_params
+    check_out.save
+    render text: check_out
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_check_out
