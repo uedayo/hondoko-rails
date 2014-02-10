@@ -8,6 +8,7 @@ one:
   email: example@example.com
   image_url: https://pbs.twimg.com/profile_images/2284174758/v65oai7fxn47qv9nectx_bigger.png
   division_id: 1
+  remember_token: hfjklashdflawejawefaafwr
 two:
   id: 2
   screen_name:
@@ -18,3 +19,4 @@ two:
   email:
   image_url:
   division_id: 2
+  remember_token: hewjrklhaldjanksflabejla

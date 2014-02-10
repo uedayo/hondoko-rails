@@ -7,4 +7,3 @@ $ ->
     user_id = $(this).attr('user_id')
     $('#session_form_user_id').val(user_id)
     $('#session_form').submit()
-

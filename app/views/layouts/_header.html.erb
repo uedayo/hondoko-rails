@@ -1,0 +1,46 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><%= t('view.service_name') %></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#"><%= t('view.check_out') %></a></li>
+        <li><a href="#"><%= t('view.check_in') %></a></li>
+        <li><a href="#"><%= t('view.item_new') %></a></li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="<%= t('view.search_placeholder') %>">
+        </div>
+        <button type="submit" class="btn btn-default"><%= t('view.search_button') %></button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <% if signed_in? %>
+        <li><a><%= image_tag @current_user.image_url, width: USER_SMALL_IMAGE_WIDTH %> <%= @current_user.last_name_kanji %> さんとしてログイン中</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('view.account') %> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#"><%= t('view.history') %></a></li>
+            <li><%= link_to t('view.profile_edit'), edit_user_path(@current_user) %></a></li>
+            <li class="divider"></li>
+            <li><%= link_to t('view.logout'), logout_path, method: "delete" %></li>
+          </ul>
+        </li>
+        <li><%= link_to t('view.logout'), logout_path, method: "delete" %></li>
+        <% else %>
+        <li><%= link_to t('view.login'), login_path %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

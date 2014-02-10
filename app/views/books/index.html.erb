@@ -3,12 +3,16 @@
 <table>
   <thead>
     <tr>
+      <th>ISBN</th>
+      <th>ASIN</th>
       <th>Title</th>
       <th>Author</th>
       <th>Manufacturer</th>
       <th>Small image</th>
       <th>Medium image</th>
-      <th>Detail page url</th>
+      <th>Large image</th>
+      <th>Price</th>
+      <th>Currency</th>
       <th>Category</th>
       <th></th>
       <th></th>
@@ -19,13 +23,17 @@
   <tbody>
     <% @books.each do |book| %>
       <tr>
+        <td><%= book.isbn %></td>
+        <td><%= book.asin %></td>
         <td><%= book.title %></td>
         <td><%= book.author %></td>
         <td><%= book.manufacturer %></td>
         <td><%= book.small_image %></td>
         <td><%= book.medium_image %></td>
-        <td><%= book.detail_page_url %></td>
-        <td><%= book.category.name %></td>
+        <td><%= book.large_image %></td>
+        <td><%= book.price %></td>
+        <td><%= book.currency %></td>
+        <td><%= book.category.present? ? book.category.name : "" %></td>
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
         <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>

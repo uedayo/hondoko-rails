@@ -1,5 +1,6 @@
 class CheckOutsController < ApplicationController
   before_action :set_check_out, only: [:show, :edit, :update, :destroy]
+  before_action :set_check_out, only: [:show, :edit, :update, :destroy]
 
   # GET /check_outs
   # GET /check_outs.json

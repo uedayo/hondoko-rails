@@ -1,14 +1,25 @@
 ja:
   view:
-    # layout
+    # header
     service_name: ほんどこ
+    search: 探す
+    check_out: 借りる
+    check_in: 返す
+    item_new: 本の追加
+    search_placeholder: 本のタイトル、著者名の一部
+    search_button: 検索
+    account: アカウント
+    history: 貸出状況
+    profile_edit: プロフィール設定
+    logout: ログアウト
+    login: ログイン
+
+    # footer
     producer: 上田
     footer: "%{service_name} への要望は %{producer} まで"
 
     # title
     users_index: ユーザリスト
-    users_edit: ユーザ編集
-    login: ログイン
 
     # action
     edit: 編集

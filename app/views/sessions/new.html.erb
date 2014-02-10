@@ -8,14 +8,18 @@
     <td></td>
     <td><%= t('view.name_kanji') %></td>
     <td><%= t('view.name_hiragana') %></td>
+    <td><%= tt('User.screen_name') %></td>
+    <td><%= tt('User.division') %></td>
   </tr>
   </thead>
   <tbody>
   <% @users.each do |user| %>
     <tr user_id="<%= user.id %>">
-      <td><%= link_to image_tag(user.image_url, :width => USER_IMAGE_WIDTH, :class => "img-rounded"), user_path(user) %></td>
+      <td><%= image_tag(user.image_url.presence || TWITTER_IMAGE, width: USER_IMAGE_WIDTH, class: "img-rounded") %><br/>
       <td><%= user.last_name_kanji + " " + user.first_name_kanji %></td>
       <td><%= user.last_name_hiragana + " " + user.first_name_hiragana %></td>
+      <td><%= link_to user.screen_name.presence || t('view.nil'), user_path(user) %></td>
+      <td><%= user.division.name %></td>
     </tr>
   <% end %>
   </tbody>
