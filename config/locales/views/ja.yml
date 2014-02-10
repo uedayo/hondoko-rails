@@ -8,6 +8,7 @@ ja:
     # title
     users_index: ユーザリスト
     users_edit: ユーザ編集
+    login: ログイン
 
     # action
     edit: 編集
@@ -18,7 +19,8 @@ ja:
     user_new: ユーザの新規登録
 
     # label
-    name: 名前
+    name_kanji: 名前
+    name_hiragana: なまえ
 
     # value
     nil: 未設定
