@@ -4,14 +4,12 @@ FactoryGirl.define do
   end
 
   factory :check_out do
-    id                  1
     item
     user
     due_date            '2014-01-30'
   end
 
   factory :item do
-    id                  1
     book
     volume              1
     area
@@ -39,6 +37,7 @@ FactoryGirl.define do
     first_name_hiragana 'めい'
     email                'example@example.com'
     image_url           'https://pbs.twimg.com/profile_images/2284174758/v65oai7fxn47qv9nectx_bigger.png'
+    remember_token      'asdfghjkl1234567890'
     division
   end
 

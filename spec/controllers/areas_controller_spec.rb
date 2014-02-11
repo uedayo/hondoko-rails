@@ -19,6 +19,9 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe AreasController do
+  before(:all) do
+    user_login
+  end
 
   # This should return the minimal set of attributes required to create a valid
   # Area. As you add validations to Area, be sure to
