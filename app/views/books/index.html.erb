@@ -1,47 +1,43 @@
-<h1>Listing books</h1>
+<% if @books.empty? %>
 
-<table>
-  <thead>
+  <h2><%= $book_all %></h2>
+
+  <div class="inside">
+    <form action="/books/register" method="post">
+      <fieldset>
+        <p>本が１冊も見つかりません。</p>
+
+        <p>本の登録がまだ済んでいない場合は、先に登録を行なってください。</p>
+
+      </fieldset>
+    </form>
+  </div>
+
+<% else %>
+  <h2><%= @title %></h2>
+
+  <table class="table table-hover">
+    <thead>
     <tr>
-      <th>ISBN</th>
-      <th>ASIN</th>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Manufacturer</th>
-      <th>Small image</th>
-      <th>Medium image</th>
-      <th>Large image</th>
-      <th>Price</th>
-      <th>Currency</th>
-      <th>Category</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <td></td>
+      <td><%= $book_title %></td>
+      <td><%= $book_amazon_label %></td>
+      <td><%= $book_read_count %></td>
+      <td><%= $book_status %></td>
+      <td><%= $book_user %></td>
     </tr>
-  </thead>
-
-  <tbody>
+    </thead>
+    <tbody>
     <% @books.each do |book| %>
-      <tr>
-        <td><%= book.isbn %></td>
-        <td><%= book.asin %></td>
-        <td><%= book.title %></td>
-        <td><%= book.author %></td>
-        <td><%= book.manufacturer %></td>
-        <td><%= book.small_image %></td>
-        <td><%= book.medium_image %></td>
-        <td><%= book.large_image %></td>
-        <td><%= book.price %></td>
-        <td><%= book.currency %></td>
-        <td><%= book.category.present? ? book.category.name : "" %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr id="<%= book.id %>">
+        <td><%= image_tag(book.medium_image, width: BOOK_SMALL_IMAGE_WIDTH, class: "img-polaroid") %></td>
+        <td class="title"><%= book.title.html_safe %></td>
+        <td><%= book.author.html_safe %></td>
+        <td><%= book.manufacturer.html_safe %></td>
+        <td><%= book.price %> <%= book.currency %></td>
+        <td><%= book.category.presence ? (book.category.id.to_s + " " + book.category.name) : "未設定" %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Book', new_book_path %>
+    </tbody>
+  </table>
+<% end %>
