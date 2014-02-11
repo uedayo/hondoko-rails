@@ -61,6 +61,11 @@ class BooksController < ApplicationController
     end
   end
 
+  def search value
+    repo = BookRepository.new
+    @books = repo.find_by_title_author value
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
