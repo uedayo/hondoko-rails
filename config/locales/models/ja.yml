@@ -19,12 +19,15 @@ ja:
         volume: 番号
         area: 場所
         donor_id: 寄贈者
+        created_at: 登録日
       book:
-        isbn: ISBN
+        isbn: ISBN-10
         asin: ASIN
         title: タイトル
         author: 著者
         manufacturer: 出版社
+        publication_date: 発売日
+        price: 価格
         small_image: イメージ小
         medium_image: イメージ中
         detail_page_url: イメージ大

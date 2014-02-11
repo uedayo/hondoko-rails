@@ -3,10 +3,10 @@ ja:
     # header
     service_name: ほんどこ
     search: 探す
-    check_out: 借りる
-    check_in: 返す
+    scan_check_out: バーコードで貸出
+    scan_check_in: バーコードで返却
     item_new: 本の追加
-    search_placeholder: 本のタイトル、著者名の一部
+    search_placeholder: 本のタイトルなど
     search_button: 検索
     account: アカウント
     history: 貸出状況
@@ -15,11 +15,13 @@ ja:
     login: ログイン
 
     # footer
-    producer: 上田
-    footer: "%{service_name} への要望は %{producer} まで"
+    footer: "%{service_name} by サ開20%ルール"
 
     # title
     users_index: ユーザリスト
+    books_index: 本のリスト
+    books_search_result: 「%{key}」での検索結果
+    in_out_status: 貸出状況
 
     # action
     edit: 編集
@@ -28,10 +30,20 @@ ja:
     destroy: 削除
     operation: 操作
     user_new: ユーザの新規登録
+    check_out: 借りる
+    check_in: 返す
+    request: リクエストする
 
     # label
     name_kanji: 名前
     name_hiragana: なまえ
+    amazon: Amazon
+    last_in_out_date: 最終貸出/返却日
+    last_user: 最終利用者
 
     # value
     nil: 未設定
+
+    # status
+    in: 貸出可
+    out: 貸出中

@@ -54,3 +54,5 @@ gem 'amazon-ecs'
 group :test do
   gem 'factory_girl_rails', '~> 4.0'
 end
+
+gem 'active_decorator'

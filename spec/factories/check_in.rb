@@ -21,6 +21,7 @@ FactoryGirl.define do
     title               '30日でできる! OS自作入門'
     author              '川合 秀実'
     manufacturer        '毎日コミュニケーションズ'
+    publication_date    '2010-11'
     small_image         'http://ecx.images-amazon.com/images/I/51K0jUf%2BiEL._SL160_.jpg'
     medium_image        'http://ecx.images-amazon.com/images/I/51K0jUf%2BiEL._SL160_.jpg'
     large_image         'http://ecx.images-amazon.com/images/I/51K0jUf%2BiEL._SL160_.jpg'

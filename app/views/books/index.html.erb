@@ -1,41 +1,33 @@
+<h2><%= @title %></h2>
 <% if @books.empty? %>
-
-  <h2><%= $book_all %></h2>
-
   <div class="inside">
-    <form action="/books/register" method="post">
-      <fieldset>
-        <p>本が１冊も見つかりません。</p>
+    <fieldset>
+      <p>本が１冊も見つかりません。</p>
 
-        <p>本の登録がまだ済んでいない場合は、先に登録を行なってください。</p>
-
-      </fieldset>
-    </form>
+      <p>もし、本の登録がまだ済んでいない場合は先に登録を行なってください。</p>
+    </fieldset>
   </div>
-
 <% else %>
-  <h2><%= @title %></h2>
-
-  <table class="table table-hover">
+  <table class="table table-hover books">
     <thead>
     <tr>
       <td></td>
-      <td><%= $book_title %></td>
-      <td><%= $book_amazon_label %></td>
-      <td><%= $book_read_count %></td>
-      <td><%= $book_status %></td>
-      <td><%= $book_user %></td>
+      <td><%= tt('Book.title') %></td>
+      <td><%= tt('Book.author') %></td>
+      <td><%= tt('Book.manufacturer') %></td>
+      <td><%= tt('Book.price') %></td>
+      <td><%= tt('Book.category') %></td>
     </tr>
     </thead>
     <tbody>
     <% @books.each do |book| %>
-      <tr id="<%= book.id %>">
-        <td><%= image_tag(book.medium_image, width: BOOK_SMALL_IMAGE_WIDTH, class: "img-polaroid") %></td>
-        <td class="title"><%= book.title.html_safe %></td>
+      <tr book_id="<%= book.id %>">
+        <td><%= image_tag(book.medium_image, width: BOOK_SMALL_IMAGE_WIDTH, class: "img-thumbnail") %></td>
+        <td class="title"><strong><%= book.title.html_safe %></strong></td>
         <td><%= book.author.html_safe %></td>
         <td><%= book.manufacturer.html_safe %></td>
-        <td><%= book.price %> <%= book.currency %></td>
-        <td><%= book.category.presence ? (book.category.id.to_s + " " + book.category.name) : "未設定" %></td>
+        <td><%= book.price.presence || "不明" %> <%= book.currency %></td>
+        <td><%= book.category.present? ? (book.category.id.to_s + " " + book.category.name) : "未設定" %></td>
       </tr>
     <% end %>
     </tbody>

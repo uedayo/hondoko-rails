@@ -4,12 +4,20 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    if @key = params[:key]
+      repo = BookRepository.new
+      @books = repo.find_by_keywords @key
+      @title = t('view.books_search_result', key: @key)
+    else
+      @books = Book.all
+      @title = t('view.books_index')
+    end
   end
 
   # GET /books/1
   # GET /books/1.json
   def show
+    @items = Item.find_all_by_book_id params[:id]
   end
 
   # GET /books/new
@@ -59,11 +67,6 @@ class BooksController < ApplicationController
       format.html { redirect_to books_url }
       format.json { head :no_content }
     end
-  end
-
-  def search value
-    repo = BookRepository.new
-    @books = repo.find_by_title_author value
   end
 
   private

@@ -6,6 +6,7 @@ class CreateBooks < ActiveRecord::Migration
       t.string :title
       t.string :author
       t.string :manufacturer
+      t.string :publication_date
       t.string :small_image
       t.string :medium_image
       t.string :large_image

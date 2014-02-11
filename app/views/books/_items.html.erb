@@ -1,0 +1,26 @@
+<table class="table table-striped table-hover users">
+  <thead>
+  <tr>
+    <td><%= tt('Item.volume') %></td>
+    <td><%= tt('Item.area') %></td>
+    <td><%= tt('Item.donor_id') %></td>
+    <td><%= tt('Item.created_at') %></td>
+    <td><%= t('view.last_in_out_date') %></td>
+    <td><%= t('view.last_user') %></td>
+    <td><%= t('view.operation') %></td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @items.each do |item| %>
+    <tr item_id="<%= item.id %>">
+      <td><%= item.volume %></td>
+      <td><%= item.area.name %></td>
+      <td><%= item.donor_id.present? ? item.donor_id : "" %></td>
+      <td><%= item.created_at %></td>
+      <td><%= item.created_at %></td>
+      <td></td>
+      <td><%= link_to t('view.check_out'), root_path, class: "btn btn-success" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

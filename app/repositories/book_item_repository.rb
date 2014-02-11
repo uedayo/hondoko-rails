@@ -1,12 +1,12 @@
 class BookItemRepository
   def find isbn
-    book = Book.find_by isbn: isbn
-    if book.blank?
+    #book = Book.find_by isbn: isbn
+    #if book.blank?
       item_id = new_initial_item isbn
       Item.find_by_id item_id
-    else
-      Item.find_by book_id: book.id
-    end
+    #else
+    #  Item.find_by book_id: book.id
+    #end
   end
 
   def new_initial_item isbn
@@ -30,6 +30,7 @@ class BookItemRepository
                     title: item.get('ItemAttributes/Title'),
                     author: item.get('ItemAttributes/Author'),
                     manufacturer: item.get('ItemAttributes/Manufacturer'),
+                    publication_date: item.get('ItemAttributes/PublicationDate'),
                     small_image: item.get('SmallImage/URL'),
                     medium_image: item.get('MediumImage/URL'),
                     large_image: item.get('LargeImage/URL'),

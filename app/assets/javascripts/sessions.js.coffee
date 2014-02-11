@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $('.table > tbody > tr').click ->
-    user_id = $(this).attr('user_id')
-    $('#session_form_user_id').val(user_id)
+  $('.table.users > tbody > tr').click ->
+    id = $(this).attr('user_id')
+    $('#session_form_id').val(id)
     $('#session_form').submit()

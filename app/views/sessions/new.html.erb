@@ -1,34 +1,34 @@
 <% if @users.empty? %>
-<%= render 'users/create' %>
+  <%= render 'users/new' %>
 <% else %>
-<h2><%= t('view.login') %></h2>
-<table class="table table-striped table-hover">
-  <thead>
-  <tr>
-    <td></td>
-    <td><%= t('view.name_kanji') %></td>
-    <td><%= t('view.name_hiragana') %></td>
-    <td><%= tt('User.screen_name') %></td>
-    <td><%= tt('User.division') %></td>
-  </tr>
-  </thead>
-  <tbody>
-  <% @users.each do |user| %>
-    <tr user_id="<%= user.id %>">
-      <td><%= image_tag(user.image_url.presence || TWITTER_IMAGE, width: USER_IMAGE_WIDTH, class: "img-rounded") %><br/>
-      <td><%= user.last_name_kanji + " " + user.first_name_kanji %></td>
-      <td><%= user.last_name_hiragana + " " + user.first_name_hiragana %></td>
-      <td><%= link_to user.screen_name.presence || t('view.nil'), user_path(user) %></td>
-      <td><%= user.division.name %></td>
+  <h2><%= t('view.login') %></h2>
+  <table class="table table-striped table-hover users">
+    <thead>
+    <tr>
+      <td></td>
+      <td><%= t('view.name_kanji') %></td>
+      <td><%= t('view.name_hiragana') %></td>
+      <td><%= tt('User.screen_name') %></td>
+      <td><%= tt('User.division') %></td>
     </tr>
-  <% end %>
-  </tbody>
-</table>
-  <%= form_for(:session, url: sessions_path,  html: { id: "session_form" }) do |f| %>
-    <%= f.hidden_field :user_id, id: "session_form_user_id" %>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+      <tr user_id="<%= user.id %>">
+        <td><%= image_tag(user.image_url.presence || TWITTER_IMAGE, width: USER_IMAGE_WIDTH, class: "img-rounded") %></td>
+        <td><%= user.last_name_kanji + " " + user.first_name_kanji %></td>
+        <td><%= user.last_name_hiragana + " " + user.first_name_hiragana %></td>
+        <td><%= user.screen_name.presence || t('view.nil') %></td>
+        <td><%= user.division.name %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= form_for(:session, url: sessions_path, html: {id: "session_form"}) do |f| %>
+    <%= f.hidden_field :user_id, id: "session_form_id" %>
   <% end %>
 
   <div class="center-horizontal">
-  <%= link_to t('view.user_new'), new_user_path, :class => "btn btn-primary btn-large" %>
-</div>
+    <%= link_to t('view.user_new'), new_user_path, :class => "btn btn-primary btn-large" %>
+  </div>
 <% end %>
