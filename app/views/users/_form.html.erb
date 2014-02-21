@@ -12,10 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :screen_name %><br>
-    <span>@ </span><%= f.text_field :screen_name %>
-  </div>
-  <div class="field">
     <%= f.label :last_name_kanji %><br>
     <%= f.text_field :last_name_kanji %>
   </div>
@@ -33,11 +29,17 @@
   </div>
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_field :email, value: EXAMPLE_EMAIL %>
+    <%= f.text_field :email %>
   </div>
   <div class="field">
+    <%= f.label :screen_name %><br>
+    <span>@ </span><%= f.text_field :screen_name %>
+  </div>
+  <div class="field">
+    <div id="tweets"></div>
     <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %>
+    <%= f.text_field :image_url, id: 'image_url' %>
+    <%= link_to t('view.get_twitter_image'), {controller: 'users', action: 'twitter_image', format: 'js', screen_name: 'uedayo'}, remote: true %>
   </div>
   <div class="field">
     <%= f.label :division %><br>

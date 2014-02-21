@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_filter :login_required
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -15,6 +16,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @user.email = EXAMPLE_EMAIL
   end
 
   # GET /users/1/edit
@@ -51,6 +53,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def twitter_image
+    twitter_user = Twitter.find params[:screen_name]
+    @twitter_image = twitter_user["profile_image_url"]
+  end
+
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
@@ -60,6 +67,8 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

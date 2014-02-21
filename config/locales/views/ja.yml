@@ -33,6 +33,7 @@ ja:
     check_out: 借りる
     check_in: 返す
     request: リクエストする
+    get_twitter_image: Twitterから画像取得
 
     # label
     name_kanji: 名前
