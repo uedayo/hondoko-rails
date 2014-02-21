@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @user.email = EXAMPLE_EMAIL
+    @user.image_url = TWITTER_IMAGE
   end
 
   # GET /users/1/edit
@@ -78,6 +79,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:screen_name, :last_name_kanji, :first_name_kanji, :last_name_hiragana, :first_name_hiragana, :image_url, :division_id)
+      params.require(:user).permit(:last_name_kanji, :first_name_kanji, :last_name_hiragana, :first_name_hiragana, :email, :screen_name, :image_url, :division_id)
     end
 end

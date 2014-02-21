@@ -33,13 +33,13 @@
   </div>
   <div class="field">
     <%= f.label :screen_name %><br>
-    <span>@ </span><%= f.text_field :screen_name %>
+    <span>@ </span><%= f.text_field :screen_name, id: 'screen_name' %>
   </div>
   <div class="field">
     <div id="tweets"></div>
     <%= f.label :image_url %><br>
     <%= f.text_field :image_url, id: 'image_url' %>
-    <%= link_to t('view.get_twitter_image'), {controller: 'users', action: 'twitter_image', format: 'js', screen_name: 'uedayo'}, remote: true %>
+    <%= link_to t('view.get_twitter_image'), "javascript: void(0)", id: 'get_twitter_image', class: 'btn btn-primary' %>
   </div>
   <div class="field">
     <%= f.label :division %><br>

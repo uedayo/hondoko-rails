@@ -14,7 +14,7 @@ Hondoko::Application.routes.draw do
   resources :areas
 
   resources :users
-  get 'users/twitter_image/:screen_name' => 'users#twitter_image'
+  post 'users/twitter_image/' => 'users#twitter_image'
 
   resources :books
 
