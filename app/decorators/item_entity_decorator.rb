@@ -8,9 +8,12 @@ module ItemEntityDecorator
   end
 
   def operation_link
-    if is_available?
+    case check_status
+    when Status::ITEM_AVAILABLE
       link_to t('view.check_out'), root_path, class: "btn btn-success"
-    else
+    when Status::ITEM_OWED_BY_MYSELF
+      link_to t('view.check_in'), root_path, class: "btn btn-danger"
+    when Status::ITEM_UNAVAILABLE
       link_to t('view.request'), root_path, class: "btn btn-warning"
     end
   end

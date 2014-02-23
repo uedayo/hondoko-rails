@@ -1,5 +1,5 @@
 class ItemsRepository
-  def get_item_entity book_id
+  def get_item_entity book_id, current_user
     items = Item.find_detail book_id
     item_entities = []
     items.each do |item|
@@ -7,7 +7,7 @@ class ItemsRepository
                                    volume: item['volume'],
                                    area_id: item['area_id'],
                                    area_name: item['area_name'],
-                                   check_status: check_status(item),
+                                   check_status: check_status(item, current_user),
                                    checkout_id: item['checkout_id'],
                                    user_id: item['user_id'],
                                    name_kanji: name_kanji(item),
@@ -23,9 +23,11 @@ class ItemsRepository
   end
 
   private
-    def check_status item
+    def check_status item, current_user
       if item['checked_in_at'].present?
         Status::ITEM_AVAILABLE
+      elsif item['user_id'] == current_user.id
+        Status::ITEM_OWED_BY_MYSELF
       elsif item['checked_out_at'].present?
         Status::ITEM_UNAVAILABLE
       else

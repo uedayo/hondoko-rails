@@ -18,7 +18,7 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
     repo = ItemsRepository.new
-    @items = repo.get_item_entity params[:id]
+    @items = repo.get_item_entity params[:id], @current_user
   end
 
   # GET /books/new
