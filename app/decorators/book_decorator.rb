@@ -8,6 +8,15 @@ module BookDecorator
   end
 
   def price_formatted
-    price.to_s + " " + currency
+    "#{currency_view}#{price}"
   end
+
+  def currency_view
+    I18n.t("view.#{currency}")
+  end
+
+  def category_view
+    "#{category_id}.#{category.name}"
+  end
+
 end

@@ -1,21 +1,38 @@
 FactoryGirl.define do
   factory :check_in do
-    check_out
+    check_out_id        '1'
+    created_at          '2014-02-01'
   end
 
   factory :check_out do
-    item
-    user
+    id                  '1'
+    item_id             '1'
+    user_id             '1'
     due_date            '2014-01-30'
+    created_at          '2014-01-30'
+
+
+    trait :first do
+      user_id             '1'
+      due_date            '2014-01-30'
+      created_at          '2014-01-30'
+    end
+
+    trait :second do
+      user_id             '2'
+      due_date            '2014-02-20'
+      created_at          '2014-03-01'
+    end
   end
 
   factory :item do
-    book
-    volume              1
+    book_id             '1'
+    volume              '1'
     area
   end
 
   factory :book do
+    id                  '1'
     isbn                '9784839919849'
     asin                '4839919844'
     title               '30日でできる! OS自作入門'

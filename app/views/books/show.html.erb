@@ -1,7 +1,7 @@
 <h2><%= link_to @book.title, book_path(@book) %></h2>
 <div class="row">
   <div class="col-md-3 row-thumb">
-    <%= link_to image_tag(@book.medium_image, width: BOOK_SMALL_LARGE_WIDTH, class: "img-thumbnail"), @book.amazon_url %>
+    <%= link_to image_tag(@book.medium_image, width: BOOK_SMALL_LARGE_WIDTH), @book.amazon_url %>
     <div class="row-thumb">
       <%= link_to t('view.edit'), edit_book_path(@book), class: "btn btn-warning btn-primary" %>
     </div>

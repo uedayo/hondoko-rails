@@ -17,7 +17,8 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
-    @items = Item.find_all_by_book_id params[:id]
+    repo = ItemsRepository.new
+    @items = repo.get_item_entity params[:id]
   end
 
   # GET /books/new

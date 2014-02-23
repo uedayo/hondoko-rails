@@ -3,23 +3,31 @@
   <tr>
     <td><%= tt('Item.volume') %></td>
     <td><%= tt('Item.area') %></td>
-    <td><%= tt('Item.donor_id') %></td>
-    <td><%= tt('Item.created_at') %></td>
-    <td><%= t('view.last_in_out_date') %></td>
+    <td><%= tt('Book.category') %></td>
+    <td><%= t('view.check_status') %></td>
     <td><%= t('view.last_user') %></td>
+    <td><%= t('view.checked_out_date') %></td>
+    <td><%= t('view.due_date') %></td>
+    <td><%= t('view.checked_in_date') %></td>
     <td><%= t('view.operation') %></td>
   </tr>
   </thead>
   <tbody>
   <% @items.each do |item| %>
-    <tr item_id="<%= item.id %>">
+    <tr item_id="<%= item.item_id %>" <%= item.background_class %>>
       <td><%= item.volume %></td>
-      <td><%= item.area.name %></td>
-      <td><%= item.donor_id.present? ? item.donor_id : "" %></td>
-      <td><%= item.created_at %></td>
-      <td><%= item.created_at %></td>
-      <td></td>
-      <td><%= link_to t('view.check_out'), root_path, class: "btn btn-success" %></td>
+      <td><%= item.area_name %></td>
+      <td><span class="category_<%= @book.category.color %>"><%= @book.category_view %></span></td>
+      <td><%= item.check_status_view %></td>
+      <td><%= image_tag item.image_url, width: USER_SMALL_IMAGE_WIDTH %> <%= item.name_kanji %></td>
+      <td><%= item.checked_out_at %></td>
+      <td>
+        <% if item.is_overdue %><span class="category_red"><% end %>
+        <%= item.due_date %>
+        <% if item.is_overdue %></span><% end %>
+      </td>
+      <td><%= item.checked_in_at %></td>
+      <td><%= item.operation_link %></td>
     </tr>
   <% end %>
   </tbody>

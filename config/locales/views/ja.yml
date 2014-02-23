@@ -32,19 +32,27 @@ ja:
     user_new: ユーザの新規登録
     check_out: 借りる
     check_in: 返す
-    request: リクエストする
+    request: リクエスト
     get_twitter_image: Twitterから画像取得
 
     # label
     name_kanji: 名前
     name_hiragana: なまえ
     amazon: Amazon
-    last_in_out_date: 最終貸出/返却日
+    check_status: 状態
     last_user: 最終利用者
+    checked_out_date: 貸出日
+    due_date: 返却予定日
+    checked_in_date: 返却日
 
     # value
     nil: 未設定
+    na: '-'
 
     # status
-    in: 貸出可
-    out: 貸出中
+    available: 貸出可
+    unavailable: 貸出中
+
+    #currency
+    JPY: ￥
+    USD: US＄
