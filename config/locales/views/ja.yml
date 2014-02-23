@@ -53,6 +53,16 @@ ja:
     available: 貸出可
     unavailable: 貸出中
 
-    #currency
+    # currency
     JPY: ￥
     USD: US＄
+
+    # message
+    check_out_done: 貸出が完了しました
+    check_in_done: 返却が完了しました
+    request_done: リクエストが完了しました
+
+    # error message
+    error_default: エラーが発生しました
+    error_double_registration: 二重登録エラーです
+    error_i18n_error: エラーメッセージが見つかりません

@@ -10,6 +10,20 @@ class ApplicationController < ActionController::Base
     super
   end
 
+  def error
+    begin
+      if params['code'].present?
+        message = I18n.t("view.#{params['code']}", :raise => I18n::MissingTranslationData)
+        render text: message
+        return false
+      end
+    rescue I18n::MissingTranslationData
+      render text: I18n.t("view.error_i18n_error")
+      return false
+    end
+    render text: I18n.t("view.error_default")
+  end
+
   private
 
   def login_required

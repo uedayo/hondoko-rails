@@ -8,7 +8,7 @@ class ItemsRepository
                                    area_id: item['area_id'],
                                    area_name: item['area_name'],
                                    check_status: check_status(item, current_user),
-                                   checkout_id: item['checkout_id'],
+                                   check_out_id: item['check_out_id'],
                                    user_id: item['user_id'],
                                    name_kanji: name_kanji(item),
                                    image_url: item['image_url'],

@@ -61,6 +61,17 @@ class CheckInsController < ApplicationController
     end
   end
 
+  def regist
+    check_out_id = params[:check_out_id]
+    if CheckIn.where(check_out_id: check_out_id).present?
+      redirect_to "/error?code=error_double_registration"
+      return false
+    end
+    check_out = CheckIn.new check_out_id: params[:check_out_id]
+    check_out.save
+    render text: I18n.t('view.check_in_done')
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_check_in
