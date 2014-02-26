@@ -1,5 +1,0 @@
-module Status
-  ITEM_AVAILABLE = 0
-  ITEM_UNAVAILABLE = 1
-  ITEM_OWED_BY_CURRENT_USER = 2
-end

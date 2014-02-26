@@ -24,16 +24,17 @@ class CheckInsController < ApplicationController
   # POST /check_ins
   # POST /check_ins.json
   def create
-    @check_in = CheckIn.new(check_in_params)
-
-    respond_to do |format|
-      if @check_in.save
-        format.html { redirect_to @check_in, notice: 'Check in was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @check_in }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @check_in.errors, status: :unprocessable_entity }
-      end
+    item_id = params[:item_id]
+    repo = ItemsRepository.new @current_user
+    item = repo.get_item_entity item_id
+    unless item.check_status == ITEM_STATUS.OWED_BY_CURRENT_USER
+      redirect_to '/error?code=error_double_registration'
+      return false
+    else
+      check_in = CheckIn.new check_out_id: item.check_out_id
+      check_in.save
+      @item = repo.get_item_entity item_id
+      @book = Book.find @item.book_id
     end
   end
 
@@ -59,17 +60,6 @@ class CheckInsController < ApplicationController
       format.html { redirect_to check_ins_url }
       format.json { head :no_content }
     end
-  end
-
-  def regist
-    check_out_id = params[:check_out_id]
-    if CheckIn.where(check_out_id: check_out_id).present?
-      redirect_to "/error?code=error_double_registration"
-      return false
-    end
-    check_out = CheckIn.new check_out_id: params[:check_out_id]
-    check_out.save
-    render text: I18n.t('view.check_in_done')
   end
 
   private

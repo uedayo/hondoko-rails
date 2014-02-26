@@ -1,0 +1,13 @@
+<td><%= item.volume %></td>
+<td><%= item.area_name %></td>
+<td><span class="category_<%= @book.category.color %>"><%= @book.category_view %></span></td>
+<td><%= item.check_status_view %></td>
+<td><%= image_tag item.image_url, width: USER_SMALL_IMAGE_WIDTH %> <%= item.name_kanji %></td>
+<td><%= item.checked_out_at %></td>
+<td>
+  <% if item.is_overdue %><span class="category_red"><% end %>
+  <%= item.due_date %>
+  <% if item.is_overdue %></span><% end %>
+</td>
+<td><%= item.checked_in_at %></td>
+<td><%= item.operation_link %></td>

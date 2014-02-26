@@ -2,11 +2,9 @@ Hondoko::Application.routes.draw do
   root to: 'books#index'
 
   resources :check_ins
-  get 'check_ins/regist/:check_out_id' => 'check_ins#regist'
 
   resources :check_outs
   get 'check_outs/scan/:isbn' => 'check_outs#scan'
-  get 'check_outs/regist/:item_id' => 'check_outs#regist'
 
   resources :divisions
 
