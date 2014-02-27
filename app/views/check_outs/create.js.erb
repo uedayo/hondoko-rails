@@ -1,0 +1,5 @@
+tr =  $("tr[item_id='<%= @item.item_id %>']")
+tr.hide();
+tr.html("<%= j(render(partial: 'books/item',locals: {item: @item})) %>");
+tr.fadeIn(1500);
+tr.addClass('danger');

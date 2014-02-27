@@ -25,16 +25,18 @@ class CheckOutsController < ApplicationController
   # POST /check_outs
   # POST /check_outs.json
   def create
-    @check_out = CheckOut.new(check_out_params)
-
-    respond_to do |format|
-      if @check_out.save
-        format.html { redirect_to @check_out, notice: 'Check out was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @check_out }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @check_out.errors, status: :unprocessable_entity }
-      end
+    item_id = params[:item_id]
+    repo = ItemsRepository.new @current_user
+    item = repo.get_item_entity item_id
+    item
+    unless item.check_status == ITEM_STATUS.AVAILABLE
+      redirect_to '/error?code=error_double_registration'
+      return false
+    else
+      check_out = CheckOut.new item_id: item_id, user_id: @current_user.id, due_date: Date.today + LOAN_PERIOD
+      check_out.save
+      @item = repo.get_item_entity item_id
+      @book = Book.find @item.book_id
     end
   end
 
@@ -63,7 +65,7 @@ class CheckOutsController < ApplicationController
   end
 
   def scan
-    repo = BookItemRepository.new
+    repo = BooksRepository.new
     item = repo.find params[:isbn]
     render text: item.book.title
   end

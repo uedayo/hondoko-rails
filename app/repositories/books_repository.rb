@@ -1,4 +1,4 @@
-class BookItemRepository
+class BooksRepository
   def find isbn
     #book = Book.find_by isbn: isbn
     #if book.blank?
@@ -17,6 +17,17 @@ class BookItemRepository
                     area_id: 1
     item.save
     item.id
+  end
+
+  def find_by_keywords value
+    keys = value.split(/\s+/)
+    books = Arel::Table.new :books
+    sql = books.project(Arel.sql('*'))
+    keys.each do |key|
+      sql = sql.where(books[:title].matches('%' + key + '%').or(books[:author].matches('%' + key + '%')).or(books[:manufacturer].matches('%' + key + '%')))
+    end
+    sql = sql.to_sql
+    Book.find_by_sql(sql)
   end
 
   private

@@ -5,7 +5,7 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     if @key = params[:key]
-      repo = BookRepository.new
+      repo = BooksRepository.new
       @books = repo.find_by_keywords @key
       @title = t('view.books_search_result', key: @key)
     else

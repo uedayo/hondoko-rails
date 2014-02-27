@@ -19,3 +19,6 @@ ITEM_STATUS = OpenStruct.new ({
     UNAVAILABLE: 1,
     OWED_BY_CURRENT_USER: 2
 })
+
+# Domain setting
+LOAN_PERIOD = 14

@@ -6,7 +6,7 @@ describe 'BookItemRepository' do
     describe 'BookItemRepository#new_book_by_amazon' do
       before do
         @isbn = '9784839919849'
-        repo = BookItemRepository.new
+        repo = BooksRepository.new
         @res = repo.send(:new_book_by_amazon, @isbn)
       end
 
@@ -18,7 +18,7 @@ describe 'BookItemRepository' do
     describe 'BookItemRepository#new_initial_item' do
       before do
         @isbn = '9784839919849'
-        repo = BookItemRepository.new
+        repo = BooksRepository.new
         @res = repo.new_initial_item @isbn
       end
 
@@ -35,7 +35,7 @@ describe 'BookItemRepository' do
     describe 'BookItemRepository#new_initial_item' do
       before do
         @isbn = '9784844332763'
-        repo = BookItemRepository.new
+        repo = BooksRepository.new
         @res = repo.new_initial_item @isbn
       end
 
