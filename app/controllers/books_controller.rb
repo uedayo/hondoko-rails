@@ -4,10 +4,13 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    if @key = params[:key]
+    if query = params[:q].presence
+      search_word = SearchWord.new user_id: @current_user.id, word: query
+      search_word.save
+      @query_id = search_word.id
       repo = BooksRepository.new
-      @books = repo.find_by_keywords @key
-      @title = t('view.books_search_result', key: @key)
+      @books = repo.find_by_keywords query
+      @title = t('view.books_search_result', key: query)
     else
       @books = Book.all
       @title = t('view.books_index')
@@ -17,6 +20,9 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    query_id = params[:qid].presence
+    browse = Browse.new user_id: @current_user.id, book_id: @book.id, search_word_id: query_id
+    browse.save
     repo = ItemsRepository.new @current_user
     @items = repo.get_item_entities_by_isbn params[:id]
   end

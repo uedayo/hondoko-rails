@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @browse.user %>
+</p>
+
+<p>
+  <strong>Book:</strong>
+  <%= @browse.book %>
+</p>
+
+<p>
+  <strong>Search word:</strong>
+  <%= @browse.search_word %>
+</p>
+
+<%= link_to 'Edit', edit_browse_path(@browse) %> |
+<%= link_to 'Back', browses_path %>

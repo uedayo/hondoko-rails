@@ -1,0 +1,31 @@
+<h1>Listing browses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Book</th>
+      <th>Search word</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @browses.each do |browse| %>
+      <tr>
+        <td><%= browse.user %></td>
+        <td><%= browse.book %></td>
+        <td><%= browse.search_word %></td>
+        <td><%= link_to 'Show', browse %></td>
+        <td><%= link_to 'Edit', edit_browse_path(browse) %></td>
+        <td><%= link_to 'Destroy', browse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Browse', new_browse_path %>

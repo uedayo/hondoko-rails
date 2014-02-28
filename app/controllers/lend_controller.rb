@@ -1,3 +1,0 @@
-class LendController < ApplicationController
-
-end
