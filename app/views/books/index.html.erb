@@ -16,6 +16,7 @@
       <td><%= tt('Book.author') %></td>
       <td><%= tt('Book.manufacturer') %></td>
       <td><%= tt('Book.price') %></td>
+      <td><%= tt('Book.publication_date') %></td >
       <td><%= tt('Book.category') %></td>
     </tr>
     </thead>
@@ -26,8 +27,9 @@
         <td class="title"><strong><%= book.title.html_safe %></strong></td>
         <td><%= book.author.html_safe %></td>
         <td><%= book.manufacturer.html_safe %></td>
-        <td><%= book.price.presence || "不明" %> <%= book.currency %></td>
-        <td><%= book.category.present? ? (book.category.id.to_s + " " + book.category.name) : "未設定" %></td>
+        <td><%= book.price_formatted %></td>
+        <td><%= book.publication_date_formatted %></td>
+        <td><span class="<%= book.category_class %>"><%= book.category_view %></span></td>
       </tr>
     <% end %>
     </tbody>
