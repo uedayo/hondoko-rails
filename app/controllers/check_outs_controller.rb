@@ -25,7 +25,7 @@ class CheckOutsController < ApplicationController
     else
       CheckOutsRepository.new.create item_id, @current_user
       @item = item_repo.get_item_entity item_id
-      @book = Book.find @item.book_id
+      @book = Book.find_by_id @item.book_id
     end
   end
 
