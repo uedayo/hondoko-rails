@@ -58,3 +58,5 @@ end
 gem 'active_decorator'
 
 gem 'quiet_assets'
+
+gem 'simple_form'

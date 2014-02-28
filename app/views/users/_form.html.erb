@@ -1,51 +1,70 @@
-<%= form_for(@user) do |f| %>
+<%= simple_form_for @user, html: {class: 'form-horizontal'} do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :last_name_kanji %><br>
-    <%= f.text_field :last_name_kanji %>
+  <div class="form-group">
+    <%= f.label :last_name_kanji, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :last_name_kanji, class: 'form-control input-lg' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :first_name_kanji %><br>
-    <%= f.text_field :first_name_kanji %>
+  <div class="form-group">
+    <%= f.label :first_name_kanji, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :first_name_kanji, class: 'form-control input-lg' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :last_name_hiragana %><br>
-    <%= f.text_field :last_name_hiragana %>
+  <div class="form-group">
+    <%= f.label :last_name_hiragana, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :last_name_hiragana, class: 'form-control input-lg' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :first_name_hiragana %><br>
-    <%= f.text_field :first_name_hiragana %>
+  <div class="form-group">
+    <%= f.label :first_name_hiragana, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :first_name_hiragana, class: 'form-control input-lg' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+  <div class="form-group">
+    <%= f.label :email, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :screen_name %><br>
-    <span>@ </span><%= f.text_field :screen_name, id: 'screen_name' %>
+  <div class="form-group">
+    <%= f.label :screen_name, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :screen_name, id: 'screen_name', class: 'form-control' %>
+    </div>
+    <div class="col-sm-2">
+      <%= link_to t('view.get_twitter_image'), "javascript: void(0)", id: 'get_twitter_image', class: 'btn-inline btn btn-default' %>
+    </div>
   </div>
-  <div class="field">
-    <div id="tweets"></div>
-    <%= f.label :image_url %><br>
-    <%= f.text_field :image_url, id: 'image_url' %>
-    <%= link_to t('view.get_twitter_image'), "javascript: void(0)", id: 'get_twitter_image', class: 'btn btn-primary' %>
+  <div class="form-group">
+    <%= f.label :image_url, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :image_url, id: 'image_url', class: 'form-control' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :division %><br>
-    <%= f.text_field :division_id %>
+  <div class="form-group">
+    <%= f.label :division, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :division_id, class: 'form-control' %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>

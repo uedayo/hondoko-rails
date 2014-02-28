@@ -13,8 +13,8 @@ class BooksRepository
     new_book_by_amazon isbn
     book = Book.find_by_isbn isbn
     item = Item.new book_id: book.id,
-                    volume: 1,
-                    area_id: 1
+                    volume: DEFAULT_VOLUME,
+                    area_id: DEFAULT_AREA_ID
     item.save
     item.id
   end

@@ -22,3 +22,5 @@ ITEM_STATUS = OpenStruct.new ({
 
 # Domain setting
 LOAN_PERIOD = 14
+DEFAULT_VOLUME = 1
+DEFAULT_AREA_ID = 1
