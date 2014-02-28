@@ -22,8 +22,8 @@
     </thead>
     <tbody>
     <% @books.each do |book| %>
-      <tr book_id="<%= book.id %>">
-        <td><%= image_tag(book.medium_image, width: BOOK_SMALL_IMAGE_WIDTH, class: "img-thumbnail") %></td>
+      <tr book_isbn="<%= book.isbn %>">
+        <td><%= image_tag(book.medium_image, width: BOOK_SMALL_IMAGE_WIDTH, class: 'img-thumbnail') %></td>
         <td class="title"><strong><%= book.title.html_safe %></strong></td>
         <td><%= book.author.html_safe %></td>
         <td><%= book.manufacturer.html_safe %></td>

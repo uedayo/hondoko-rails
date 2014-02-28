@@ -1,6 +1,6 @@
 <td><%= item.volume %></td>
 <td><%= item.area_name %></td>
-<td><span class="category-<%= @book.category.color %>"><%= @book.category_view %></span></td>
+<td><span class="<%= @book.category_class %>"><%= @book.category_view %></span></td>
 <td>
   <% if !item.is_available? %><span class="warning-color"><% end %>
   <%= item.check_status_view %>

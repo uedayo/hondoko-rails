@@ -4,8 +4,8 @@ class ItemsRepository
     @current_user = current_user
   end
 
-  def get_item_entities_by_book_id(book_id)
-    items = Item.find_detail_all book_id
+  def get_item_entities_by_isbn(isbn)
+    items = Item.find_detail_all_by_isbn isbn
     item_entities = []
     items.each do |item|
       item_entity = ItemEntity.new item_id: item['item_id'],

@@ -18,7 +18,7 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
     repo = ItemsRepository.new @current_user
-    @items = repo.get_item_entities_by_book_id params[:id]
+    @items = repo.get_item_entities_by_isbn params[:id]
   end
 
   # GET /books/new
@@ -73,7 +73,7 @@ class BooksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
-      @book = Book.find(params[:id])
+      @book = Book.find_by_isbn(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

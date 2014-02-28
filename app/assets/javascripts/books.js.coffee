@@ -4,5 +4,5 @@
 
 $ ->
   $('.table.books > tbody > tr').click ->
-    id = $(this).attr('book_id')
-    location.href = '/books/' + id + '/'
+    isbn = $(this).attr('book_isbn')
+    location.href = '/books/' + isbn + '/'
