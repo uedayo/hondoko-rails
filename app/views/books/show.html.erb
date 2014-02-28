@@ -11,11 +11,11 @@
       <tbody>
         <tr>
           <td><%= tt('Book.author') %></td>
-          <td><%= @book.author %></td>
+          <td><%= @book.author.html_safe %></td>
         </tr>
         <tr>
           <td><%= tt('Book.manufacturer') %></td >
-          <td><%= @book.manufacturer %></td>
+          <td><%= @book.manufacturer.html_safe %></td>
         </tr>
         <tr>
           <td><%= tt('Book.publication_date') %></td >

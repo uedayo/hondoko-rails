@@ -1,8 +1,4 @@
 Hondoko::Application.routes.draw do
-  resources :browses
-
-  resources :search_words
-
   root to: 'books#index'
 
   resources :check_ins

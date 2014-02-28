@@ -7,7 +7,7 @@ describe 'BookRepository' do
       before do
         create(:check_in)
         repo = BookRepository.new
-        @res = repo.find_by_keywords "OS"
+        @res = repo.find_by_search_words "OS"
       end
 
       it 'should return book data' do
@@ -19,7 +19,7 @@ describe 'BookRepository' do
       before do
         create(:check_in)
         repo = BookRepository.new
-        @res = repo.find_by_keywords "川合"
+        @res = repo.find_by_search_words "川合"
       end
 
       it 'should return book data' do
@@ -31,7 +31,7 @@ describe 'BookRepository' do
       before do
         create(:check_in)
         repo = BookRepository.new
-        @res = repo.find_by_keywords "Martin アジャイル"
+        @res = repo.find_by_search_words "Martin アジャイル"
       end
 
       it 'should return book data' do

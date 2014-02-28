@@ -19,7 +19,7 @@ class BooksRepository
     item.id
   end
 
-  def find_by_keywords value
+  def find_by_search_words value
     keys = value.split(/\s+/)
     books = Arel::Table.new :books
     sql = books.project(Arel.sql('*'))

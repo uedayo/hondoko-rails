@@ -1,8 +1,7 @@
-class CreateBrowses < ActiveRecord::Migration
+class CreateSearches < ActiveRecord::Migration
   def change
-    create_table :browses do |t|
+    create_table :searches do |t|
       t.references :user, index: true
-      t.references :book, index: true
       t.references :search_word, index: true
 
       t.timestamps
