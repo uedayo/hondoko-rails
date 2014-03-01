@@ -19,12 +19,12 @@
   }
 }
 
-h2 {
-  font-size: 20px;
+h2.header {
   border-left: 7px solid #ccc;
   border-bottom: 1px dashed #ccc;
   padding: .2em .4em;
-  margin: 10px 0px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 table.table thead tr,
@@ -47,6 +47,10 @@ table.table tbody tr {
   .btn {
     margin: 5px 10px;
   }
+}
+
+input.width-auto{
+  width: auto;
 }
 
 form .field input,

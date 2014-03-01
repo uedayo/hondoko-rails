@@ -17,7 +17,6 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @user.email = EXAMPLE_EMAIL
-    @user.image_url = TWITTER_IMAGE
   end
 
   # GET /users/1/edit
@@ -28,10 +27,11 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user.image_url ||= TWITTER_IMAGE
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to @user, notice: t('view.create_user_done') }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
@@ -43,6 +43,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }

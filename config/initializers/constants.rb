@@ -10,7 +10,7 @@ EXAMPLE_EMAIL = "example@biglobe.co.jp"
 AMAZON_BASE_URL = "http://amazon.co.jp/o/ASIN/"
 
 # Twitter
-TWITTER_IMAGE = "https://pbs.twimg.com/profile_images/2284174758/v65oai7fxn47qv9nectx_bigger.png"
+TWITTER_IMAGE = "https://pbs.twimg.com/profile_images/1051567310/kihon_a_01_bigger.gif"
 TWITTER_USER_LOOKUP = "https://cdn.api.twitter.com/1/users/lookup.json?screen_name="
 
 # Item status
