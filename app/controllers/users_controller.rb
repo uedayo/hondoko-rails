@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_filter :login_required
+  skip_before_filter :login_required, only: [:index, :new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -11,6 +11,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    repo = ItemsRepository.new @user
+    @items = repo.get_owed_item_entities_by_user_id
   end
 
   # GET /users/new
@@ -46,7 +48,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: t('view.edit_user_done') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

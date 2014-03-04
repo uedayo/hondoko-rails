@@ -1,12 +1,10 @@
 <td><%= item.volume %></td>
 <td><%= item.area_name %></td>
-<td><span class="label label-default <%= @book.category_class %>"><%= @book.category_view %></span></td>
 <td>
   <% if !item.is_available? %><span class="warning-color"><% end %>
   <%= item.check_status_view %>
   <% if !item.is_available? %></span><% end %>
 </td>
-<td><%= image_tag item.image_url, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded" %> <%= item.name_kanji %></td>
 <td><%= item.checked_out_at %></td>
 <td>
   <% if !item.is_available? && item.is_overdue %><span class="warning-color"><% end %>

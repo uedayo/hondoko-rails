@@ -1,44 +1,34 @@
-<p id="notice"><%= notice %></p>
+<h2 class="header"><%= "#{@user.last_name_kanji.html_safe} #{@user.first_name_kanji.html_safe}" %></h2>
+<div class="row">
+  <div class="col-md-1 row-thumb">
+    <%= link_to image_tag(@user.image_url, width: USER_IMAGE_WIDTH, class: 'img-thumbnail') %>
+    <div class="row-thumb">
+      <%= link_to t('view.edit'), edit_user_path(@user), class: 'btn btn-warning btn-primary' %>
+    </div>
+  </div>
+  <div class="col-md-11">
+    <table class="table row-table">
+      <tbody>
+      <tr>
+        <td><%= t('view.name_kanji') %></td>
+        <td><%= "#{@user.last_name_kanji.html_safe} #{@user.first_name_kanji.html_safe}" %></td>
+      </tr>
+      <tr>
+        <td><%= t('view.name_hiragana') %></td>
+        <td><%= @user.last_name_hiragana.html_safe %> <%= @user.first_name_hiragana.html_safe %></td>
+      </tr>
+      <tr>
+        <td><%= tt('User.screen_name') %></td>
+        <td><%= @user.screen_name %></td>
+      </tr>
+      <tr>
+        <td><%= tt('User.division') %></td>
+        <td><%= @user.division.name %></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<p>
-  <strong>Last name kanji:</strong>
-  <%= @user.last_name_kanji %>
-</p>
-
-<p>
-  <strong>First name kanji:</strong>
-  <%= @user.first_name_kanji %>
-</p>
-
-<p>
-  <strong>Last name hiragana:</strong>
-  <%= @user.last_name_hiragana %>
-</p>
-
-<p>
-  <strong>First name hiragana:</strong>
-  <%= @user.first_name_hiragana %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Screen name:</strong>
-  <%= @user.screen_name %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @user.image_url %>
-</p>
-
-<p>
-  <strong>Division:</strong>
-  <%= @user.division %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<h2 class="header"><%= t('view.in_out_status') %></h2>
+<%= render 'items' %>

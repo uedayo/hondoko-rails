@@ -46,6 +46,26 @@ class ItemsRepository
                    checked_in_at: format_date(item['checked_in_at'])
   end
 
+  def get_owed_item_entities_by_user_id
+    items = Item.find_owed_detail_all_by_user_id @current_user.id
+    item_entities = []
+    items.each do |item|
+      item_entity = ItemEntity.new item_id: item['item_id'],
+                                   volume: item['volume'],
+                                   area_id: item['area_id'],
+                                   area_name: item['area_name'],
+                                   check_status: ITEM_STATUS.OWED_BY_CURRENT_USER,
+                                   check_out_id: item['check_out_id'],
+                                   checked_out_at: format_date(item['checked_out_at']),
+                                   due_date: format_date(item['due_date']),
+                                   is_overdue: is_overdue?(item['due_date']),
+                                   check_in_id: item['check_in_id'],
+                                   checked_in_at: format_date(item['checked_in_at'])
+      item_entities << item_entity
+    end
+    item_entities
+  end
+
   def get_item_status(item_id)
     item = Item.find_detail item_id
     check_status item

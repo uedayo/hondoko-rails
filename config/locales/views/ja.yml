@@ -72,6 +72,7 @@ ja:
     request_done: リクエストが完了しました
 
     create_user_done: ユーザの作成が完了しました
+    edit_user_done: ユーザの編集が完了しました
 
     # error message
     error_default: エラーが発生しました
