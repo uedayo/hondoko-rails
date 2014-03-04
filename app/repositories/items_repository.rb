@@ -4,11 +4,11 @@ class ItemsRepository
     @current_user = current_user
   end
 
-  def get_item_entities_by_isbn(isbn)
+  def get_items_on_book_by_isbn(isbn)
     items = Item.find_detail_all_by_isbn isbn
     item_entities = []
     items.each do |item|
-      item_entity = ItemEntity.new item_id: item['item_id'],
+      item_entity = ItemOnBook.new item_id: item['item_id'],
                                    volume: item['volume'],
                                    area_id: item['area_id'],
                                    area_name: item['area_name'],
@@ -27,9 +27,9 @@ class ItemsRepository
     item_entities
   end
 
-  def get_item_entity(item_id)
+  def get_item_on_book_by_item_id(item_id)
     item = Item.find_detail item_id
-    ItemEntity.new book_id: item.book_id,
+    ItemOnBook.new book_id: item.book_id,
                    volume: item['volume'],
                    item_id: item.item_id,
                    area_id: item['area_id'],
@@ -46,11 +46,14 @@ class ItemsRepository
                    checked_in_at: format_date(item['checked_in_at'])
   end
 
-  def get_owed_item_entities_by_user_id
+  def get_items_on_user_by_user_id
     items = Item.find_owed_detail_all_by_user_id @current_user.id
     item_entities = []
     items.each do |item|
-      item_entity = ItemEntity.new item_id: item['item_id'],
+      item_entity = ItemOnUser.new item_id: item['item_id'],
+                                   title: item['title'],
+                                   author: item['author'],
+                                   small_image: item['small_image'],
                                    volume: item['volume'],
                                    area_id: item['area_id'],
                                    area_name: item['area_name'],

@@ -1,4 +1,4 @@
-module ItemEntityDecorator
+module ItemBaseDecorator
   def background_class
     is_available? ? nil : 'class=danger'
   end
@@ -10,11 +10,11 @@ module ItemEntityDecorator
   def operation_link
     case check_status
     when ITEM_STATUS.AVAILABLE
-      link_to t('view.check_out'), check_outs_path(item_id: item_id), remote: true, class: "btn btn-success", method: "post"
+      link_to t('view.check_out'), check_outs_path(item_id: item_id), remote: true, class: 'btn btn-success', method: 'post'
     when ITEM_STATUS.OWED_BY_CURRENT_USER
-      link_to t('view.check_in'), check_ins_path(item_id: item_id), remote: true, class: "btn btn-danger", method: "post"
+      link_to t('view.check_in'), check_ins_path(item_id: item_id), remote: true, class: 'btn btn-danger', method: 'post'
     when ITEM_STATUS.UNAVAILABLE
-      link_to t('view.request'), "/requsets/regist/#{item_id}", class: "btn btn-warning"
+      link_to t('view.request'), "/requsets/regist/#{item_id}", class: 'btn btn-warning'
     end
   end
 

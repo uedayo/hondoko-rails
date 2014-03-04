@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     repo = ItemsRepository.new @user
-    @items = repo.get_owed_item_entities_by_user_id
+    @items = repo.get_items_on_user_by_user_id
   end
 
   # GET /users/new

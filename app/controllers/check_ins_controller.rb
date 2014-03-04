@@ -17,13 +17,13 @@ class CheckInsController < ApplicationController
   def create
     item_id = params[:item_id]
     repo = ItemsRepository.new @current_user
-    item = repo.get_item_entity item_id
+    item = repo.get_item_on_book_by_item_id item_id
     unless item.check_status == ITEM_STATUS.OWED_BY_CURRENT_USER
       redirect_to '/error?code=error_double_registration'
       return false
     else
       CheckInsRepository.new.create item.check_out_id
-      @item = repo.get_item_entity item_id
+      @item = repo.get_item_on_book_by_item_id item_id
       @book = Book.find_by_id @item.book_id
     end
   end

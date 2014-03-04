@@ -23,7 +23,7 @@ class BooksController < ApplicationController
     query_id = params[:qid].presence
     Browse.create user_id: @current_user.id, book_id: @book.id, search_id: query_id
     repo = ItemsRepository.new @current_user
-    @items = repo.get_item_entities_by_isbn params[:id]
+    @items = repo.get_items_on_book_by_isbn params[:id]
   end
 
   # GET /books/new
