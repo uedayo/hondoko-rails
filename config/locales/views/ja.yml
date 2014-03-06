@@ -9,8 +9,8 @@ ja:
     search_placeholder: 本のタイトルなど
     search_button: 検索
     account: アカウント
-    history: 貸出状況
-    profile_edit: プロフィール設定
+    history: 貸出状況・履歴
+    profile_edit: プロフィール編集
     logout: ログアウト
     login: ログイン
 
@@ -18,11 +18,13 @@ ja:
     footer: "%{service_name} by サ開20%ルール"
 
     # title
-    users_index: ユーザリスト
-    users_new: ユーザの新規作成
-    books_index: 本のリスト
-    books_search_result: 「%{key}」での検索結果
-    in_out_status: 貸出状況
+    users_title: ユーザリスト
+    new_user_title: ユーザの新規作成
+    edit_user_title: "%{name} さんのプロフィール編集"
+    books_title: 本のリスト
+    edit_book_title: "『%{name}』の編集"
+    search_book_title: 「%{key}」での検索結果
+    in_out_status_title: 貸出状況
 
     # action
     edit: 編集
@@ -73,6 +75,8 @@ ja:
 
     create_user_done: ユーザの作成が完了しました
     edit_user_done: ユーザの編集が完了しました
+    create_book_done: 本の作成が完了しました
+    edit_book_done: 本の編集が完了しました
 
     # error message
     error_default: エラーが発生しました

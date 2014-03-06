@@ -28,9 +28,10 @@ ja:
         manufacturer: 出版社
         publication_date: 発売日
         price: 価格
+        currency: 通貨
         small_image: イメージ小
         medium_image: イメージ中
-        detail_page_url: イメージ大
+        large_image: イメージ大
         category: カテゴリー
       user:
         screen_name: スクリーン名

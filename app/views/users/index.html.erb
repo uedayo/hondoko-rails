@@ -1,4 +1,4 @@
-<h2 class="header"><%= t('view.users_index') %></h2>
+<h2 class="header"><%= t('view.users_title') %></h2>
 
 <% if @users.empty? %>
   <div class="inside">あなたが最初に登録しましょう！</div>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to t('view.user_new'), new_user_path %>
+<%= link_to t('view.new_user_title'), new_user_path %>

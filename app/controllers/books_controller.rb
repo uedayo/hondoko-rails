@@ -11,10 +11,10 @@ class BooksController < ApplicationController
       @query_id = search.id
       books_repo = BooksRepository.new
       @books = books_repo.find_by_search_words query
-      @title = t('view.books_search_result', key: query)
+      @title = t('view.search_book_title', key: query)
     else
       @books = Book.all
-      @title = t('view.books_index')
+      @title = t('view.books_title')
     end
   end
 
@@ -43,7 +43,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to @book, notice: 'Book was successfully created.' }
+        format.html { redirect_to @book, notice: I18n.t('view.create_book_done') }
         format.json { render action: 'show', status: :created, location: @book }
       else
         format.html { render action: 'new' }
@@ -57,7 +57,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+        format.html { redirect_to @book, notice: I18n.t('view.update_book_done') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
