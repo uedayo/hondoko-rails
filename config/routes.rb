@@ -3,8 +3,8 @@ Hondoko::Application.routes.draw do
 
   resources :check_ins
 
-  resources :check_outs
   get 'check_outs/scan/:isbn' => 'check_outs#scan'
+  resources :check_outs
 
   resources :divisions
 
@@ -12,9 +12,10 @@ Hondoko::Application.routes.draw do
 
   resources :areas
 
-  resources :users
   post 'users/twitter_image/' => 'users#twitter_image'
+  resources :users
 
+  post 'books/create_by_isbn/' => 'books#create_by_isbn'
   resources :books
 
   resources :items

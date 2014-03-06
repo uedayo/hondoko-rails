@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  skip_before_filter :login_required, only: [:create_by_isbn]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books
@@ -73,6 +74,12 @@ class BooksController < ApplicationController
       format.html { redirect_to books_url }
       format.json { head :no_content }
     end
+  end
+
+  def create_by_isbn
+    books_repo = BooksRepository.new
+    books_repo.save_initial_book_and_item params[:isbn]
+    redirect_to book_path params[:isbn]
   end
 
   private

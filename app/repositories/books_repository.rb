@@ -1,17 +1,20 @@
 class BooksRepository
   def find isbn
-    #book = Book.find_by isbn: isbn
-    #if book.blank?
-      item_id = new_initial_item isbn
+    book = Book.find_by isbn: isbn
+    if book.blank?
+      item_id = save_initial_item isbn
       Item.find_by_id item_id
-    #else
-    #  Item.find_by book_id: book.id
-    #end
+    else
+      Item.find_by book_id: book.id
+    end
   end
 
-  def new_initial_item isbn
-    new_book_by_amazon isbn
+  def save_initial_book_and_item isbn
     book = Book.find_by_isbn isbn
+    if book.blank?
+      new_book_by_amazon isbn
+      book = Book.find_by_isbn isbn
+    end
     item = Item.new book_id: book.id,
                     volume: DEFAULT_VOLUME,
                     area_id: DEFAULT_AREA_ID

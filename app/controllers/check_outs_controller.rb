@@ -32,19 +32,7 @@ class CheckOutsController < ApplicationController
   def scan
     repo = BooksRepository.new
     item = repo.find params[:isbn]
-    render text: item.book.title
-  end
-
-  def regist
-    item_id = params[:item_id]
-    repo = ItemsRepository.new, @current_user
-    status = repo.get_item_status item_id
-
-    # TODO check status
-
-    check_out = CheckOut.new check_out_params
-    check_out.save
-    render text: check_out
+    redirect_to book_path
   end
 
   private

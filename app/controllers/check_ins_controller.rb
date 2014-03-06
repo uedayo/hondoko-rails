@@ -28,6 +28,12 @@ class CheckInsController < ApplicationController
     end
   end
 
+  def scan
+    repo = BooksRepository.new
+    item = repo.find params[:isbn]
+    render text: item.book.title
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_check_in

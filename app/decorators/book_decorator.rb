@@ -4,7 +4,7 @@ module BookDecorator
   end
 
   def publication_date_formatted
-    publication_date.gsub("-", "/")
+    publication_date.present? ? publication_date.gsub("-", "/") : I18n.t("view.nil")
   end
 
   def price_formatted
@@ -12,7 +12,7 @@ module BookDecorator
   end
 
   def currency_view
-    I18n.t("view.#{currency}")
+    currency.present? ? I18n.t("view.#{currency}") : I18n.t("view.nil")
   end
 
   def category_view
