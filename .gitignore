@@ -42,3 +42,4 @@ config/initializers/secret_token.rb
 # Setting files
 config/settings.yml
 config/database.yml
+config/secrets.yml
