@@ -32,5 +32,6 @@ module Hondoko
     config.i18n.default_locale = :ja
 
     config.assets.precompile += %w(*.js bootstrap.scss *.png *.jpg *.jpeg *.gif)
+    config.assets.paths << "#{Rails}/vendor/assets/stylesheets/fonts"
   end
 end

@@ -14,8 +14,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#"><%= t('view.scan_check_out') %></a></li>
-        <li><a href="#"><%= t('view.scan_check_in') %></a></li>
+        <li><a href="hondoko://scan/check_out"><i class="glyphicon glyphicon-barcode"></i> <%= t('view.scan_check_out') %></a></li>
+        <li><a href="hondoko://scan/check_in"><i class="glyphicon glyphicon-barcode"></i> <%= t('view.scan_check_in') %></a></li>
+        <li><a href="hondoko://scan/new_book"><i class="glyphicon glyphicon-barcode"></i> <%= t('view.scan_new_book') %></a></li>
       </ul>
       <%= form_for(:book, url: books_path, html: {id: "book_search_form", class: "navbar-form navbar-left", role: "search", method: "get"}) do |f| %>
         <div class="form-group">
