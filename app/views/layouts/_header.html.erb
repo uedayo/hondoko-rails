@@ -13,7 +13,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav nav-link">
         <li><a href="hondoko://scan/check_out"><i class="glyphicon glyphicon-barcode"></i> <%= t('view.scan_check_out') %></a></li>
         <li><a href="hondoko://scan/check_in"><i class="glyphicon glyphicon-barcode"></i> <%= t('view.scan_check_in') %></a></li>
         <li><a href="hondoko://scan/new_book"><i class="glyphicon glyphicon-barcode"></i> <%= t('view.scan_new_book') %></a></li>
@@ -35,9 +35,6 @@
             <li><%= link_to t('view.logout'), logout_path, method: "delete" %></li>
           </ul>
         </li>
-        <li><%= link_to t('view.logout'), logout_path, method: "delete" %></li>
-        <% else %>
-        <li><%= link_to t('view.login'), login_path %></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

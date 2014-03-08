@@ -3,7 +3,7 @@ ja:
     # header
     service_name: ほんどこ
     search: 探す
-    scan_check_out: バーコードで本の貸出
+    scan_check_out: 貸出
     scan_check_in: 返却
     scan_new_book: 新規登録
     item_new: 本の追加

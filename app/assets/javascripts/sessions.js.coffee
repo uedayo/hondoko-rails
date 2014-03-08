@@ -11,7 +11,7 @@ $ ->
       '<option value="50">50</option>'+
       '<option value="100">100</option>'+
       '<option value="-1">全件</option>'+
-      '</select> 行'
+      '</select>'
       "sInfo": "_TOTAL_ 件中 _START_ 件から _END_ 件を表示中"
       "sInfoEmpty": "_TOTAL_ 件"
       "sInfoFiltered": " (全 _MAX_ 件からフィルタ)"
@@ -23,6 +23,7 @@ $ ->
       "oPaginate":
         "sNext": "次のページ"
         "sPrevious": "前のページ"
+    "iDisplayLength": "-1"
     "sPaginationType": "bootstrap"
   $('.dataTables_length > label').addClass('datatable-label')
   $('.dataTables_length > label > select').addClass('form-control')
