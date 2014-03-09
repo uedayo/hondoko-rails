@@ -14,29 +14,27 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav nav-link">
-        <li><a href="hondoko://scan/check_out"><i class="glyphicon glyphicon-barcode"></i> <%= t('view.scan_check_out') %></a></li>
-        <li><a href="hondoko://scan/check_in"><i class="glyphicon glyphicon-barcode"></i> <%= t('view.scan_check_in') %></a></li>
-        <li><a href="hondoko://scan/new_book"><i class="glyphicon glyphicon-barcode"></i> <%= t('view.scan_new_book') %></a></li>
+        <li><span class="hosts"><%= t('view.from_pc') %> <strong><%= ENV['hosts_shorten'] %></strong> <%= t('view.access') %></span></li>
       </ul>
-      <%= form_for(:book, url: books_path, html: {id: "book_search_form", class: "navbar-form navbar-left", role: "search", method: "get"}) do |f| %>
-        <div class="form-group">
-          <input type="text" name="q" class="form-control" placeholder="<%= t('view.search_placeholder')%>" value="<%= @key %>">
-        </div>
-        <button type="submit" class="btn btn-default"><%= t('view.search_button') %></button>
-      <% end %>
+      <% if signed_in? %>
       <ul class="nav navbar-nav navbar-right">
-        <% if signed_in? %>
-        <li class="dropdown">
-          <a href="" class="dropdown-toggle login-user" data-toggle="dropdown"><%= image_tag @current_user.image_url || TWITTER_IMAGE, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded" %> <%= @current_user.last_name_kanji %> さんとしてログイン中 <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to t('view.history'), user_path(@current_user) %></a></li>
-            <li><%= link_to t('view.profile_edit'), edit_user_path(@current_user) %></a></li>
-            <li class="divider"></li>
-            <li><%= link_to t('view.logout'), logout_path, method: "delete" %></li>
-          </ul>
-        </li>
+        <%= form_for(:book, url: books_path, html: {id: "book_search_form", class: "navbar-form navbar-left", role: "search", method: "get"}) do |f| %>
+          <div class="form-group">
+            <input type="text" name="q" class="form-control input-lg" placeholder="<%= t('view.search_placeholder')%>" value="<%= @key %>">
+          </div>
+          <button type="submit" class="btn btn-default btn-lg"><%= t('view.search_button') %></button>
         <% end %>
+          <li class="dropdown">
+            <a href="" class="dropdown-toggle login-user" data-toggle="dropdown"><%= image_tag @current_user.image_url || TWITTER_IMAGE, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded" %> <%= @current_user.last_name_kanji %> さん <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to t('view.history'), user_path(@current_user) %></a></li>
+              <li><%= link_to t('view.profile_edit'), edit_user_path(@current_user) %></a></li>
+              <li class="divider"></li>
+              <li><%= link_to t('view.logout'), logout_path, method: "delete" %></li>
+            </ul>
+          </li>
       </ul>
+      <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

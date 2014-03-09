@@ -20,8 +20,24 @@
   }
 }
 
-.nav-link {
-  font-size: 18px;
+.navbar-header > .navbar-brand {
+  padding: 20px;
+}
+
+ul.navbar-nav > li > a.login-user {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+ul.navbar-nav > li > span.hosts {
+  line-height: 20px;
+  position: relative;
+  display: block;
+  padding: 20px 15px;
+}
+
+ul.dropdown-menu > li > a {
+  padding: 8px 20px;
 }
 
 h2.header {

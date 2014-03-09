@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   skip_before_filter :login_required
 
   def new
-    @users = User.all
+    @users = User.includes(:division)
   end
 
   def create
