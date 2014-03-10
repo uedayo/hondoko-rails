@@ -1,3 +1,4 @@
+<% if signed_in? %>
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -16,7 +17,6 @@
       <ul class="nav navbar-nav nav-link">
         <li><span class="hosts"><%= t('view.from_pc') %> <strong><%= ENV['hosts_shorten'] %></strong> <%= t('view.access') %></span></li>
       </ul>
-      <% if signed_in? %>
       <ul class="nav navbar-nav navbar-right">
         <%= form_for(:book, url: books_path, html: {id: "book_search_form", class: "navbar-form navbar-left", role: "search", method: "get"}) do |f| %>
           <div class="form-group">
@@ -34,7 +34,7 @@
             </ul>
           </li>
       </ul>
-      <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<% end %>
