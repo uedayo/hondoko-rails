@@ -12,7 +12,7 @@ $ ->
       "sInfoFiltered": " (全 _MAX_ 件からフィルタ)"
       "sInfoPostFix": ""
       "sZeroRecords"   : "該当するユーザが見つかりませんでした"
-      "sSearch": "パッとしぼりこみ"
+      "sSearch": ""
       "sUrl": ""
       "bProcessing" : true
       "oPaginate":
@@ -22,8 +22,10 @@ $ ->
     "sPaginationType": "bootstrap"
   $('#login_users_length').parent('div').remove()
   $('#login_users_filter').parent('div').removeClass('col-xs-6').addClass('col-xs-12')
+  $('#login_users_filter').append('<i class="glyphicon glyphicon-search">')
   $('#login_users_filter > label').addClass('datatable-label')
   $('#login_users_filter > label > input').addClass('form-control input-lg')
+  $('.pagination').remove()
   $('.table.users > tbody > tr').click ->
     id = $(this).attr('user_id')
     $('#session_form_id').val(id)

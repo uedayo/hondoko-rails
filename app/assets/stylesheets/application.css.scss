@@ -9,9 +9,12 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap
  *= require dataTables/jquery.dataTables.bootstrap3
  *= require_tree .
  */
+
+@import "bootstrap";
 
 @media (max-width: 767px) {
   body {
@@ -20,6 +23,16 @@
   }
 }
 
+/*
+ * navbar
+ */
+
+/* remove margin-bottom*/
+nav.navbar {
+  margin-bottom: 0px;
+}
+
+/* vertically centering elements */
 .navbar-header > .navbar-brand {
   padding: 20px;
 }
@@ -40,13 +53,43 @@ ul.dropdown-menu > li > a {
   padding: 8px 20px;
 }
 
+/*
+ * container
+ */
+
+/* fit width to screen*/
+div.container {
+  width: auto;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
 h2.header {
+  font-size: 24px;
   border-left: 7px solid #ccc;
   border-bottom: 1px dashed #ccc;
   padding: .2em .4em;
   margin-top: 10px;
   margin-bottom: 20px;
 }
+
+/*
+ * dataTables_filter box
+ */
+
+div.dataTables_filter i.glyphicon {
+  float: right;
+  font-size: 1.6em;
+  margin: 12px;
+}
+
+div.dataTables_filter label.datatable-label {
+  float: right;
+}
+
+/*
+ * table
+ */
 
 table.table thead tr,
 table.table tbody tr {
@@ -70,6 +113,10 @@ table.table tbody tr {
   }
 }
 
+/*
+ * form
+ */
+
 input.width-auto{
   width: auto;
 }
@@ -88,6 +135,10 @@ form .field span {
   padding-top: 9px;
   padding-bottom: 9px;
 }
+
+/*
+ * color
+ */
 
 span.category-pink {
   background-color: #cc0256;

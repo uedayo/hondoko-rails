@@ -62,3 +62,5 @@ gem 'active_decorator'
 gem 'quiet_assets'
 
 gem 'simple_form'
+
+gem 'bootstrap-sass', '~> 3.0.3.0'
