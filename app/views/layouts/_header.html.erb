@@ -27,10 +27,13 @@
           <li class="dropdown">
             <a href="" class="dropdown-toggle login-user" data-toggle="dropdown"><%= image_tag @current_user.image_url || TWITTER_IMAGE, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded" %> <%= @current_user.last_name_kanji %> さん <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><%= link_to t('view.history'), user_path(@current_user) %></a></li>
-              <li><%= link_to t('view.profile_edit'), edit_user_path(@current_user) %></a></li>
+              <li><%= link_to user_path(@current_user) do %><i class="glyphicon glyphicon-book"></i> <%= t('view.history') %><% end %></li>
+              <li><%= link_to edit_user_path(@current_user) do %><i class="glyphicon glyphicon-user"></i> <%= t('view.profile_edit') %><% end %></li>
               <li class="divider"></li>
-              <li><%= link_to t('view.logout'), logout_path, method: "delete" %></li>
+              <li><a href="hondoko://scan/book"><i class="glyphicon glyphicon-barcode"></i> <%= t('view.scan_book') %></a></li>
+              <li><a href="hondoko://scan/new_book"><i class="glyphicon glyphicon-plus"></i> <%= t('view.scan_new_book') %></a></li>
+              <li class="divider"></li>
+              <li><%= link_to logout_path, method: "delete" do %><i class="glyphicon glyphicon-log-out"></i> <%= t('view.logout') %><% end %></li>
             </ul>
           </li>
       </ul>

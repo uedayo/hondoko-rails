@@ -11,6 +11,8 @@ ja:
     account: アカウント
     history: 貸出状況・履歴
     profile_edit: プロフィール編集
+    scan_book: 本を表示
+    scan_new_book: 本を登録
     logout: ログアウト
     login: ログイン
 
