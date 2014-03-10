@@ -1,7 +1,7 @@
 <h2 class="header"><%= "#{@user.last_name_kanji.html_safe} #{@user.first_name_kanji.html_safe}" %></h2>
 <div class="row">
   <div class="col-md-1 row-thumb">
-    <%= link_to image_tag(@user.image_url, width: USER_IMAGE_WIDTH, class: 'img-thumbnail') %>
+    <%= link_to image_tag(@user.profile_image_url, width: USER_IMAGE_WIDTH, class: 'img-thumbnail') %>
     <div class="row-thumb">
       <%= link_to t('view.edit'), edit_user_path(@user), class: 'btn btn-warning btn-primary' %>
     </div>

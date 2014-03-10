@@ -1,35 +1,32 @@
 <h2 class="header"><%= t('view.users_title') %></h2>
 
 <% if @users.empty? %>
-  <div class="inside">あなたが最初に登録しましょう！</div>
+<div class="inside"><%= t('view.user_empty_message') %></div>
 <% else %>
-
-  <p class="inside">たくさん本を借りて読み終えた人が上に表示されます。</p>
-
-  <table class="table table-striped table-hover">
-    <thead>
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <td></td>
+    <td><%= t('view.name_kanji') %></td>
+    <td><%= t('view.name_hiragana') %></td>
+    <td><%= tt('User.screen_name') %></td>
+    <td><%= tt('User.division') %></td>
+    <td><%= t('view.operation') %></td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
     <tr>
-      <td></td>
-      <td><%= t('view.name_kanji') %></td>
-      <td><%= t('view.name_hiragana') %></td>
-      <td><%= tt('User.screen_name') %></td>
-      <td><%= tt('User.division') %></td>
-      <td><%= t('view.operation') %></td>
+      <td><%= image_tag(user.profile_image_url, width: USER_IMAGE_WIDTH, class: "img-rounded") %></td>
+      <td><%= user.last_name_kanji + " " + user.first_name_kanji %></td>
+      <td><%= user.last_name_hiragana + " " + user.first_name_hiragana %></td>
+      <td><%= user.screen_name.presence || t('view.nil') %></td>
+      <td><%= user.division.name %></td>
+      <td><%= link_to t('view.edit'), edit_user_path(user), class: "btn btn-warning btn-lg" %> <%= link_to t('view.destroy'), user_path(user), method: :delete, class: "btn btn-danger btn-lg" %></td>
     </tr>
-    </thead>
-    <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= image_tag(user.image_url.presence || TWITTER_IMAGE, width: USER_IMAGE_WIDTH, class: "img-rounded") %></td>
-        <td><%= user.last_name_kanji + " " + user.first_name_kanji %></td>
-        <td><%= user.last_name_hiragana + " " + user.first_name_hiragana %></td>
-        <td><%= user.screen_name.presence || t('view.nil') %></td>
-        <td><%= user.division.name %></td>
-        <td><%= link_to t('view.edit'), edit_user_path(user), class: "btn btn-warning btn-lg" %> <%= link_to t('view.destroy'), user_path(user), method: :delete, class: "btn btn-danger btn-lg" %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+  <% end %>
+  </tbody>
+</table>
 <% end %>
 
 <br>

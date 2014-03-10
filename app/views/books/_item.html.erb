@@ -6,7 +6,7 @@
   <%= item.check_status_view %>
   </span>
 </td>
-<td><%= image_tag item.image_url, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded user_image_url" %> <span class="name_kanji"><%= item.name_kanji %></span></td>
+<td><%= image_tag item.user_image_url, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded user_image_url" %> <span class="name_kanji"><%= item.name_kanji %></span></td>
 <td class="checked_out_at"><%= item.checked_out_at %></td>
 <td class="due_date">
   <% if !item.is_available? && item.is_overdue %><span class="warning-color"><% end %>

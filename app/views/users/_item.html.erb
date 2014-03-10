@@ -1,4 +1,4 @@
-<td><%= image_tag(item.small_image, width: BOOK_SMALL_IMAGE_WIDTH, class: 'img-thumbnail') %></td>
+<td><%= image_tag(item.small_image || TWITTER_IMAGE, width: BOOK_SMALL_IMAGE_WIDTH, class: 'img-thumbnail') %></td>
 <td><%= item.title_vol %></td>
 <td><%= item.author %></td>
 <td><%= item.area_name %></td>

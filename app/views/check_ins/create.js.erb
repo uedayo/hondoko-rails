@@ -1,7 +1,7 @@
 tr =  $("tr[item_id='<%= @item.item_id %>']");
 tr.hide();
 tr.find(".check_status").removeClass('warning-color').text('貸出可');
-tr.find(".user_image_url").attr('src', "<%= @item.image_url %>");
+tr.find(".user_image_url").attr('src', "<%= @item.user_image_url %>");
 tr.find(".name_kanji").text("<%= @item.name_kanji %>");
 tr.find(".checked_out_at").text("<%= @item.checked_out_at %>");
 tr.find(".due_date").text("<%= @item.due_date %>");
