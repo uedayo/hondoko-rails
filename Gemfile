@@ -42,8 +42,17 @@ end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+group :development do
+  # N+1 problem
+  gem "bullet"
+end
+
+group :production do
+  # Use unicorn as the app server
+  gem 'unicorn'
+  # New Relic
+  gem 'newrelic_rpm'
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
