@@ -15,7 +15,7 @@ Hondoko::Application.routes.draw do
   post 'users/twitter_image/' => 'users#twitter_image'
   resources :users
 
-  post 'books/create_by_isbn/' => 'books#create_by_isbn'
+  get 'books/create_by_isbn/:isbn' => 'books#create_by_isbn'
   resources :books
 
   resources :items
