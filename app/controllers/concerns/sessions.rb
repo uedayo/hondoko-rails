@@ -1,4 +1,4 @@
-module SessionsHelper
+module Sessions
 
   def sign_in(user)
     session[:remember_token] = user.remember_token
@@ -6,7 +6,7 @@ module SessionsHelper
   end
 
   def signed_in?
-    !current_user.nil?
+    session[:remember_token].present?
   end
 
   def current_user=(user)
@@ -14,7 +14,7 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user ||= User.find_by_remember_token(session[:remember_token])
+    signed_in? ? User.find_by_remember_token(session[:remember_token]) : User.new
   end
 
   def sign_out
