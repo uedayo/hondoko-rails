@@ -39,6 +39,8 @@ ja:
         first_name_kanji: 名
         last_name_hiragana: せい
         first_name_hiragana: めい
+        last_name_roman: Last
+        first_name_roman: First
         email: メールアドレス
         image_url: プロフィール画像
         division: 部署

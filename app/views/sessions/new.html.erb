@@ -8,6 +8,7 @@
       <td></td>
       <td><%= t('view.name_kanji') %></td>
       <td><%= t('view.name_hiragana') %></td>
+      <td><%= t('view.name_roman') %></td>
       <td><%= tt('User.screen_name') %></td>
       <td><%= tt('User.division') %></td>
     </tr>
@@ -18,6 +19,7 @@
         <td><%= image_tag(user.profile_image_url, width: USER_IMAGE_WIDTH, class: "img-rounded") %></td>
         <td><%= user.last_name_kanji + " " + user.first_name_kanji %></td>
         <td><%= user.last_name_hiragana + " " + user.first_name_hiragana %></td>
+        <td><%= user.last_name_roman + " " + user.first_name_roman %></td>
         <td><%= user.screen_name.presence || t('view.nil') %></td>
         <td><%= user.division.name %></td>
       </tr>

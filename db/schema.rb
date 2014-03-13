@@ -119,6 +119,8 @@ ActiveRecord::Schema.define(version: 20140228162038) do
     t.string   "first_name_kanji"
     t.string   "last_name_hiragana"
     t.string   "first_name_hiragana"
+    t.string   "last_name_roman"
+    t.string   "first_name_roman"
     t.string   "email"
     t.string   "image_url"
     t.integer  "division_id"

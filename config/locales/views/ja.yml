@@ -43,6 +43,7 @@ ja:
     # label
     name_kanji: 名前
     name_hiragana: なまえ
+    name_roman: ローマ字
     amazon: Amazon
     check_status: 状態
     last_user: 最終利用者
@@ -60,6 +61,8 @@ ja:
     first_name_kanji_placeholder: 太郎
     last_name_hiragana_placeholder: だいちきゅう
     first_name_hiragana_placeholder: たろう
+    last_name_roman_placeholder: Daichikyu
+    first_name_roman_placeholder: Taro
     image_url_placeholder: スクリーン名を入力することでTwitterから取得できます
 
     # status

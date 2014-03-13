@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :division
-  validates_presence_of :last_name_kanji, :first_name_kanji, :last_name_hiragana, :first_name_hiragana, :email, :division
+  validates_presence_of :last_name_kanji, :first_name_kanji, :email, :division
   validate :email, :check_email
 
   before_save :create_remember_token
