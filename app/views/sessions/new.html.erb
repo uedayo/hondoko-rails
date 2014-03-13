@@ -15,7 +15,7 @@
     <tbody>
     <% @users.each do |user| %>
       <tr user_id="<%= user.id %>">
-        <td><%= image_tag(user.profile_image_url, class: "img-rounded") %></td>
+        <td><%= image_tag(user.profile_image_url, width: USER_IMAGE_WIDTH, class: "img-rounded") %></td>
         <td><%= user.last_name_kanji + " " + user.first_name_kanji %></td>
         <td><%= user.last_name_hiragana + " " + user.first_name_hiragana %></td>
         <td><%= user.screen_name.presence || t('view.nil') %></td>
