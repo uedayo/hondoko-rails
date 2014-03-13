@@ -29,12 +29,12 @@ class Item < ActiveRecord::Base
           SELECT book_id, volume, item_id, area_id, area_name, e.check_out_id, user_id, last_name_kanji, first_name_kanji, image_url, checked_out_at, due_date, check_ins.id AS check_in_id, check_ins.created_at AS checked_in_at FROM (
           SELECT book_id, volume, item_id, area_id, area_name, check_out_id, user_id, last_name_kanji, first_name_kanji, image_url, checked_out_at, due_date FROM (
           SELECT book_id, volume, a.id AS item_id, area_id, area_name, c.id AS check_out_id, user_id, checked_out_at, due_date FROM (
-          SELECT book_id, items.id, volume, area_id, name AS area_name FROM items LEFT OUTER JOIN areas ON area_id = areas.id
-          ) a LEFT OUTER JOIN (
           SELECT check_outs.id, check_outs.item_id, user_id, checked_out_at, due_date FROM check_outs, (
           SELECT item_id, MAX(created_at) checked_out_at FROM check_outs GROUP BY item_id
           ) b WHERE check_outs.item_id = b.item_id AND check_outs.created_at = checked_out_at AND b.item_id = #{item_id}
-          ) c ON a.id = item_id
+          ) c LEFT OUTER JOIN (
+          SELECT book_id, items.id, volume, area_id, name AS area_name FROM items LEFT OUTER JOIN areas ON area_id = areas.id
+          ) a ON a.id = item_id
           ) d LEFT OUTER JOIN users ON d.user_id = users.id
           ) e LEFT OUTER JOIN check_ins ON e.check_out_id = check_ins.check_out_id;
     SQL
