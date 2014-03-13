@@ -1,42 +1,5 @@
 <h2 class="header"><%= link_to @book.title.html_safe, book_path(@book) %></h2>
-<div class="row">
-  <div class="col-md-3 row-thumb">
-    <%= link_to image_tag(@book.medium_image, width: BOOK_SMALL_LARGE_WIDTH, class: 'img-thumbnail'), @book.amazon_url %>
-    <div class="row-thumb">
-      <%= link_to t('view.edit'), edit_book_path(@book), class: 'btn btn-warning btn-primary' %>
-    </div>
-  </div>
-  <div class="col-md-9">
-    <table class="table row-table">
-      <tbody>
-        <tr>
-          <td><%= tt('Book.author') %></td>
-          <td><%= @book.author.html_safe %></td>
-        </tr>
-        <tr>
-          <td><%= tt('Book.manufacturer') %></td >
-          <td><%= @book.manufacturer.html_safe %></td>
-        </tr>
-        <tr>
-          <td><%= tt('Book.publication_date') %></td >
-          <td><%= @book.publication_date_formatted %></td>
-        </tr>
-        <tr>
-          <td><%= tt('Book.price') %></td>
-          <td><%= @book.price_formatted %></td>
-        </tr>
-        <tr>
-          <td><%= tt('Book.isbn') %></td>
-          <td><%= @book.isbn %></td>
-        </tr>
-        <tr>
-          <td><%= t('view.amazon') %></td>
-          <td><%= link_to @book.amazon_url, @book.amazon_url %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+<%= render 'book' %>
 
 <h2 class="header"><%= t('view.in_out_status_title') %></h2>
 <%= render 'items' %>

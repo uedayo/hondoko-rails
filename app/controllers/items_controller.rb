@@ -16,7 +16,14 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    @item = Item.new
+    if params[:book_id]
+      book_id = params[:book_id]
+      @book = Book.where(id: book_id).first
+      @count = Item.where(book_id: @book.id).count
+      @item = Item.new book_id: book_id
+    else
+      redirect_to books_path
+    end
   end
 
   # GET /items/1/edit
@@ -27,6 +34,10 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params)
+    unless @item.volume.present?
+      count = Item.where(book_id: @item.book_id).count
+      @item.volume = count + 1
+    end
 
     respond_to do |format|
       if @item.save

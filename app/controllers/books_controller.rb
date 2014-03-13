@@ -78,12 +78,12 @@ class BooksController < ApplicationController
 
   def create_by_isbn
     isbn = params[:isbn]
-    book = Book.where(isbn: isbn)
-    if book.exists?
-      redirect_to book_path isbn
+    @book = Book.where(isbn: isbn).first
+    books_repo = BooksRepository.new
+    if @book.present?
+      redirect_to controller: 'items', action: 'new', book_id: @book.id
       return false
     else
-      books_repo = BooksRepository.new
       books_repo.save_initial_book_and_item isbn
     end
     redirect_to book_path isbn

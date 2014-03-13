@@ -27,6 +27,7 @@ ja:
     edit_book_title: "『%{name}』の編集"
     search_book_title: 「%{key}」での検索結果
     in_out_status_title: 貸出状況
+    new_item_title: 本の追加
 
     # action
     edit: 編集

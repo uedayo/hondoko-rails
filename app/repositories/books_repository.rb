@@ -1,28 +1,37 @@
 class BooksRepository
-  def find isbn
+  def find(isbn)
     book = Book.find_by isbn: isbn
     if book.blank?
-      item_id = save_initial_item isbn
+      item_id = save_initial_book_and_item isbn
       Item.find_by_id item_id
     else
       Item.find_by book_id: book.id
     end
   end
 
-  def save_initial_book_and_item isbn
-    book = Book.find_by_isbn isbn
+  def save_initial_book_and_item(isbn)
+    book = Book.where(isbn: isbn)
     if book.blank?
       new_book_by_amazon isbn
       book = Book.find_by_isbn isbn
+      save_item book_id: book.id,
+                volume: DEFAULT_VOLUME,
+                area_id: DEFAULT_AREA_ID
     end
-    item = Item.new book_id: book.id,
-                    volume: DEFAULT_VOLUME,
-                    area_id: DEFAULT_AREA_ID
-    item.save
-    item.id
   end
 
-  def find_by_search_words value
+  def save_item(book_id: book_id, volume: volume, area_id: area_id)
+    item = Item.where(book_id: book_id, volume: volume, area_id: area_id)
+    if item.blank?
+      item = Item.new book_id: book_id,
+                      volume: volume,
+                      area_id: area_id
+      item.save
+      item.id
+    end
+  end
+
+  def find_by_search_words(value)
     keys = value.split(/\s+/)
     books = Arel::Table.new :books
     sql = books.project(Arel.sql('*'))
@@ -35,7 +44,7 @@ class BooksRepository
 
   private
 
-  def new_book_by_amazon isbn
+  def new_book_by_amazon(isbn)
     res = MyAmazon.find isbn
     item = res.items.last
 
