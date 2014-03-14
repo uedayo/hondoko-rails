@@ -38,7 +38,7 @@ ja:
     user_new: ユーザの新規登録
     check_out: 借りる
     check_in: 返す
-    request: リクエスト
+    checked_out: 貸出中
     get_twitter_image: Twitterからプロフィール画像を取得
 
     # label

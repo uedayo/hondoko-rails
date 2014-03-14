@@ -16,7 +16,7 @@ module BookDecorator
   end
 
   def category_view
-    category.present? ? "#{category_id}.#{category.name}" : I18n.t("view.nil")
+    category.present? ? category.name : I18n.t("view.nil")
   end
 
   def category_class

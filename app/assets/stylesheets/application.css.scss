@@ -53,6 +53,10 @@ ul.dropdown-menu > li > a {
   padding: 8px 20px;
 }
 
+div.navbar-margin {
+  height: 70px;
+}
+
 /*
  * container
  */
@@ -78,13 +82,13 @@ h2.header {
  */
 
 div.dataTables_filter i.glyphicon {
-  float: right;
+  float: left;
   font-size: 1.6em;
   margin: 12px;
 }
 
 div.dataTables_filter label.datatable-label {
-  float: right;
+  float: left;
 }
 
 /*
@@ -99,6 +103,15 @@ table.table tbody tr {
     vertical-align: middle;
   }
 
+  td.user_name {
+    font-size: 26px;
+    text-align: left;
+  }
+
+  td.division {
+    font-size: 26px;
+  }
+
   .title {
     vertical-align: middle;
     width: 30%;
@@ -111,6 +124,10 @@ table.table tbody tr {
   .btn {
     margin: 5px 10px;
   }
+}
+
+.collapse-data {
+  visibility:collapse;
 }
 
 /*
@@ -136,6 +153,10 @@ form .field span {
   padding-bottom: 9px;
 }
 
+div.alert-top {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 /*
  * mesage part
  */

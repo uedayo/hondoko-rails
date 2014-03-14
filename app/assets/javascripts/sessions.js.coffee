@@ -22,7 +22,7 @@ $ ->
     "sPaginationType": "bootstrap"
   $('#login_users_length').parent('div').remove()
   $('#login_users_filter').parent('div').removeClass('col-xs-6').addClass('col-xs-12')
-  $('#login_users_filter').append('<i class="glyphicon glyphicon-search">')
+  $('#login_users_filter').prepend('<i class="glyphicon glyphicon-search">')
   $('#login_users_filter > label').addClass('datatable-label')
   $('#login_users_filter > label > input').addClass('form-control input-lg')
   $('.pagination').remove()

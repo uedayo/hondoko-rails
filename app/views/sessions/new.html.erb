@@ -5,23 +5,21 @@
   <table class="table table-striped table-hover users" id="login_users">
     <thead>
     <tr>
-      <td></td>
-      <td><%= t('view.name_kanji') %></td>
       <td><%= t('view.name_hiragana') %></td>
-      <td><%= t('view.name_roman') %></td>
-      <td><%= tt('User.screen_name') %></td>
+      <td><%= t('view.name_kanji') %></td>
       <td><%= tt('User.division') %></td>
+      <td></td>
+      <td class="collapse"></td>
     </tr>
     </thead>
     <tbody>
     <% @users.each do |user| %>
       <tr user_id="<%= user.id %>">
-        <td><%= image_tag(user.profile_image_url, width: USER_IMAGE_WIDTH, class: "img-rounded") %></td>
-        <td><%= user.last_name_kanji + " " + user.first_name_kanji %></td>
-        <td><%= user.last_name_hiragana + " " + user.first_name_hiragana %></td>
-        <td><%= user.last_name_roman + " " + user.first_name_roman %></td>
-        <td><%= user.screen_name.presence || t('view.nil') %></td>
-        <td><%= user.division.name %></td>
+        <td class="user_name"><%= user.last_name_hiragana + " " + user.first_name_hiragana %></td>
+        <td class="user_name"><%= image_tag(user.profile_image_url, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded") %> <%= user.last_name_kanji + " " + user.first_name_kanji %></td>
+        <td class="division"><%= user.division.name %></td>
+        <td><a class="btn btn-primary">ログイン</a></td>
+        <td class="collapse"><%= "#{user.last_name_roman} #{user.first_name_roman} #{user.screen_name.presence}" %></td>
       </tr>
     <% end %>
     </tbody>

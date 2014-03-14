@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   skip_before_filter :login_required
 
   def new
+    sign_out
     @users = User.includes(:division)
   end
 

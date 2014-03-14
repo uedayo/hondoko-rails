@@ -25,6 +25,7 @@ Hondoko::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   get '/login' => 'sessions#new'
+  get '/logout' => 'sessions#destroy'
   delete '/logout' => 'sessions#destroy'
 
   get '/error' => 'application#error'

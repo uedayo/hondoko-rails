@@ -41,7 +41,8 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        book = Book.where(id: @item.book_id).first
+        format.html { redirect_to book_path(book.isbn), notice: t('view.create_book_done') }
         format.json { render action: 'show', status: :created, location: @item }
       else
         format.html { render action: 'new' }
@@ -55,7 +56,7 @@ class ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to @item, notice: t('view.edit_book_done') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

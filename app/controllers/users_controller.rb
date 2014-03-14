@@ -45,9 +45,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-
     respond_to do |format|
       if @user.update(user_params)
+        sign_out
         format.html { redirect_to @user, notice: t('view.edit_user_done') }
         format.json { head :no_content }
       else
