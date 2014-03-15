@@ -60,7 +60,7 @@
             - @users_owing.each do |user|
               %tr
                 %td= link_to image_tag("#{user.profile_image_url}" || TWITTER_IMAGE, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded") + " " + user.name_kanji, user_path(user.id)
-                %td.nowrap= link_to user.screen_name_view, user_path(user.id)
+                %td.nowrap= link_to view_format(user.screen_name), user_path(user.id)
                 %td.nowrap= user.division
                 %td= user.owing_count
     / /block
@@ -80,7 +80,7 @@
             - @users_well_read_in_number.each do |user|
               %tr
                 %td= link_to image_tag("#{user.profile_image_url}" || TWITTER_IMAGE, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded") + " " + user.name_kanji, user_path(user.id)
-                %td.nowrap= link_to user.screen_name_view, user_path(user.id)
+                %td.nowrap= link_to view_format(user.screen_name), user_path(user.id)
                 %td.nowrap= user.division
                 %td= user.read_count
     / /block

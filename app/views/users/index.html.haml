@@ -14,7 +14,7 @@
     %tbody
       - @users.each do |user|
         %tr
-          %td= image_tag(user.profile_image_url, width: USER_IMAGE_WIDTH, class: "img-rounded")
+          %td= image_tag(user.profile_image_url, width: USER_MEDIUM_IMAGE_WIDTH, class: "img-rounded")
           %td= user.last_name_kanji + " " + user.first_name_kanji
           %td= user.last_name_hiragana + " " + user.first_name_hiragana
           %td= user.screen_name.presence || t('view.nil')

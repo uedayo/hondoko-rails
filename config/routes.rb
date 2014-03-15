@@ -5,8 +5,6 @@ Hondoko::Application.routes.draw do
   get '/logout' => 'sessions#destroy'
   delete '/logout' => 'sessions#destroy'
 
-  get 'dashboard/index'
-
   get 'search/result/:value' => 'search#result'
 
   get '/error' => 'application#error'

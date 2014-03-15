@@ -3,12 +3,11 @@ ja:
     # header
     service_name: ほんどこ
     search: 探す
-    from_pc: "PCでの利用は "
-    access: " から"
     item_new: 本の追加
     search_placeholder: 本のタイトルなど
     search_button: 検索
     account: アカウント
+    dashboard: ダッシュボード
     history: 貸出状況・履歴
     profile_edit: プロフィール編集
     scan_book: 本を表示

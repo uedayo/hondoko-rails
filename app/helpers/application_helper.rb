@@ -22,4 +22,9 @@ module ApplicationHelper
       I18n.t("view.nil")
     end
   end
+
+  def check_user_agent_for_mobile
+    ua = request.env["HTTP_USER_AGENT"]
+    ua.include?('Mobile') || ua.include?('Android')
+  end
 end
