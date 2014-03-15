@@ -10,7 +10,7 @@ class Item < ActiveRecord::Base
           SELECT item_id, volume, area_id, area_name, check_out_id, user_id, last_name_kanji, first_name_kanji, image_url, checked_out_at, due_date FROM (
           SELECT a.id AS item_id, volume, area_id, area_name, c.id AS check_out_id, user_id, checked_out_at, due_date FROM (
           SELECT items.id, volume, area_id, name AS area_name FROM items LEFT OUTER JOIN areas ON area_id = areas.id WHERE book_id IN (
-          SELECT id FROM books WHERE isbn = #{isbn}
+          SELECT id FROM books WHERE isbn = '#{isbn}'
           )
           ) a LEFT OUTER JOIN (
           SELECT check_outs.id, check_outs.item_id, user_id, checked_out_at, due_date FROM check_outs, (
