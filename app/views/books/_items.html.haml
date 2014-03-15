@@ -1,15 +1,15 @@
 %table.table.table-hover
   %thead
     %tr
-      %td= tt('Item.volume')
-      %td= tt('Item.area')
-      %td= tt('Book.category')
-      %td= t('view.check_status')
-      %td= t('view.last_user')
-      %td= t('view.checked_out_date')
-      %td= t('view.due_date')
-      %td= t('view.checked_in_date')
-      %td= t('view.operation')
+      %th= tt('Item.volume')
+      %th= tt('Item.area')
+      %th= tt('Book.category')
+      %th= t('view.check_status')
+      %th= t('view.last_user')
+      %th= t('view.checked_out_date')
+      %th= t('view.due_date')
+      %th= t('view.checked_in_date')
+      %th= t('view.operation')
   %tbody
     - @items.each do |item|
       %tr{item_id: "#{item.item_id}", class: "#{item.background_class}"}

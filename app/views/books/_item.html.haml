@@ -3,7 +3,9 @@
 %td
   %span{class: "label label-default #{@book.category_class}"}= @book.category_view
 %td.check_status
-  %span.check_status{class: (item.is_available? ? "available-color" : "warning-color")}= item.check_status_view
+  %span.check_status{class: (item.is_available? ? "available-color" : "warning-color")}
+    %strong
+      = item.check_status_view
 %td
   = image_tag item.user_image_url, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded user_image_url"
   %span.name_kanji= item.name_kanji

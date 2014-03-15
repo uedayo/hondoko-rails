@@ -44,8 +44,8 @@ class Item < ActiveRecord::Base
 
   def self.find_owed_detail_all_by_user_id user_id
     hash = ActiveRecord::Base.connection.select(<<-SQL
-        SELECT book_id, volume, area_id, name AS area_name, item_id, checked_out_id, due_date, checked_out_at, checked_in_id, checked_in_at, title, author, small_image FROM (
-        SELECT book_id, volume, area_id, item_id, checked_out_id, due_date, checked_out_at, checked_in_id, checked_in_at, title, author, small_image FROM (
+        SELECT book_id, volume, area_id, name AS area_name, item_id, checked_out_id, due_date, checked_out_at, checked_in_id, checked_in_at, title, author, isbn, small_image FROM (
+        SELECT book_id, volume, area_id, item_id, checked_out_id, due_date, checked_out_at, checked_in_id, checked_in_at, title, author, isbn, small_image FROM (
         SELECT book_id, volume, area_id, item_id, checked_out_id, due_date, checked_out_at, checked_in_id, checked_in_at FROM (
         SELECT item_id, o.id AS checked_out_id, due_date, checked_out_at, check_ins.id AS checked_in_id, check_ins.created_at AS checked_in_at FROM (
         SELECT check_outs.id, check_outs.item_id, user_id, checked_out_at, due_date FROM check_outs, (

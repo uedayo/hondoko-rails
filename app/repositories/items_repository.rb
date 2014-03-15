@@ -53,6 +53,7 @@ class ItemsRepository
       item_entity = ItemOnUser.new item_id: item['item_id'],
                                    title: item['title'],
                                    author: item['author'],
+                                   isbn: item['isbn'],
                                    small_image: item['small_image'],
                                    volume: item['volume'],
                                    area_id: item['area_id'],
