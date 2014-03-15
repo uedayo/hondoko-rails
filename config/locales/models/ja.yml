@@ -21,7 +21,7 @@ ja:
         donor_id: 寄贈者
         created_at: 登録日
       book:
-        isbn: ISBN-10
+        isbn: ISBN
         asin: ASIN
         title: タイトル
         author: 著者

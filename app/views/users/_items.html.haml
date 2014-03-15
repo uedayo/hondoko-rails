@@ -1,7 +1,7 @@
 - if @items.empty?
   .inside= t('view.owed_book_empty_message')
 - else
-  .inside= t('view.owed_books_count_message', count: @items.count)
+  #count_message.inside= t('view.owed_books_count_message', count: @items.count)
   %table.table.table-hover
     %thead
       %tr

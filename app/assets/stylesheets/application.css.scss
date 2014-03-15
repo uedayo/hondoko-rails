@@ -96,13 +96,17 @@ table.table tbody tr {
     vertical-align: middle;
   }
 
-  td.user_name {
+  td.login-name {
     font-size: 26px;
     text-align: left;
   }
 
-  td.division {
+  td.login-division {
     font-size: 26px;
+  }
+
+  th.nowrap, td.nowrap {
+    white-space: nowrap;
   }
 
   .title {

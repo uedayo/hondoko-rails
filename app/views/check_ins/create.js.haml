@@ -9,3 +9,5 @@ tr.find(".checked_in_at").text("#{@item.checked_in_at}");
 tr.find(".operation_link").html('<a class="btn btn-success" data-method="post" data-remote="true" href="/check_outs?item_id=#{@item.item_id}" rel="nofollow">借りる</a>');
 tr.fadeIn(1000);
 tr.removeClass('danger');
+
+$("#count_message").fadeOut(1000);

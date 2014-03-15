@@ -77,4 +77,33 @@ class Item < ActiveRecord::Base
     )
     hash.map() { |item| OpenStruct.new(item) }
   end
+
+  def self.find_recently_checked_in limit
+    hash = ActiveRecord::Base.connection.select(<<-SQL
+        SELECT item_id, checked_in_at, book_id, volume, area_id, area_name, isbn, title, author, small_image FROM (
+        SELECT item_id, checked_in_at, book_id, volume, area_id, name area_name FROM (
+        SELECT item_id, checked_in_at, book_id, volume, area_id FROM (
+        SELECT item_id, MAX(i.created_at) checked_in_at FROM check_ins i LEFT OUTER JOIN check_outs o ON i.check_out_id = o.id GROUP BY item_id ORDER BY checked_in_at DESC LIMIT #{limit}
+        ) recent LEFT OUTER JOIN items ON recent.item_id = items.id
+        ) recent_item LEFT OUTER JOIN areas ON recent_item.area_id = areas.id
+        ) item LEFT OUTER JOIN books b ON item.book_id = b.id ORDER BY checked_in_at DESC;
+    SQL
+    )
+    hash.map() { |item| OpenStruct.new(item) }
+  end
+
+  def self.find_well_read limit
+    hash = ActiveRecord::Base.connection.select(<<-SQL
+        SELECT item_id, checked_in_count, book_id, volume, area_id, area_name, isbn, title, author, small_image FROM (
+        SELECT item_id, checked_in_count, book_id, volume, area_id, name area_name FROM (
+        SELECT item_id, checked_in_count, book_id, volume, area_id FROM (
+        SELECT item_id, COUNT(*) checked_in_count FROM check_ins i LEFT OUTER JOIN check_outs o ON
+        i.check_out_id = o.id GROUP BY item_id ORDER BY checked_in_count DESC LIMIT #{limit}
+        ) recent LEFT OUTER JOIN items ON recent.item_id = items.id
+        ) recent_item LEFT OUTER JOIN areas ON recent_item.area_id = areas.id
+        ) recent_item_area LEFT OUTER JOIN books b ON recent_item_area.book_id = b.id ORDER BY checked_in_count DESC;
+    SQL
+    )
+    hash.map() { |item| OpenStruct.new(item) }
+  end
 end

@@ -14,12 +14,12 @@
         %td.collapse
     %tbody
       - @users.each do |user|
-        %tr{:user_id => user.id}
-          %td.user_name= user.last_name_hiragana + " " + user.first_name_hiragana
-          %td.user_name
+        %tr{user_id: user.id}
+          %td.login-name= user.last_name_hiragana + " " + user.first_name_hiragana
+          %td.login-name
             = image_tag(user.profile_image_url, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded")
             = user.last_name_kanji + " " + user.first_name_kanji
-          %td.division= user.division.name
+          %td.login-division= user.division.name
           %td
             %a.btn.btn-primary ログイン
           %td.collapse= "#{user.last_name_roman} #{user.first_name_roman} #{user.screen_name.presence}"

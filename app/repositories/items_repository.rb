@@ -69,6 +69,46 @@ class ItemsRepository
     item_entities
   end
 
+  def get_items_recently_checked_in
+    items = Item.find_recently_checked_in DASHBOARD_ITEMS_AMOUNT
+    item_entities = []
+    items.each do |item|
+      item_entity = ItemOnDashboardCheckedIn.new(
+        isbn: item['isbn'],
+        item_id: item['item_id'],
+        title: item['title'],
+        author: item['author'],
+        small_image: item['small_image'],
+        volume: item['volume'],
+        area_id: item['area_id'],
+        area_name: item['area_name'],
+        checked_in_at: format_date(item['checked_in_at']),
+      )
+      item_entities << item_entity
+    end
+    item_entities
+  end
+
+  def get_items_well_read
+    items = Item.find_well_read DASHBOARD_ITEMS_AMOUNT
+    item_entities = []
+    items.each do |item|
+      item_entity = ItemOnDashboardWellRead.new(
+          isbn: item['isbn'],
+          item_id: item['item_id'],
+          title: item['title'],
+          author: item['author'],
+          small_image: item['small_image'],
+          volume: item['volume'],
+          area_id: item['area_id'],
+          area_name: item['area_name'],
+          count: item['checked_in_count'],
+      )
+      item_entities << item_entity
+    end
+    item_entities
+  end
+
   def get_item_status(item_id)
     item = Item.find_detail item_id
     check_status item
