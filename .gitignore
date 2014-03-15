@@ -37,9 +37,10 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
-config/initializers/secret_token.rb
 
 # Setting files
+config/initializers/secret_token.rb
+config/initializers/google_analytics.rb
 config/settings.yml
 config/database.yml
 config/secrets.yml

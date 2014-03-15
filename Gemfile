@@ -75,3 +75,6 @@ gem 'haml-rails'
 gem 'simple_form'
 
 gem 'bootstrap-sass', '~> 3.1.1', github: 'uedayo/bootstrap-sass'
+
+# Google Analytics
+gem 'google-analytics-rails'

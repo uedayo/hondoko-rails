@@ -67,6 +67,7 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    google-analytics-rails (0.0.5)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -192,6 +193,7 @@ DEPENDENCIES
   bullet
   coffee-rails (~> 4.0.0)
   factory_girl_rails (~> 4.0)
+  google-analytics-rails
   haml-rails
   jbuilder (~> 1.2)
   jquery-datatables-rails!
