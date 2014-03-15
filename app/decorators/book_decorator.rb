@@ -8,7 +8,7 @@ module BookDecorator
   end
 
   def price_formatted
-    "#{currency_view}#{price}"
+    "#{currency_view}#{number_to_currency(price, format: '%n')}"
   end
 
   def currency_view

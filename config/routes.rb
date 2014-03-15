@@ -11,6 +11,8 @@ Hondoko::Application.routes.draw do
 
   get '/error' => 'application#error'
 
+  get 'maintenance/initialize_books'
+
   resources :check_ins
 
   resources :check_outs

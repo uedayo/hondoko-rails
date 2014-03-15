@@ -14,4 +14,12 @@ module ApplicationHelper
     end
     label
   end
+
+  def view_format(value)
+    if value.present?
+      value.html_safe
+    else
+      I18n.t("view.nil")
+    end
+  end
 end

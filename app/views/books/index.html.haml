@@ -19,9 +19,9 @@
         %tr{:book_isbn => book.isbn, :qid => @query_id}
           %td= image_tag(book.medium_image, width: BOOK_MEDIUM_IMAGE_WIDTH, class: 'img-thumbnail')
           %td.title
-            %strong= book.title.html_safe
-          %td= book.author.html_safe
-          %td= book.manufacturer.html_safe
+            %strong= view_format(book.title)
+          %td= view_format(book.author)
+          %td= view_format(book.manufacturer)
           %td= book.price_formatted
           %td= book.publication_date_formatted
           %td

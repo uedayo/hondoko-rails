@@ -9,14 +9,16 @@ class BooksRepository
     end
   end
 
-  def save_initial_book_and_item(isbn)
+  def save_initial_book_and_item(isbn, category_id=nil)
     book = Book.where(isbn: isbn)
     if book.blank?
-      new_book_by_amazon isbn
+      new_book_by_amazon isbn, category_id
       book = Book.find_by_isbn isbn
-      save_item book_id: book.id,
-                volume: DEFAULT_VOLUME,
-                area_id: DEFAULT_AREA_ID
+      if book.present?
+        save_item book_id: book.id,
+                  volume: DEFAULT_VOLUME,
+                  area_id: DEFAULT_AREA_ID
+      end
     end
   end
 
@@ -44,23 +46,31 @@ class BooksRepository
 
   private
 
-  def new_book_by_amazon(isbn)
+  def new_book_by_amazon(isbn, category_id=nil)
     res = MyAmazon.find isbn
     item = res.items.last
 
-    book = Book.new isbn: isbn,
-                    asin: item.get('ASIN'),
-                    title: item.get('ItemAttributes/Title'),
-                    author: item.get('ItemAttributes/Author'),
-                    manufacturer: item.get('ItemAttributes/Manufacturer'),
-                    publication_date: item.get('ItemAttributes/PublicationDate'),
-                    small_image: item.get('SmallImage/URL'),
-                    medium_image: item.get('MediumImage/URL'),
-                    large_image: item.get('LargeImage/URL'),
-                    price: item.get('ItemAttributes/ListPrice/Amount'),
-                    currency: item.get('ItemAttributes/ListPrice/CurrencyCode')
-    book.save
-    book.id
+    if item.present?
+      book = Book.new(
+          isbn: isbn,
+          asin: item.get('ASIN'),
+          title: item.get('ItemAttributes/Title'),
+          author: item.get('ItemAttributes/Author'),
+          manufacturer: item.get('ItemAttributes/Manufacturer'),
+          publication_date: item.get('ItemAttributes/PublicationDate'),
+          small_image: item.get('SmallImage/URL'),
+          medium_image: item.get('MediumImage/URL'),
+          large_image: item.get('LargeImage/URL'),
+          price: item.get('ItemAttributes/ListPrice/Amount'),
+          currency: item.get('ItemAttributes/ListPrice/CurrencyCode'),
+          category_id: category_id.presence,
+      )
+      book.save
+      Rails.logger.info("Succeeded in saving data from amazon. isbn: #{isbn} categoey_id: #{category_id}");
+      book.id
+    else
+      Rails.logger.error('Failed to get data from amazon.');
+    end
   end
 
 end
