@@ -70,6 +70,8 @@ gem 'active_decorator'
 
 gem 'quiet_assets'
 
+gem 'haml-rails'
+
 gem 'simple_form'
 
 gem 'bootstrap-sass', '~> 3.1.1', github: 'uedayo/bootstrap-sass'

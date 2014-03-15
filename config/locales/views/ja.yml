@@ -28,6 +28,10 @@ ja:
     search_book_title: 「%{key}」での検索結果
     in_out_status_title: 貸出状況
     new_item_title: 本の追加
+    checked_in_items: 最近返却された本
+    well_read_items: たくさん読まれている本
+    frequently_users: たくさん読んだ人（冊数）
+    valuable_users: たくさん読んだ人（金額）
 
     # action
     edit: 編集
@@ -51,6 +55,8 @@ ja:
     checked_out_date: 貸出日
     due_date: 返却予定日
     checked_in_date: 返却日
+    amount: 回数
+    rank: 順位
 
     # value
     nil: 未設定
@@ -84,6 +90,8 @@ ja:
     create_book_done: 本の作成が完了しました
     edit_book_done: 本の編集が完了しました
 
+    owed_books_count_message: 現在、あなたが借りている本は%{count}冊です。
+
     # error message
     error_default: エラーが発生しました
     error_double_registration: 二重登録エラーです
@@ -97,3 +105,5 @@ ja:
     book_add_recommend_message: 本の登録がまだ済んでいない場合は先に登録を行なってください。
     owed_book_empty_message: 現在借りている本はありません。
     book_history_empty_message: 現在までに読み終えた本はありません。
+
+    # dashboard

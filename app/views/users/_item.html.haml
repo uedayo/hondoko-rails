@@ -1,0 +1,13 @@
+%td= image_tag(item.small_image || TWITTER_IMAGE, width: BOOK_MEDIUM_IMAGE_WIDTH, class: 'img-thumbnail')
+%td= item.title_vol
+%td= item.author
+%td= item.area_name
+%td.check_status
+  %span.check_status{class: ("warning-color" unless item.is_available?)}= item.check_status_view
+%td.checked_out_at= item.checked_out_at
+%td.due_date
+  - if !item.is_available? && item.is_overdue
+    %span.warning-color/
+  = item.due_date
+%td.checked_in_at= item.checked_in_at
+%td.operation_link= item.operation_link

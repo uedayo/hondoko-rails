@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Item:
+  = @check_out.item
+%p
+  %strong User:
+  = @check_out.user
+%p
+  %strong Due date:
+  = @check_out.due_date
+= link_to 'Edit', edit_check_out_path(@check_out)
+|
+\#{link_to 'Back', check_outs_path}

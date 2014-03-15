@@ -1,0 +1,26 @@
+.row
+  .col-md-3.row-thumb
+    = link_to image_tag(@book.large_image, width: BOOK_LARGE_IMAGE_WIDTH, class: 'img-thumbnail'), @book.amazon_url
+    .row-thumb
+      = link_to t('view.edit'), edit_book_path(@book), class: 'btn btn-warning btn-primary'
+  .col-md-9
+    %table.table.row-table
+      %tbody
+        %tr
+          %td= tt('Book.author')
+          %td= @book.author.html_safe
+        %tr
+          %td= tt('Book.manufacturer')
+          %td= @book.manufacturer.html_safe
+        %tr
+          %td= tt('Book.publication_date')
+          %td= @book.publication_date_formatted
+        %tr
+          %td= tt('Book.price')
+          %td= @book.price_formatted
+        %tr
+          %td= tt('Book.isbn')
+          %td= @book.isbn
+        %tr
+          %td= t('view.amazon')
+          %td= link_to @book.amazon_url, @book.amazon_url

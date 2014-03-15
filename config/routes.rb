@@ -1,9 +1,18 @@
 Hondoko::Application.routes.draw do
-  root to: 'books#index'
+  root to: 'dashboard#index'
+
+  get '/login' => 'sessions#new'
+  get '/logout' => 'sessions#destroy'
+  delete '/logout' => 'sessions#destroy'
+
+  get 'dashboard/index'
+
+  get 'search/result/:value' => 'search#result'
+
+  get '/error' => 'application#error'
 
   resources :check_ins
 
-  get 'check_outs/scan/:isbn' => 'check_outs#scan'
   resources :check_outs
 
   resources :divisions
@@ -20,15 +29,7 @@ Hondoko::Application.routes.draw do
 
   resources :items
 
-  get 'search/result/:value' => 'search#result'
-
   resources :sessions, only: [:new, :create, :destroy]
-
-  get '/login' => 'sessions#new'
-  get '/logout' => 'sessions#destroy'
-  delete '/logout' => 'sessions#destroy'
-
-  get '/error' => 'application#error'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

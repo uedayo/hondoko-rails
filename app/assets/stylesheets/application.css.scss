@@ -16,13 +16,6 @@
 
 @import "bootstrap";
 
-@media (max-width: 767px) {
-  body {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-}
-
 /*
  * navbar
  */
@@ -97,7 +90,7 @@ div.dataTables_filter label.datatable-label {
 
 table.table thead tr,
 table.table tbody tr {
-  td {
+  th, td {
     font-size: 16px;
     text-align: center;
     vertical-align: middle;

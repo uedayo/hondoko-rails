@@ -1,0 +1,20 @@
+- if @items.empty?
+  .inside= t('view.owed_book_empty_message')
+- else
+  .inside= t('view.owed_books_count_message', count: @items.count)
+  %table.table.table-hover
+    %thead
+      %tr
+        %td
+        %td= tt('Book.title')
+        %td= tt('Book.author')
+        %td= tt('Item.area')
+        %td= t('view.check_status')
+        %td= t('view.checked_out_date')
+        %td= t('view.due_date')
+        %td= t('view.checked_in_date')
+        %td= t('view.operation')
+    %tbody
+      - @items.each do |item|
+        %tr{item_id: "#{item.item_id}", class: "#{item.background_class}"}
+          =render 'users/item', item: item

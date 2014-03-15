@@ -1,6 +1,6 @@
 module ItemBaseDecorator
   def background_class
-    is_available? ? nil : 'class=danger'
+    is_available? ? nil : 'danger'
   end
 
   def check_status_view

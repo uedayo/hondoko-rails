@@ -1,0 +1,28 @@
+%h2.header= @title
+- if @books.empty?
+  .col-sm-offset-1
+    %p= t('view.book_empty_message')
+    %p= t('view.book_add_recommend_message')
+- else
+  %table.table.table-hover.books
+    %thead
+      %tr
+        %td
+        %td= tt('Book.title')
+        %td= tt('Book.author')
+        %td= tt('Book.manufacturer')
+        %td= tt('Book.price')
+        %td= tt('Book.publication_date')
+        %td= tt('Book.category')
+    %tbody
+      - @books.each do |book|
+        %tr{:book_isbn => book.isbn, :qid => @query_id}
+          %td= image_tag(book.medium_image, width: BOOK_MEDIUM_IMAGE_WIDTH, class: 'img-thumbnail')
+          %td.title
+            %strong= book.title.html_safe
+          %td= book.author.html_safe
+          %td= book.manufacturer.html_safe
+          %td= book.price_formatted
+          %td= book.publication_date_formatted
+          %td
+            %span{:class => "label label-default #{book.category_class}"}= book.category_view

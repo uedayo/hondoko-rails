@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Book:
+  = @item.book
+%p
+  %strong Volume:
+  = @item.volume
+%p
+  %strong Area:
+  = @item.area
+= link_to 'Edit', edit_item_path(@item)
+|
+\#{link_to 'Back', items_path}

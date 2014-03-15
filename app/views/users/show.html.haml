@@ -1,0 +1,25 @@
+%h2.header= "#{@user.last_name_kanji.html_safe} #{@user.first_name_kanji.html_safe}"
+.row
+  .col-md-1.row-thumb
+    = link_to image_tag(@user.profile_image_url, width: USER_IMAGE_WIDTH, class: 'img-thumbnail')
+    .row-thumb
+      = link_to t('view.edit'), edit_user_path(@user), class: 'btn btn-warning btn-primary'
+  .col-md-11
+    %table.table.row-table
+      %tbody
+        %tr
+          %td= t('view.name_kanji')
+          %td= "#{@user.last_name_kanji.html_safe} #{@user.first_name_kanji.html_safe}"
+        %tr
+          %td= t('view.name_hiragana')
+          %td
+            = @user.last_name_hiragana.html_safe
+            = @user.first_name_hiragana.html_safe
+        %tr
+          %td= tt('User.screen_name')
+          %td= @user.screen_name
+        %tr
+          %td= tt('User.division')
+          %td= @user.division.name
+%h2.header= t('view.in_out_status_title')
+= render 'items'

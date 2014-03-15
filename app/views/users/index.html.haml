@@ -1,0 +1,26 @@
+%h2.header= t('view.users_title')
+- if @users.empty?
+  .inside= t('view.user_empty_message')
+- else
+  %table.table.table-striped.table-hover
+    %thead
+      %tr
+        %td
+        %td= t('view.name_kanji')
+        %td= t('view.name_hiragana')
+        %td= tt('User.screen_name')
+        %td= tt('User.division')
+        %td= t('view.operation')
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= image_tag(user.profile_image_url, width: USER_IMAGE_WIDTH, class: "img-rounded")
+          %td= user.last_name_kanji + " " + user.first_name_kanji
+          %td= user.last_name_hiragana + " " + user.first_name_hiragana
+          %td= user.screen_name.presence || t('view.nil')
+          %td= user.division.name
+          %td
+            = link_to t('view.edit'), edit_user_path(user), class: "btn btn-warning btn-lg"
+            = link_to t('view.destroy'), user_path(user), method: :delete, class: "btn btn-danger btn-lg"
+%br/
+= link_to t('view.new_user_title'), new_user_path

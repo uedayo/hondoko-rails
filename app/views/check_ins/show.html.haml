@@ -1,0 +1,7 @@
+%p#notice= notice
+%p
+  %strong Check out:
+  = @check_in.check_out
+= link_to 'Edit', edit_check_in_path(@check_in)
+|
+\#{link_to 'Back', check_ins_path}

@@ -1,0 +1,45 @@
+.row-fluid
+  .col-sm-12
+    %h2.header #{t('view.in_out_status_title')}
+    = render 'users/items'
+.row-fluid
+  .col-sm-6
+    / block
+    .block
+      %h2.header #{t('view.checked_in_items')}
+      .block-content.collapse.in
+        %table.table.table-striped
+          %thead
+            %tr
+              %th
+              %th #{tt('Book.title')}
+              %th #{tt('Book.author')}
+              %th #{t('view.checked_in_date')}
+          %tbody
+            %tr
+              %td= image_tag(TWITTER_IMAGE, width: BOOK_SMALL_IMAGE_WIDTH, class: 'img-thumbnail')
+              %td 30日でできる! OS自作入門
+              %td 川合 秀実
+              %td 2014/03/15
+    / /block
+  .col-sm-6
+    / block
+    .block
+      %h2.header #{t('view.well_read_items')}
+      .block-content.collapse.in
+        %table.table.table-striped
+          %thead
+            %tr
+              %th #{t('view.rank')}
+              %th
+              %th #{tt('Book.title')}
+              %th #{tt('Book.author')}
+              %th #{t('view.amount')}
+          %tbody
+            %tr
+              %td 1
+              %td= image_tag(TWITTER_IMAGE, width: BOOK_SMALL_IMAGE_WIDTH, class: 'img-thumbnail')
+              %td コードの未来
+              %td まつもとゆきひろ
+              %td 100
+    / /block

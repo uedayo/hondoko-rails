@@ -1,0 +1,56 @@
+- if @signed_in
+  %nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
+    .container-fluid
+      / Brand and toggle get grouped for better mobile display
+      .navbar-header
+        %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand{:href => "/"}= t('view.service_name')
+      / Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        %ul.nav.navbar-nav.nav-link
+          %li
+            %span.hosts
+              = t('view.from_pc')
+              %strong= ENV['hosts_shorten']
+              = t('view.access')
+        %ul.nav.navbar-nav.navbar-right
+          = form_for(:book, url: books_path, html: {id: "book_search_form", class: "navbar-form navbar-left", role: "search", method: "get"}) do |f|
+            .form-group
+              %input.form-control.input-lg{:name => "q", :placeholder => t('view.search_placeholder'), :type => "text", :value => @key}/
+            %button.btn.btn-default.btn-lg{:type => "submit"}= t('view.search_button')
+          %li.dropdown
+            %a.dropdown-toggle.login-user{"data-toggle" => "dropdown", :href => ""}
+              = image_tag (@current_user.profile_image_url), width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded"
+              = @current_user.last_name_kanji
+              さん
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                = link_to user_path(@current_user) do
+                  %i.glyphicon.glyphicon-book
+                  = t('view.history')
+              %li
+                = link_to edit_user_path(@current_user) do
+                  %i.glyphicon.glyphicon-user
+                  = t('view.profile_edit')
+              %li.divider
+              %li
+                %a{:href => "hondoko://scan/book"}
+                  %i.glyphicon.glyphicon-barcode
+                  = t('view.scan_book')
+              %li
+                %a{:href => "hondoko://scan/new_book"}
+                  %i.glyphicon.glyphicon-plus
+                  = t('view.scan_new_book')
+              %li.divider
+              %li
+                = link_to logout_path, method: "delete" do
+                  %i.glyphicon.glyphicon-log-out
+                  = t('view.logout')
+      / /.navbar-collapse
+    / /.container-fluid
+  .navbar-margin
