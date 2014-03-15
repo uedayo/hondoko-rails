@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $('.table.books > tbody > tr').click ->
+  $('.table.books > tbody > tr').addClass('pointer').click ->
     isbn = $(this).attr('book_isbn')
     qid = $(this).attr('qid')
     url = '/books/' + isbn

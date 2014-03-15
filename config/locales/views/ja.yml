@@ -30,8 +30,8 @@ ja:
     new_item_title: 本の追加
     checked_in_items: 最近返却された本
     well_read_items: たくさん読まれている本
-    frequently_users: たくさん読んだ人（冊数）
-    valuable_users: たくさん読んだ人（金額）
+    owing_users: たくさん借りている人
+    well_read_users: たくさん読み終えた人
 
     # action
     edit: 編集
@@ -56,7 +56,7 @@ ja:
     due_date: 返却予定日
     checked_in_date: 返却日
     amount: 回数
-    rank: 順位
+    read_number: 冊数
 
     # value
     nil: 未設定

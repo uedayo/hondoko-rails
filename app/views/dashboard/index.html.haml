@@ -1,12 +1,12 @@
 .row-fluid
   .col-sm-12
-    %h2.header #{t('view.in_out_status_title')}
+    %h2.header= t('view.in_out_status_title')
     = render 'users/items'
 .row-fluid
   .col-sm-6
     / block
     .block
-      %h2.header #{t('view.checked_in_items')}
+      %h2.header= t('view.checked_in_items')
       .block-content.collapse.in
         %table.table.table-striped
           %thead
@@ -26,7 +26,7 @@
   .col-sm-6
     / block
     .block
-      %h2.header #{t('view.well_read_items')}
+      %h2.header= t('view.well_read_items')
       .block-content.collapse.in
         %table.table.table-striped
           %thead
@@ -42,4 +42,45 @@
                 %td= link_to item.title_vol, book_path(item.isbn)
                 %td.division= item.author
                 %td= item.count
+    / /block
+.row-fluid
+  .col-sm-6
+    / block
+    .block
+      %h2.header= t('view.owing_users')
+      .block-content.collapse.in
+        %table.table.table-striped
+          %thead
+            %tr
+              %th= t('view.name_kanji')
+              %th= tt('User.screen_name')
+              %th= tt('User.division')
+              %th= t('view.read_number')
+          %tbody
+            - @users_owing.each do |user|
+              %tr
+                %td= link_to image_tag("#{user.profile_image_url}" || TWITTER_IMAGE, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded") + " " + user.name_kanji, user_path(user.id)
+                %td.nowrap= link_to user.screen_name_view, user_path(user.id)
+                %td.nowrap= user.division
+                %td= user.owing_count
+    / /block
+  .col-sm-6
+    / block
+    .block
+      %h2.header= t('view.well_read_users')
+      .block-content.collapse.in
+        %table.table.table-striped
+          %thead
+            %tr
+              %th= t('view.name_kanji')
+              %th= tt('User.screen_name')
+              %th= tt('User.division')
+              %th= t('view.read_number')
+          %tbody
+            - @users_well_read_in_number.each do |user|
+              %tr
+                %td= link_to image_tag("#{user.profile_image_url}" || TWITTER_IMAGE, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded") + " " + user.name_kanji, user_path(user.id)
+                %td.nowrap= link_to user.screen_name_view, user_path(user.id)
+                %td.nowrap= user.division
+                %td= user.read_count
     / /block

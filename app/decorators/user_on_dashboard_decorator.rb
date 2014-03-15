@@ -1,0 +1,3 @@
+module UserOnDashboardDecorator
+  include UserBaseDecorator
+end

@@ -105,6 +105,10 @@ table.table tbody tr {
     font-size: 26px;
   }
 
+  td.dashboard-thumbnail {
+    width: 36px;
+  }
+
   th.nowrap, td.nowrap {
     white-space: nowrap;
   }
@@ -121,6 +125,11 @@ table.table tbody tr {
   .btn {
     margin: 5px 10px;
   }
+}
+
+table.table tbody tr.pointer {
+  cursor: pointer;
+  cursor: hand;
 }
 
 .collapse-data {
@@ -195,7 +204,10 @@ span.category-green {
   background-color: #009e0f;
 }
 
+.available-color {
+  color: #009e0f;
+}
+
 .warning-color {
   color: #d62100;
 }
-

@@ -26,7 +26,7 @@ $ ->
   $('#login_users_filter > label').addClass('datatable-label')
   $('#login_users_filter > label > input').addClass('form-control input-lg')
   $('.pagination').remove()
-  $('.table.users > tbody > tr').click ->
+  $('.table.users > tbody > tr').addClass('pointer').click ->
     id = $(this).attr('user_id')
     $('#session_form_id').val(id)
     $('#session_form').submit()
