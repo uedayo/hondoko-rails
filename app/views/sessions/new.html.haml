@@ -1,4 +1,4 @@
-%h2.header= t('view.login')
+%h2.header= t('view.login_title')
 - if @users.empty?
   .inside
     %p= t('view.user_empty_message')
@@ -15,14 +15,14 @@
     %tbody
       - @users.each do |user|
         %tr{user_id: user.id}
-          %td.login-name= user.last_name_hiragana + " " + user.first_name_hiragana
+          %td.login-name= user.name_hiragana
           %td.login-name
             = image_tag(user.profile_image_url, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded")
-            = user.last_name_kanji + " " + user.first_name_kanji
+            = user.name_kanji
           %td.login-division= user.division.name
           %td
-            %a.btn.btn-primary ログイン
-          %td.collapse= "#{user.last_name_roman} #{user.first_name_roman} #{user.screen_name.presence}"
+            %a.btn.btn-primary= t('view.login')
+          %td.collapse= "#{user.name_roman} #{user.screen_name.presence}"
   = form_for(:session, url: sessions_path, html: {id: "session_form"}) do |f|
     = f.hidden_field :user_id, id: "session_form_id"
   .center-horizontal

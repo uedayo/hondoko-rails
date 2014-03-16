@@ -24,7 +24,7 @@ $ ->
   $('#login_users_filter').parent('div').removeClass('col-xs-6').addClass('col-xs-12')
   $('#login_users_filter').prepend('<i class="glyphicon glyphicon-search">')
   $('#login_users_filter > label').addClass('datatable-label')
-  $('#login_users_filter > label > input').addClass('form-control input-lg')
+  $('#login_users_filter > label > input').addClass('form-control input-lg').attr('placeholder', 'なまえの一部を入力')
   $('.pagination').remove()
   $('.table.users > tbody > tr').addClass('pointer').click ->
     id = $(this).attr('user_id')

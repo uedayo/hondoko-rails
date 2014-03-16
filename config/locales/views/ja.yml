@@ -1,7 +1,7 @@
 ja:
   view:
     # header
-    service_name: ほんどこ
+    service_name: ほんどこ？
     search: 探す
     item_new: 本の追加
     search_placeholder: 本のタイトルなど
@@ -19,6 +19,7 @@ ja:
     footer: "%{service_name} by サ開20%ルール"
 
     # title
+    login_title: ほんどこ？にログイン
     users_title: ユーザリスト
     new_user_title: ユーザの新規作成
     edit_user_title: "%{name} さんのプロフィール編集"
