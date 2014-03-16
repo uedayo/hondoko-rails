@@ -7,6 +7,14 @@ class MyAmazon
         country: ENV['country']
     }
 
-    Amazon::Ecs.item_lookup(book_id, {response_group: 'Large,Offers', sort: 'salesrank', id_type: 'ISBN', search_index: 'Books'})
+    Amazon::Ecs.item_lookup(
+        book_id,
+        {
+            response_group: 'Large,Offers',
+            sort: 'salesrank', id_type: 'ISBN',
+            search_index: 'Books',
+            power: 'binding:not kindle',
+        }
+    )
   end
 end

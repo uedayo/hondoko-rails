@@ -8,10 +8,10 @@
       %tbody
         %tr
           %td= tt('Book.author')
-          %td= @book.author.html_safe
+          %td= view_format(@book.author)
         %tr
           %td= tt('Book.manufacturer')
-          %td= @book.manufacturer.html_safe
+          %td= view_format(@book.manufacturer)
         %tr
           %td= tt('Book.publication_date')
           %td= @book.publication_date_formatted

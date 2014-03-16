@@ -9,7 +9,7 @@ BOOK_LARGE_IMAGE_WIDTH = 150
 EXAMPLE_EMAIL = "example@biglobe.co.jp"
 
 # Amazon
-AMAZON_BASE_URL = "http://amazon.co.jp/o/ASIN/"
+AMAZON_BASE_URL = "http://amazon.co.jp/dp/"
 
 # Twitter
 TWITTER_IMAGE = "https://pbs.twimg.com/profile_images/1051567310/kihon_a_01_bigger.gif"

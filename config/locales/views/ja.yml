@@ -23,6 +23,7 @@ ja:
     new_user_title: ユーザの新規作成
     edit_user_title: "%{name} さんのプロフィール編集"
     books_title: 本のリスト
+    new_book_title: 本の新規作成
     edit_book_title: "『%{name}』の編集"
     search_book_title: 「%{key}」での検索結果
     in_out_status_title: 貸出状況
@@ -71,6 +72,18 @@ ja:
     first_name_roman_placeholder: Taro
     image_url_placeholder: スクリーン名を入力することでTwitterから取得できます
 
+    # user form placeholder
+    title_placeholder: リーダブルコード ―より良いコードを書くためのシンプルで実践的なテクニック (Theory in practice)
+    author_placeholder: Dustin Boswell
+    manufacturer_placeholder: オライリージャパン
+    isbn_placeholder: 4873115655 (バーコード)
+    asin_placeholder: 4873115655 (http://www.amazon.co.jp/dp/XXXXXXXXXX の XXXXXXXXXX)
+    price_placeholder: 2520
+    currency_placeholder: JPY
+    small_image_placeholder: http://ecx.images-amazon.com/images/I/51MgH8Jmr3L._SL75_.jpg
+    medium_image_placeholder: http://ecx.images-amazon.com/images/I/51MgH8Jmr3L._SL160_.jpg
+    large_image_placeholder: http://ecx.images-amazon.com/images/I/51MgH8Jmr3L.jpg
+
     # status
     available: 貸出可
     unavailable: 貸出中
@@ -80,26 +93,28 @@ ja:
     USD: US＄
 
     # message
-    check_out_done: 貸出が完了しました
-    check_in_done: 返却が完了しました
-    request_done: リクエストが完了しました
+    check_out_done: 貸出が完了しました。
+    check_in_done: 返却が完了しました。
+    request_done: リクエストが完了しました。
 
-    create_user_done: ユーザの作成が完了しました
-    edit_user_done: ユーザの編集が完了しました
-    create_book_done: 本の作成が完了しました
-    edit_book_done: 本の編集が完了しました
+    create_user_done: ユーザの作成が完了しました。
+    edit_user_done: ユーザの編集が完了しました。
+    create_book_done: 本の作成が完了しました。
+    edit_book_done: 本の編集が完了しました。
 
-    owed_books_count_message: 現在、あなたが借りている本は%{count}冊です。
+    owed_books_count_message: 現在、あなたが借りている本は %{count} 冊です。
+    item_count_message: 現在 %{count} 冊登録されています。
 
     # error message
-    error_default: エラーが発生しました
-    error_double_registration: 二重登録エラーです
-    error_i18n_error: エラーメッセージが見つかりません
+    error_default: エラーが発生しました。
+    error_double_registration: 二重登録エラーです。
+    error_i18n_error: エラーメッセージが見つかりません。
     error_email: を入力してください。通知に使用します。
+    error_amazon: Amazonからのデータ取得に失敗しました。お手数ですが、本の情報の入力をお願いします。
 
     # empty message
-    user_empty_message: ユーザが１人も見つかりません
-    user_add_recommend_message: あなたが最初に登録しましょう！
+    user_empty_message: ユーザが１人も見つかりません。
+    user_add_recommend_message: あなたが最初に登録しませんか？
     book_empty_message: 本が１冊も見つかりません。
     book_add_recommend_message: 本の登録がまだ済んでいない場合は先に登録を行なってください。
     owed_book_empty_message: 現在借りている本はありません。

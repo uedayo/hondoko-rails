@@ -10,19 +10,22 @@ class BooksRepository
   end
 
   def save_initial_book_and_item(isbn, category_id=nil)
-    book = Book.where(isbn: isbn)
-    if book.blank?
-      new_book_by_amazon isbn, category_id
-      book = Book.find_by_isbn isbn
-      if book.present?
-        save_item book_id: book.id,
-                  volume: DEFAULT_VOLUME,
-                  area_id: DEFAULT_AREA_ID
-      end
+    Rails.logger.debug("#save_initial_book_and_item start. isbn: #{isbn}");
+    new_book_by_amazon isbn, category_id
+    book = Book.find_by_isbn isbn
+    if book.present?
+      save_item(
+          book_id: book.id,
+          volume: DEFAULT_VOLUME,
+          area_id: DEFAULT_AREA_ID,
+      )
+    else
+      Rails.logger.error("Failed to save book and item. isbn: #{isbn}");
     end
   end
 
   def save_item(book_id: book_id, volume: volume, area_id: area_id)
+    Rails.logger.debug("#save_item start. book_id: #{book_id}, volume: volume");
     item = Item.where(book_id: book_id, volume: volume, area_id: area_id)
     if item.blank?
       item = Item.new book_id: book_id,
@@ -49,28 +52,30 @@ class BooksRepository
   def new_book_by_amazon(isbn, category_id=nil)
     res = MyAmazon.find isbn
     item = res.items.last
+    Rails.logger.debug("item data from amazon: #{item}")
 
-    if item.present?
-      book = Book.new(
-          isbn: isbn,
-          asin: item.get('ASIN'),
-          title: item.get('ItemAttributes/Title'),
-          author: item.get('ItemAttributes/Author'),
-          manufacturer: item.get('ItemAttributes/Manufacturer'),
-          publication_date: item.get('ItemAttributes/PublicationDate'),
-          small_image: item.get('SmallImage/URL'),
-          medium_image: item.get('MediumImage/URL'),
-          large_image: item.get('LargeImage/URL'),
-          price: item.get('ItemAttributes/ListPrice/Amount'),
-          currency: item.get('ItemAttributes/ListPrice/CurrencyCode'),
-          category_id: category_id.presence,
-      )
-      book.save
-      Rails.logger.info("Succeeded in saving data from amazon. isbn: #{isbn} categoey_id: #{category_id}");
-      book.id
-    else
-      Rails.logger.error('Failed to get data from amazon.');
+    if item.blank?
+      Rails.logger.error("Failed to get data from amazon. isbn: #{isbn}");
+      raise AmazonError, "Failed to get data from amazon"
     end
+
+    book = Book.new(
+        isbn: isbn,
+        asin: item.get('ASIN'),
+        title: item.get('ItemAttributes/Title'),
+        author: item.get('ItemAttributes/Author'),
+        manufacturer: item.get('ItemAttributes/Manufacturer'),
+        publication_date: item.get('ItemAttributes/PublicationDate'),
+        small_image: item.get('SmallImage/URL'),
+        medium_image: item.get('MediumImage/URL'),
+        large_image: item.get('LargeImage/URL'),
+        price: item.get('ItemAttributes/ListPrice/Amount'),
+        currency: item.get('ItemAttributes/ListPrice/CurrencyCode'),
+        category_id: category_id.presence,
+    )
+    book.save
+    Rails.logger.info("Succeeded in saving data from amazon. isbn: #{isbn} categoey_id: #{category_id}");
+    book.id
   end
 
 end

@@ -1,0 +1,1 @@
+class AmazonError < StandardError; end
