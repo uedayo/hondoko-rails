@@ -59,7 +59,7 @@ class UsersController < ApplicationController
 
   def twitter_image
     twitter_user = Twitter.find params[:screen_name]
-    @twitter_image = twitter_user["profile_image_url"]
+    @twitter_image = twitter_user["profile_image_url"].gsub('_normal', '')
   end
 
   # DELETE /users/1
