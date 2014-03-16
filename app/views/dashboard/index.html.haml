@@ -8,40 +8,48 @@
     .block
       %h2.header= t('view.checked_in_items')
       .block-content.collapse.in
-        %table.table.table-striped
-          %thead
-            %tr
-              %th
-              %th= tt('Book.title')
-              %th= tt('Item.area')
-              %th= t('view.checked_in_date')
-          %tbody
-            - @items_checked_in.each do |item|
+        - if @items_checked_in.present?
+          %table.table.table-striped
+            %thead
               %tr
-                %td= link_to image_tag("#{item.small_image}" || TWITTER_IMAGE, width: BOOK_SMALL_IMAGE_WIDTH), book_path(item.isbn)
-                %td= link_to item.title_vol, book_path(item.isbn)
-                %td.nowrap= item.area_name
-                %td= item.checked_in_at
+                %th
+                %th= tt('Book.title')
+                %th= tt('Item.area')
+                %th= t('view.checked_in_date')
+            %tbody
+              - @items_checked_in.each do |item|
+                %tr
+                  %td= link_to image_tag("#{item.small_image}" || TWITTER_IMAGE, width: BOOK_SMALL_IMAGE_WIDTH), book_path(item.isbn)
+                  %td= link_to item.title_vol, book_path(item.isbn)
+                  %td.nowrap= item.area_name
+                  %td= item.checked_in_at
+        - else
+          .inside
+            %p= t('view.book_empty_message')
     / /block
   .col-sm-6
     / block
     .block
       %h2.header= t('view.well_read_items')
       .block-content.collapse.in
-        %table.table.table-striped
-          %thead
-            %tr
-              %th
-              %th= tt('Book.title')
-              %th= tt('Book.author')
-              %th.nowrap= t('view.amount')
-          %tbody
-            - @items_well_read.each do |item|
+        - if @items_well_read.present?
+          %table.table.table-striped
+            %thead
               %tr
-                %td= link_to image_tag("#{item.small_image}" || TWITTER_IMAGE, width: BOOK_SMALL_IMAGE_WIDTH), book_path(item.isbn)
-                %td= link_to item.title_vol, book_path(item.isbn)
-                %td.division= item.author
-                %td= item.count
+                %th
+                %th= tt('Book.title')
+                %th= tt('Book.author')
+                %th.nowrap= t('view.amount')
+            %tbody
+              - @items_well_read.each do |item|
+                %tr
+                  %td= link_to image_tag("#{item.small_image}" || TWITTER_IMAGE, width: BOOK_SMALL_IMAGE_WIDTH), book_path(item.isbn)
+                  %td= link_to item.title_vol, book_path(item.isbn)
+                  %td.division= item.author
+                  %td= item.count
+        - else
+          .inside
+            %p= t('view.book_empty_message')
     / /block
 .row-fluid
   .col-sm-6
@@ -49,38 +57,46 @@
     .block
       %h2.header= t('view.owing_users')
       .block-content.collapse.in
-        %table.table.table-striped
-          %thead
-            %tr
-              %th= t('view.name_kanji')
-              %th= tt('User.screen_name')
-              %th= tt('User.division')
-              %th= t('view.read_number')
-          %tbody
-            - @users_owing.each do |user|
+        - if @users_owing.present?
+          %table.table.table-striped
+            %thead
               %tr
-                %td= link_to image_tag("#{user.profile_image_url}" || TWITTER_IMAGE, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded") + " " + user.name_kanji, user_path(user.id)
-                %td.nowrap= link_to view_format(user.screen_name), user_path(user.id)
-                %td.nowrap= user.division
-                %td= user.owing_count
+                %th= t('view.name_kanji')
+                %th= tt('User.screen_name')
+                %th= tt('User.division')
+                %th= t('view.read_number')
+            %tbody
+              - @users_owing.each do |user|
+                %tr
+                  %td= link_to image_tag("#{user.profile_image_url}" || TWITTER_IMAGE, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded") + " " + user.name_kanji, user_path(user.id)
+                  %td.nowrap= link_to view_format(user.screen_name), user_path(user.id)
+                  %td.nowrap= user.division
+                  %td= user.owing_count
+        - else
+          .inside
+            %p= t('view.user_empty_message')
     / /block
   .col-sm-6
     / block
     .block
       %h2.header= t('view.well_read_users')
       .block-content.collapse.in
-        %table.table.table-striped
-          %thead
-            %tr
-              %th= t('view.name_kanji')
-              %th= tt('User.screen_name')
-              %th= tt('User.division')
-              %th= t('view.read_number')
-          %tbody
-            - @users_well_read_in_number.each do |user|
+        - if @users_well_read.present?
+          %table.table.table-striped
+            %thead
               %tr
-                %td= link_to image_tag("#{user.profile_image_url}" || TWITTER_IMAGE, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded") + " " + user.name_kanji, user_path(user.id)
-                %td.nowrap= link_to view_format(user.screen_name), user_path(user.id)
-                %td.nowrap= user.division
-                %td= user.read_count
+                %th= t('view.name_kanji')
+                %th= tt('User.screen_name')
+                %th= tt('User.division')
+                %th= t('view.read_number')
+            %tbody
+              - @users_well_read.each do |user|
+                %tr
+                  %td= link_to image_tag("#{user.profile_image_url}" || TWITTER_IMAGE, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded") + " " + user.name_kanji, user_path(user.id)
+                  %td.nowrap= link_to view_format(user.screen_name), user_path(user.id)
+                  %td.nowrap= user.division
+                  %td= user.read_count
+        - else
+          .inside
+            %p= t('view.user_empty_message')
     / /block

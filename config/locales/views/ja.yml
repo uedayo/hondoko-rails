@@ -23,7 +23,7 @@ ja:
     new_user_title: ユーザの新規作成
     edit_user_title: "%{name} さんのプロフィール編集"
     books_title: 本のリスト
-    new_book_title: 本の新規作成
+    new_book_title: 本の基本情報の新規作成
     edit_book_title: "『%{name}』の編集"
     search_book_title: 「%{key}」での検索結果
     in_out_status_title: 貸出状況
@@ -99,8 +99,8 @@ ja:
 
     create_user_done: ユーザの作成が完了しました。
     edit_user_done: ユーザの編集が完了しました。
-    create_book_done: 本の作成が完了しました。
-    edit_book_done: 本の編集が完了しました。
+    create_book_done: 本の基本情報の作成が完了しました。
+    edit_book_done: 本の基本情報の編集が完了しました。
 
     owed_books_count_message: 現在、あなたが借りている本は %{count} 冊です。
     item_count_message: 現在 %{count} 冊登録されています。
@@ -113,11 +113,12 @@ ja:
     error_amazon: Amazonからのデータ取得に失敗しました。お手数ですが、本の情報の入力をお願いします。
 
     # empty message
-    user_empty_message: ユーザが１人も見つかりません。
+    user_empty_message: 該当するユーザが１人も見つかりません。
     user_add_recommend_message: あなたが最初に登録しませんか？
-    book_empty_message: 本が１冊も見つかりません。
+    book_empty_message: 該当する本が１冊も見つかりません。
     book_add_recommend_message: 本の登録がまだ済んでいない場合は先に登録を行なってください。
     owed_book_empty_message: 現在借りている本はありません。
     book_history_empty_message: 現在までに読み終えた本はありません。
+    item_add_recommend_message: 本の個別情報の登録を行なってください。
 
     # dashboard

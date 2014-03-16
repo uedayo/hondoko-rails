@@ -13,5 +13,4 @@
     .col-sm-10
       = f.collection_select :area_id, Area.all, :id, :name, {}, {class: 'form-control'}
   .form-group
-    .col-sm-offset-2.col-sm-10
-      = f.submit class: 'btn btn-primary'
+    .center-horizontal= f.submit class: 'btn btn-primary'

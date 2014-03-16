@@ -2,6 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*
+ * dataTables_filter box
+ */
+
+div.dataTables_filter i.glyphicon {
+  float: left;
+  font-size: 1.6em;
+  margin: 12px;
+}
+
+div.dataTables_filter label.datatable-label {
+  float: left;
+}
+
 .datatable-label {
   font-size: 16px;
 }
+

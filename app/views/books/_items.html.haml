@@ -1,16 +1,22 @@
 %table.table.table-hover
-  %thead
-    %tr
-      %th= tt('Item.volume')
-      %th= tt('Item.area')
-      %th= tt('Book.category')
-      %th= t('view.check_status')
-      %th= t('view.last_user')
-      %th= t('view.checked_out_date')
-      %th= t('view.due_date')
-      %th= t('view.checked_in_date')
-      %th= t('view.operation')
-  %tbody
-    - @items.each do |item|
-      %tr{item_id: "#{item.item_id}", class: "#{item.background_class}"}
-        = render 'books/item', item: item
+  - if @items.present?
+    %thead
+      %tr
+        %th= tt('Item.volume')
+        %th= tt('Item.area')
+        %th= tt('Book.category')
+        %th= t('view.check_status')
+        %th= t('view.last_user')
+        %th= t('view.checked_out_date')
+        %th= t('view.due_date')
+        %th= t('view.checked_in_date')
+        %th= t('view.operation')
+    %tbody
+      - @items.each do |item|
+        %tr{item_id: "#{item.item_id}", class: "#{item.background_class}"}
+          = render 'books/item', item: item
+  - else
+    .inside
+      %p= t('view.item_add_recommend_message')
+      .center-horizontal=link_to t('view.new_item_title'), new_item_path(book_id: @book.id), class: 'btn btn-success'
+

@@ -43,7 +43,10 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to @book, notice: I18n.t('view.create_book_done') }
+        format.html {
+          redirect_to book_path @book
+          flash[:success] =  t('view.create_book_done')
+        }
         format.json { render action: 'show', status: :created, location: @book }
       else
         format.html { render action: 'new' }
@@ -57,7 +60,10 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to @book, notice: I18n.t('view.edit_book_done') }
+        format.html {
+          redirect_to book_path @book
+          flash[:success] =  t('view.edit_book_done')
+        }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -97,6 +103,17 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :author, :manufacturer, :small_image, :medium_image, :detail_page_url, :category_id)
+      params.require(:book).permit(
+          :title,
+          :author,
+          :manufacturer,
+          :isbn,
+          :asin,
+          :price,
+          :currency,
+          :small_image,
+          :medium_image,
+          :category_id
+      )
     end
 end
