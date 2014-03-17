@@ -3,7 +3,7 @@ class MaintenanceController < ApplicationController
 
   def initialize_books
     @seeds = Hash.new
-    @books_repo = BooksRepository.new
+    @books_repo = BooksInitializeRepository.new
     filepath = ENV['initial_isbn']
     if File.exists? filepath
       reader = CSV.foreach filepath
