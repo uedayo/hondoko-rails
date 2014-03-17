@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_filter :login_required
+  protect_from_forgery except: [:new, :create]
 
   def new
     sign_out
