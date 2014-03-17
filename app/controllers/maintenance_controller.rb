@@ -1,9 +1,10 @@
 class MaintenanceController < ApplicationController
   require "csv"
+
   def initialize_books
     @seeds = Hash.new
     @books_repo = BooksRepository.new
-    filepath = "tmp/data/books.csv"
+    filepath = ENV['initial_isbn']
     if File.exists? filepath
       reader = CSV.foreach filepath
     else
@@ -11,8 +12,8 @@ class MaintenanceController < ApplicationController
       return false
     end
     reader.each{ |row|
-      isbn=row[0]
-      category_id=row[1]
+      isbn = row[0]
+      category_id = row[1]
       if isbn == '0'
         logger.info("Succeeded in saving data from amazon. isbn: #{isbn} categoey_id: #{category_id}");
         next

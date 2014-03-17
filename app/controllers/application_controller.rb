@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  rescue_from ActionController::InvalidAuthenticityToken, with: :redirect_to_login
-  rescue_from NoMethodError, with: :redirect_to_login
+  rescue_from ActionController::InvalidAuthenticityToken, with: :redirect_to_root
+  rescue_from NoMethodError, with: :redirect_to_root
   rescue_from AmazonError, with: :redirect_to_new_book
 
   include Sessions
@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
     @signed_in = signed_in?
   end
 
-  def redirect_to_login
+  def redirect_to_root
     redirect_to root_path
   end
 

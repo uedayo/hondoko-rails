@@ -1,4 +1,6 @@
 class BooksRepository
+  require 'csv'
+
   def find(isbn)
     book = Book.find_by isbn: isbn
     if book.blank?
@@ -11,7 +13,11 @@ class BooksRepository
 
   def save_initial_book_and_item(isbn, category_id=nil)
     Rails.logger.debug("#save_initial_book_and_item start. isbn: #{isbn}");
-    new_book_by_amazon isbn, category_id
+    save_book_by_amazon isbn, category_id
+    save_initial_item(isbn)
+  end
+
+  def save_initial_item(isbn)
     book = Book.find_by_isbn isbn
     if book.present?
       save_item(
@@ -49,15 +55,17 @@ class BooksRepository
 
   private
 
-  def new_book_by_amazon(isbn, category_id=nil)
+  def save_book_by_amazon(isbn, category_id=nil)
     res = MyAmazon.find isbn
     item = res.items.last
-    Rails.logger.debug("item data from amazon: #{item}")
 
     if item.blank?
-      Rails.logger.error("Failed to get data from amazon. isbn: #{isbn}");
+      export_error_isbn(isbn)
+      Rails.logger.error("Failed to get data from amazon. isbn: #{isbn}")
       raise AmazonError, "Failed to get data from amazon"
     end
+
+    Rails.logger.debug("item data from amazon: #{item}")
 
     book = Book.new(
         isbn: isbn,
@@ -74,8 +82,14 @@ class BooksRepository
         category_id: category_id.presence,
     )
     book.save
-    Rails.logger.info("Succeeded in saving data from amazon. isbn: #{isbn} categoey_id: #{category_id}");
+    Rails.logger.info("Succeeded in saving data from amazon. isbn: #{isbn} categoey_id: #{category_id}")
     book.id
+  end
+
+  def export_error_isbn(isbn)
+    CSV.open(ENV['amazon_error_isbn'], 'a') do |writer|
+      writer << ["#{isbn}"]
+    end
   end
 
 end

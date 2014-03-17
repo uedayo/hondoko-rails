@@ -7,7 +7,7 @@ describe 'BookItemRepository' do
       before do
         @isbn = '9784839919849'
         repo = BooksRepository.new
-        @res = repo.send(:new_book_by_amazon, @isbn)
+        @res = repo.send(:save_book_by_amazon, @isbn)
       end
 
       it 'should save book data' do

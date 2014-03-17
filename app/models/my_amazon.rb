@@ -11,7 +11,8 @@ class MyAmazon
         book_id,
         {
             response_group: 'Large,Offers',
-            sort: 'salesrank', id_type: 'ISBN',
+            sort: 'salesrank',
+            id_type: 'ISBN',
             search_index: 'Books',
             power: 'binding:not kindle',
         }
