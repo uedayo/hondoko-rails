@@ -3,7 +3,7 @@
   %head
     = analytics_init if GA.tracker != GoogleAnalytics::PLACEHOLDER_TRACKER
     %meta{:charset => "utf-8"}/
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "width=device-width, minimum-scale=1.0, maximum-scale=1.0", :name => "viewport"}/
     %title= t('view.service_name')
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
