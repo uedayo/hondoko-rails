@@ -8,20 +8,22 @@ class ItemsRepository
     items = Item.find_detail_all_by_isbn isbn
     item_entities = []
     items.each do |item|
-      item_entity = ItemOnBook.new item_id: item['item_id'],
-                                   volume: item['volume'],
-                                   area_id: item['area_id'],
-                                   area_name: item['area_name'],
-                                   check_status: check_status(item),
-                                   check_out_id: item['check_out_id'],
-                                   user_id: item['user_id'],
-                                   name_kanji: name_kanji(item),
-                                   image_url: item['image_url'],
-                                   checked_out_at: format_date(item['checked_out_at']),
-                                   due_date: format_date(item['due_date']),
-                                   is_overdue: is_overdue?(item['due_date']),
-                                   check_in_id: item['check_in_id'],
-                                   checked_in_at: format_date(item['checked_in_at'])
+      item_entity = ItemOnBook.new(
+          item_id: item['item_id'],
+          volume: item['volume'],
+          area_id: item['area_id'],
+          area_name: item['area_name'],
+          check_status: check_status(item),
+          check_out_id: item['check_out_id'],
+          user_id: item['user_id'],
+          name_kanji: name_kanji(item),
+          image_url: item['image_url'],
+          checked_out_at: format_date(item['checked_out_at']),
+          due_date: format_date(item['due_date']),
+          is_overdue: is_overdue?(item['due_date']),
+          check_in_id: item['check_in_id'],
+          checked_in_at: format_date(item['checked_in_at']),
+      )
       item_entities << item_entity
     end
     item_entities

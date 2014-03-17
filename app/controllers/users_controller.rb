@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: t('view.create_user_done') }
+        format.html { redirect_to @user, notice: t('view.create_user_done_message') }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         sign_out
-        format.html { redirect_to @user, notice: t('view.edit_user_done') }
+        format.html { redirect_to @user, notice: t('view.edit_user_done_message') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

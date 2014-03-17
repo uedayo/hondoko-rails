@@ -10,8 +10,9 @@ ja:
     dashboard: ダッシュボード
     history: 貸出状況・履歴
     profile_edit: プロフィール編集
-    scan_book: 本を表示
-    scan_new_book: 本を新規登録
+    new_book: 本を新規登録
+    scan_book: スキャンで本を表示
+    scan_new_book: スキャンで本を新規登録
     logout: ログアウト
     login: ログイン
 
@@ -98,10 +99,12 @@ ja:
     check_in_done: 返却が完了しました。
     request_done: リクエストが完了しました。
 
-    create_user_done: ユーザの作成が完了しました。
-    edit_user_done: ユーザの編集が完了しました。
-    create_book_done: 本の基本情報の作成が完了しました。
-    edit_book_done: 本の基本情報の編集が完了しました。
+    create_user_done_message: ユーザの作成が完了しました。
+    edit_user_done_message: ユーザの編集が完了しました。
+    create_book_done_message: 本の基本情報の作成が完了しました。
+    edit_book_done_message: 本の基本情報の編集が完了しました。
+    book_already_exits_message: すでに本の基本情報が存在します。
+    create_book_and_item_done_message: 本の作成が完了しました。
 
     owed_books_count_message: 現在、あなたが借りている本は %{count} 冊です。
     item_count_message: 現在 %{count} 冊登録されています。

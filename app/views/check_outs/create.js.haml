@@ -1,7 +1,8 @@
 tr =  $("tr[item_id='#{@item.item_id}']");
 tr.hide();
 tr.find(".check_status").removeClass('available-color').addClass('warning-color').html('<strong>貸出中</strong>');
-tr.find(".user_image_url").attr('src', "#{@item.user_image_url}");
+tr.find(".user > img").remove();
+tr.find(".user").prepend("<img class='img-rounded' src='#{@item.user_image_url}' width='32'>");
 tr.find(".name_kanji").text("#{@item.name_kanji}");
 tr.find(".checked_out_at").text("#{@item.checked_out_at}");
 tr.find(".due_date").text("#{@item.due_date}");

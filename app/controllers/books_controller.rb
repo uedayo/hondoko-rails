@@ -45,7 +45,7 @@ class BooksController < ApplicationController
       if @book.save
         format.html {
           redirect_to book_path @book
-          flash[:success] =  t('view.create_book_done')
+          flash[:success] =  t('view.create_book_done_message')
         }
         format.json { render action: 'show', status: :created, location: @book }
       else
@@ -62,7 +62,7 @@ class BooksController < ApplicationController
       if @book.update(book_params)
         format.html {
           redirect_to book_path @book
-          flash[:success] =  t('view.edit_book_done')
+          flash[:success] =  t('view.edit_book_done_message')
         }
         format.json { head :no_content }
       else
@@ -88,17 +88,19 @@ class BooksController < ApplicationController
     books_repo = BooksRepository.new
     if @book.present?
       redirect_to controller: 'items', action: 'new', book_id: @book.id
+      flash[:notice] =  t('view.book_already_exits_message')
       return false
-    else
-      books_repo.save_initial_book_and_item isbn
     end
+    books_repo.save_initial_book_and_item isbn
     redirect_to book_path isbn
+    flash[:success] =  t('view.create_book_and_item_done_message')
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
       @book = Book.find params[:id]
+      redirect_to(controller: 'books', action: 'create_by_isbn', isbn: params[:id]) unless @book.present?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
