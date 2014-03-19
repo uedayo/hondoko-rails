@@ -5,13 +5,13 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    if query = params[:q].presence
+    if @query = params[:q].presence
       searches_repo = SearchesRepository.new @current_user
-      search = searches_repo.save query
+      search = searches_repo.save @query
       @query_id = search.id
       books_repo = BooksRepository.new
-      @books = books_repo.find_by_search_words query
-      @title = t('view.search_book_title', key: query)
+      @books = books_repo.find_by_search_words @query
+      @title = t('view.search_book_title', key: @query)
     else
       @books = Book.all
       @title = t('view.books_title')
