@@ -16,13 +16,13 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    if params[:book_id]
-      book_id = params[:book_id]
-      @book = Book.where(id: book_id).first
+    book_id = params[:book_id]
+    if @book = Book.where(id: book_id).first.presence
       @count = Item.where(book_id: @book.id).count
       @item = Item.new book_id: book_id
     else
-      redirect_to books_path
+      redirect_to new_book_path
+      flash[:notice] =  t('view.book_master_empty_message')
     end
   end
 
@@ -42,7 +42,10 @@ class ItemsController < ApplicationController
     respond_to do |format|
       if @item.save
         book = Book.where(id: @item.book_id).first
-        format.html { redirect_to book_path(book.isbn), notice: t('view.create_book_done_message') }
+        format.html {
+          redirect_to book_path(book.isbn)
+          flash[:success] =  t('view.create_item_done_message')
+        }
         format.json { render action: 'show', status: :created, location: @item }
       else
         format.html { render action: 'new' }

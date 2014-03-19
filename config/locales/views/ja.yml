@@ -105,6 +105,7 @@ ja:
     edit_book_done_message: 本の基本情報の編集が完了しました。
     book_already_exits_message: すでに本の基本情報が存在します。
     create_book_and_item_done_message: 本の作成が完了しました。
+    create_item_done_message: 本の追加作成が完了しました。
 
     owed_books_count_message: 現在、あなたが借りている本は %{count} 冊です。
     item_count_message: 現在 %{count} 冊登録されています。
@@ -120,6 +121,7 @@ ja:
     user_empty_message: 該当するユーザが１人も見つかりません。
     user_add_recommend_message: あなたが最初に登録しませんか？
     book_empty_message: 該当する本が１冊も見つかりません。
+    book_master_empty_message: 該当する本の基本情報が１冊も見つかりません。
     book_add_recommend_message: 本の登録がまだ済んでいない場合は先に登録を行なってください。
     owed_book_empty_message: 現在借りている本はありません。
     book_history_empty_message: 現在までに読み終えた本はありません。
