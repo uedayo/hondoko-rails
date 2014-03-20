@@ -30,13 +30,17 @@ nav.navbar {
   padding: 20px;
 }
 
+.search-form {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 ul.navbar-nav > li > a.login-user {
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
 ul.navbar-nav > li > span.hosts {
-  line-height: 20px;
   position: relative;
   display: block;
   padding: 20px 15px;
@@ -106,7 +110,6 @@ table.table tbody tr {
 
   .title {
     vertical-align: middle;
-    width: 30%;
   }
 
   .name {
@@ -202,6 +205,10 @@ span.category-green {
 
 .available-color {
   color: #009e0f;
+}
+
+.unavailable-background {
+  background-color: #eeeeee;
 }
 
 .warning-color {

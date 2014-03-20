@@ -1,15 +1,15 @@
 %td= link_to image_tag(item.small_image || TWITTER_IMAGE, width: BOOK_MEDIUM_IMAGE_WIDTH), book_path(item.isbn)
 %td.title
   %strong= link_to item.title.html_safe, book_path(item.isbn)
-%td= item.author
-%td= item.area_name
-%td.check_status
+%td.hidden-xs= item.author
+%td.hidden-xs= item.area_name
+%td.check_status.hidden-xs
   %span.check_status{class: (item.is_available? ? "available-color" : "warning-color")}
     %strong= item.check_status_view
-%td.checked_out_at= item.checked_out_at
-%td.due_date
+%td.checked_out_at.hidden-xs= item.checked_out_at
+%td.due_date.hidden-xs
   - if !item.is_available? && item.is_overdue
     %span.warning-color/
   = item.due_date
-%td.checked_in_at= item.checked_in_at
+%td.checked_in_at.hidden-xs= item.checked_in_at
 %td.operation_link= item.operation_link

@@ -1,6 +1,6 @@
 module ItemBaseDecorator
   def background_class
-    is_available? ? nil : 'danger'
+    is_available? ? nil : 'unavailable-background'
   end
 
   def check_status_view
@@ -15,7 +15,6 @@ module ItemBaseDecorator
       link_to t('view.check_in'), check_ins_path(item_id: item_id), remote: true, class: 'btn btn-warning', method: 'post'
     when ITEM_STATUS.UNAVAILABLE
       '<a class="btn btn-danger">貸出中</a>'.html_safe
-      #link_to t('view.checked_out'), {}, class: 'btn btn-danger'
     end
   end
 

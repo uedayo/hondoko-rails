@@ -2,14 +2,14 @@
   - if @items.present?
     %thead
       %tr
-        %th= tt('Item.volume')
-        %th= tt('Item.area')
-        %th= tt('Book.category')
+        %th.hidden-xs= tt('Item.volume')
+        %th.hidden-xs= tt('Item.area')
+        %th.hidden-xs= tt('Book.category')
         %th= t('view.check_status')
         %th= t('view.last_user')
-        %th= t('view.checked_out_date')
-        %th= t('view.due_date')
-        %th= t('view.checked_in_date')
+        %th.hidden-xs= t('view.checked_out_date')
+        %th.hidden-xs= t('view.due_date')
+        %th.hidden-xs= t('view.checked_in_date')
         %th= t('view.operation')
     %tbody
       - @items.each do |item|

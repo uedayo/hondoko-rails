@@ -7,22 +7,22 @@
   %table.table.table-hover.books
     %thead
       %tr
-        %td
+        %td.book_medium_image
         %td= tt('Book.title')
-        %td= tt('Book.author')
-        %td= tt('Book.manufacturer')
-        %td= tt('Book.price')
-        %td= tt('Book.publication_date')
-        %td= tt('Book.category')
+        %td.hidden-xs= tt('Book.author')
+        %td.hidden-xs= tt('Book.manufacturer')
+        %td.hidden-xs= tt('Book.price')
+        %td.hidden-xs= tt('Book.publication_date')
+        %td.hidden-xs= tt('Book.category')
     %tbody
       - @books.each do |book|
         %tr{:book_isbn => book.isbn, :qid => @query_id}
           %td= image_tag(book.medium_image, width: BOOK_MEDIUM_IMAGE_WIDTH)
           %td.title
             %strong= view_format(book.title)
-          %td= view_format(book.author)
-          %td= view_format(book.manufacturer)
-          %td= book.price_formatted
-          %td= book.publication_date_formatted
-          %td
+          %td.hidden-xs= view_format(book.author)
+          %td.hidden-xs= view_format(book.manufacturer)
+          %td.hidden-xs= book.price_formatted
+          %td.hidden-xs= book.publication_date_formatted
+          %td.hidden-xs
             %span{:class => "label label-default #{book.category_class}"}= book.category_view

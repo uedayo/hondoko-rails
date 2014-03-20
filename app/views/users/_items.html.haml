@@ -7,12 +7,12 @@
       %tr
         %th
         %th= tt('Book.title')
-        %th= tt('Book.author')
-        %th= tt('Item.area')
-        %th= t('view.check_status')
-        %th= t('view.checked_out_date')
-        %th= t('view.due_date')
-        %th= t('view.checked_in_date')
+        %th.hidden-xs= tt('Book.author')
+        %th.hidden-xs= tt('Item.area')
+        %th.hidden-xs= t('view.check_status')
+        %th.hidden-xs= t('view.checked_out_date')
+        %th.hidden-xs= t('view.due_date')
+        %th.hidden-xs= t('view.checked_in_date')
         %th= t('view.operation')
     %tbody
       - @items.each do |item|

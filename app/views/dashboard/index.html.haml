@@ -14,15 +14,15 @@
               %tr
                 %th
                 %th= tt('Book.title')
-                %th= tt('Item.area')
-                %th= t('view.checked_in_date')
+                %th.nowrap.hidden-xs= tt('Item.area')
+                %th.nowrap.hidden-xs= t('view.checked_in_date')
             %tbody
               - @items_checked_in.each do |item|
                 %tr
                   %td= link_to image_tag("#{item.small_image}" || TWITTER_IMAGE, width: BOOK_SMALL_IMAGE_WIDTH), book_path(item.isbn)
                   %td= link_to item.title_vol, book_path(item.isbn)
-                  %td.nowrap= item.area_name
-                  %td= item.checked_in_at
+                  %td.hidden-xs= item.area_name
+                  %td.hidden-xs= item.checked_in_at
         - else
           .inside
             %p= t('view.book_empty_message')
@@ -38,20 +38,20 @@
               %tr
                 %th
                 %th= tt('Book.title')
-                %th= tt('Book.author')
+                %th.hidden-xs= tt('Book.author')
                 %th.nowrap= t('view.amount')
             %tbody
               - @items_well_read.each do |item|
                 %tr
                   %td= link_to image_tag("#{item.small_image}" || TWITTER_IMAGE, width: BOOK_SMALL_IMAGE_WIDTH), book_path(item.isbn)
                   %td= link_to item.title_vol, book_path(item.isbn)
-                  %td.division= item.author
+                  %td.hidden-xs= item.author
                   %td= item.count
         - else
           .inside
             %p= t('view.book_empty_message')
     / /block
-.row-fluid
+.row
   .col-sm-6
     / block
     .block
@@ -62,15 +62,15 @@
             %thead
               %tr
                 %th= t('view.name_kanji')
-                %th= tt('User.screen_name')
-                %th= tt('User.division')
-                %th= t('view.read_number')
+                %th.nowrap.hidden-xs= tt('User.screen_name')
+                %th.nowrap.hidden-xs= tt('User.division')
+                %th.nowrap= t('view.read_number')
             %tbody
               - @users_owing.each do |user|
                 %tr
                   %td= link_to image_tag("#{user.profile_image_url}" || TWITTER_IMAGE, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded") + " " + user.name_kanji, user_path(user.id)
-                  %td.nowrap= link_to view_format(user.screen_name), user_path(user.id)
-                  %td.nowrap= user.division
+                  %td.hidden-xs= link_to view_format(user.screen_name), user_path(user.id)
+                  %td.hidden-xs= user.division
                   %td= user.owing_count
         - else
           .inside
@@ -86,15 +86,15 @@
             %thead
               %tr
                 %th= t('view.name_kanji')
-                %th= tt('User.screen_name')
-                %th= tt('User.division')
-                %th= t('view.read_number')
+                %th.nowrap.hidden-xs= tt('User.screen_name')
+                %th.nowrap.hidden-xs= tt('User.division')
+                %th.nowrap= t('view.read_number')
             %tbody
               - @users_well_read.each do |user|
                 %tr
                   %td= link_to image_tag("#{user.profile_image_url}" || TWITTER_IMAGE, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded") + " " + user.name_kanji, user_path(user.id)
-                  %td.nowrap= link_to view_format(user.screen_name), user_path(user.id)
-                  %td.nowrap= user.division
+                  %td.hidden-xs= link_to view_format(user.screen_name), user_path(user.id)
+                  %td.hidden-xs= user.division
                   %td= user.read_count
         - else
           .inside

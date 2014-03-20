@@ -12,15 +12,16 @@
         %a.navbar-brand{href: "/"}= t('view.service_name')
       / Collect the nav links, forms, and other content for toggling
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
-        %ul.nav.navbar-nav.nav-link
+        %ul.nav.navbar-nav.nav-link.hidden-xs
           %li
             %span.hosts
               %strong= ENV['hosts_shorten']
         %ul.nav.navbar-nav.navbar-right
           = form_for(:book, url: books_path, html: {id: "book_search_form", class: "navbar-form navbar-left", role: "search", method: "get"}) do |f|
-            .form-group
-              %input.form-control.input-lg{name: "q", placeholder: t('view.search_placeholder'), type: "text", value: @query.presence}/
-            %button.btn.btn-default.btn-lg{type: "submit"}= t('view.search_button')
+            .search-form(style='padding:0 5px;')
+              .form-group
+                %input.form-control.input-lg{name: "q", placeholder: t('view.search_placeholder'), type: "text", value: @query.presence}/
+              %button.btn.btn-default.btn-lg{type: "submit"}= t('view.search_button')
           %li.dropdown
             %a.dropdown-toggle.login-user{"data-toggle" => "dropdown", :href => ""}
               = image_tag (@current_user.profile_image_url), width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded"

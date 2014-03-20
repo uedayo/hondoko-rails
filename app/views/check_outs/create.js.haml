@@ -9,4 +9,4 @@ tr.find(".due_date").text("#{@item.due_date}");
 tr.find(".checked_in_at").text("#{@item.checked_in_at}");
 tr.find(".operation_link").html('<a class="btn btn-warning" data-method="post" data-remote="true" href="/check_ins?item_id=#{@item.item_id}" rel="nofollow">返す</a>');
 tr.fadeIn(1000);
-tr.addClass('danger');
+tr.addClass('unavailable-background');
