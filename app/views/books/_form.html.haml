@@ -47,6 +47,6 @@
   .form-group
     = f.label :category, class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.collection_select :category, Category.all, :id, :name, {}, {class: 'form-control'}
+      = f.collection_select :category_id, Category.all, :id, :name, {}, {class: 'form-control'}
   .form-group
     .center-horizontal= f.submit class: 'btn btn-primary'
