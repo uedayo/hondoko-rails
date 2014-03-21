@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   def new
     sign_out
     @users = User.includes(:division)
+    render layout: 'front'
   end
 
   def create

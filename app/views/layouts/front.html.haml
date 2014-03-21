@@ -8,21 +8,21 @@
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
-    = favicon_link_tag
   %body
-    = render 'layouts/header'
+    .cover.hidden-xs.hidden-sm
+      .cover-image{style: "background-image: url(#{asset_path('cover.jpg')})"}
+      .cover-content
+        .content{"data-0" => "transform: translate3d(0px, 0px, 0px); opacity: 1;", "data-400" => "transform: translate3d(0px, 150px, 0px); opacity: 0;"}
+          %h1= t('view.login_title')
+          %h2= t('view.login_sub_title')
     #main{:role => "main"}
       .container-fluid
         .content
           .row-fluid
+            .visible-xs
+              %h2.header= t('view.login_title')
             = render 'layouts/messages'
             = yield
       / ! end of .container
     / ! end of #main
     = render 'layouts/footer'
-    :javascript
-      var width;
-      width = (window.innerWidth ? window.innerWidth : $(window).width());
-      if (width > 992) {
-        skrollr.init();
-      }

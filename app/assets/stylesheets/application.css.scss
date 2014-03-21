@@ -214,3 +214,11 @@ span.category-green {
 .warning-color {
   color: #d62100;
 }
+
+#progress {
+  position: fixed;
+  height: 5px;
+  background: #444;
+  bottom: 0;
+  z-index: 200;
+}

@@ -1,10 +1,9 @@
-%h2.header= t('view.login_title')
 - if @users.empty?
-  .inside
+  .inside.user-relative
     %p= t('view.user_empty_message')
     %p= t('view.user_add_recommend_message')
 - else
-  %table#login_users.table.table-striped.table-hover.users
+  %table#login_users.table.table-striped.table-hover.users.user-relative
     %thead
       %tr
         %td.hidden-xs= t('view.name_hiragana')

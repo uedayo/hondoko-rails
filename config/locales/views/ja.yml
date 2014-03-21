@@ -20,7 +20,8 @@ ja:
     footer: "%{service_name} by サ開20%ルール"
 
     # title
-    login_title: ほんどこ？にログイン
+    login_title: ほんどこ？
+    login_sub_title: ドコにある？ダレが借りてる？スグ分かる
     users_title: ユーザリスト
     new_user_title: ユーザの新規作成
     edit_user_title: "%{name} さんのプロフィール編集"
@@ -107,7 +108,7 @@ ja:
     create_book_and_item_done_message: 本の作成が完了しました。
     create_item_done_message: 本の追加作成が完了しました。
 
-    owed_books_count_message: 現在、あなたが借りている本は %{count} 冊です。
+    owed_books_count_message: 現在、%{user}さんが借りている本は %{count} 冊です。
     item_count_message: 現在 %{count} 冊登録されています。
 
     # error message
