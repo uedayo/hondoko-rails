@@ -56,17 +56,8 @@
                   = t('view.new_book')
           - if check_user_agent_for_mobile
             %li.dropdown
-              %a.dropdown-toggle.login-user{"data-toggle" => "dropdown", :href => ""}
+              %a.dropdown-toggle.login-user{:href => "hondoko://scan/book"}
                 %i.glyphicon.glyphicon-barcode
-              %ul.dropdown-menu
-                %li
-                  %a{href: "hondoko://scan/book"}
-                    %i.glyphicon.glyphicon-book
-                    = t('view.scan_book')
-                %li
-                  %a{href: "hondoko://scan/new_book"}
-                    %i.glyphicon.glyphicon-plus
-                    = t('view.scan_new_book')
       / /.navbar-collapse
     / /.container-fluid
   .navbar-margin

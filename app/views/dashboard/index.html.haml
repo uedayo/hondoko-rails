@@ -28,7 +28,7 @@
                   %td.hidden-xs= item.publication_date
                   %td.hidden-xs= item.created_at
         - else
-          .inside
+          .jumbotron
             %p= t('view.book_empty_message')
     / /block
   .col-sm-6
@@ -54,7 +54,7 @@
                   %td.hidden-xs= item.area_name
                   %td.hidden-xs= item.checked_in_at
         - else
-          .inside
+          .jumbotron
             %p= t('view.book_empty_message')
     / /block
 .row
@@ -81,7 +81,7 @@
                   %td.hidden-xs= item.author
                   %td= item.count
         - else
-          .inside
+          .jumbotron
             %p= t('view.book_empty_message')
     / /block
 .row
@@ -108,7 +108,7 @@
                   %td.hidden-xs= user.division
                   %td= user.read_count
         - else
-          .inside
+          .jumbotron
             %p= t('view.user_empty_message')
     / /block
   .col-sm-6
@@ -134,6 +134,6 @@
                   %td.hidden-xs= user.division
                   %td= user.owing_count
         - else
-          .inside
+          .jumbotron
             %p= t('view.user_empty_message')
     / /block

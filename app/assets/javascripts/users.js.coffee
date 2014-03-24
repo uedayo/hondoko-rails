@@ -13,5 +13,7 @@ $ ->
       dataType:  "text"
       context:    this
       data:      post_data
-      success:   (data, status, xhr)   -> $('#image_url').val data
+      success:   (data, status, xhr)   ->
+        $('#twitter_image').attr('src', data)
+        $('#image_url').val data
       error:     (xhr,  status, error) -> alert "データを取得できませんでした。"

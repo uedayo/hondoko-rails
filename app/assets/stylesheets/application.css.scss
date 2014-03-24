@@ -79,6 +79,10 @@ h2.header {
   margin-bottom: 10px;
 }
 
+.container-fluid .jumbotron {
+  border-radius: 6px;
+}
+
 /*
  * table
  */
@@ -92,12 +96,12 @@ table.table tbody tr {
   }
 
   td.login-name {
-    font-size: 26px;
     text-align: left;
   }
 
-  td.login-division {
-    font-size: 26px;
+  td.login-name-hiragana {
+    width: 30%;
+    text-align: left;
   }
 
   td.dashboard-thumbnail {
@@ -119,6 +123,10 @@ table.table tbody tr {
   .btn {
     margin: 5px 10px;
   }
+}
+
+table#login_users tbody tr td{
+  font-size: 26px;
 }
 
 table.table tbody tr.pointer {
@@ -217,8 +225,8 @@ span.category-green {
 
 #progress {
   position: fixed;
-  height: 5px;
-  background: #444;
+  height: 6px;
+  background: #00a9ff;
   bottom: 0;
   z-index: 200;
 }

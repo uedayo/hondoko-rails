@@ -6,19 +6,19 @@
   %table#login_users.table.table-striped.table-hover.users.user-relative
     %thead
       %tr
-        %td.hidden-xs= t('view.name_hiragana')
         %td= t('view.name_kanji')
+        %td.hidden-xs= t('view.name_hiragana')
         %td.hidden-xs= tt('User.division')
         %td
         %td.collapse
     %tbody
       - @users.each do |user|
         %tr{user_id: user.id}
-          %td.login-name.hidden-xs= user.name_hiragana
           %td.login-name
             = image_tag(user.profile_image_url, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded")
             = user.name_kanji
-          %td.login-division.hidden-xs= user.division.name
+          %td.login-name-hiragana.hidden-xs= user.name_hiragana
+          %td.hidden-xs= user.division.name
           %td
             %a.btn.btn-primary= t('view.login')
           %td.collapse= "#{user.name_roman} #{user.screen_name.presence}"

@@ -1,5 +1,6 @@
 - if @items.empty?
-  .inside= t('view.owed_book_empty_message')
+  .jumbotron
+    = t('view.owed_book_empty_message')
 - else
   #count_message.inside= t('view.owed_books_count_message', user: @current_user.last_name_kanji, count: @items.count)
   %table.table.table-hover
