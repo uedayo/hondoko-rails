@@ -78,6 +78,16 @@ class Item < ActiveRecord::Base
     hash.map() { |item| OpenStruct.new(item) }
   end
 
+  def self.find_recently_added limit
+    hash = ActiveRecord::Base.connection.select(<<-SQL
+        SELECT i.id id, isbn, title, author, publication_date, small_image, volume, i.created_at FROM (
+        SELECT * from items ORDER BY created_at DESC LIMIT #{limit}
+        ) i LEFT OUTER JOIN books ON i.book_id = books.id;
+    SQL
+    )
+    hash.map() { |item| OpenStruct.new(item) }
+  end
+
   def self.find_recently_checked_in limit
     hash = ActiveRecord::Base.connection.select(<<-SQL
         SELECT item_id, checked_in_at, book_id, volume, area_id, area_name, isbn, title, author, small_image FROM (

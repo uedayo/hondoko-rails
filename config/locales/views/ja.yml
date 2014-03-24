@@ -31,6 +31,7 @@ ja:
     search_book_title: 「%{key}」での検索結果
     in_out_status_title: 貸出状況
     new_item_title: 本の追加
+    added_items: 最近追加された本
     checked_in_items: 最近返却された本
     well_read_items: たくさん読まれている本
     owing_users: たくさん借りている人
@@ -58,6 +59,8 @@ ja:
     checked_out_date: 貸出日
     due_date: 返却予定日
     checked_in_date: 返却日
+    checked_out_date:
+    checked_out_date: 貸出日
     amount: 回数
     read_number: 冊数
 

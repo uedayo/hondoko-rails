@@ -1,2 +1,4 @@
-%h2.header= t('view.edit_user_title', name: @user.last_name_kanji)
+%h2.header
+  %i.glyphicon.glyphicon-user
+  = t('view.edit_user_title', name: @user.last_name_kanji)
 = render 'form'

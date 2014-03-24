@@ -1,4 +1,6 @@
 %h2.header= link_to @book.title.html_safe, book_path(@book)
 = render 'book'
-%h2.header= t('view.in_out_status_title')
+%h2.header
+  %i.glyphicon.glyphicon-log-out
+  = t('view.in_out_status_title')
 = render 'items'

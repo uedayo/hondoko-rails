@@ -1,4 +1,6 @@
-%h2.header= "#{@user.last_name_kanji.html_safe} #{@user.first_name_kanji.html_safe}"
+%h2.header
+  %i.glyphicon.glyphicon-user
+  = "#{@user.last_name_kanji.html_safe} #{@user.first_name_kanji.html_safe}"
 .row
   .col-md-2.row-thumb
     = link_to image_tag(@user.profile_image_url, width: USER_LARGE_IMAGE_WIDTH, class: 'img-thumbnail')
@@ -25,5 +27,7 @@
         %tr
           %td= tt('User.email')
           %td= view_format(@user.email)
-%h2.header= t('view.in_out_status_title')
+%h2.header
+  %i.glyphicon.glyphicon-log-out
+  = t('view.in_out_status_title')
 = render 'items'

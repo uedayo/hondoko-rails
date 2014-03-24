@@ -1,0 +1,3 @@
+module ItemOnDashboardAddedDecorator
+  include ItemBaseDecorator
+end

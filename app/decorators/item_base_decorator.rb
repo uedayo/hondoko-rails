@@ -1,4 +1,8 @@
 module ItemBaseDecorator
+  def title_vol
+    volume.nil? || volume == 1 ? title.html_safe : "#{title} (#{volume}冊目)".html_safe
+  end
+
   def background_class
     is_available? ? nil : 'unavailable-background'
   end

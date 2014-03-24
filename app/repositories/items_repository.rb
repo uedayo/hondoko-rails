@@ -72,6 +72,25 @@ class ItemsRepository
     item_entities
   end
 
+  def get_items_recently_added
+    items = Item.find_recently_added DASHBOARD_ITEMS_AMOUNT
+    item_entities = []
+    items.each do |item|
+      item_entity = ItemOnDashboardAdded.new(
+          isbn: item['isbn'],
+          item_id: item['item_id'],
+          title: item['title'],
+          author: item['author'],
+          small_image: item['small_image'],
+          volume: item['volume'],
+          publication_date: format_publication_date(item['publication_date']),
+          created_at: format_date(item['created_at']),
+      )
+      item_entities << item_entity
+    end
+    item_entities
+  end
+
   def get_items_recently_checked_in
     items = Item.find_recently_checked_in DASHBOARD_ITEMS_AMOUNT
     item_entities = []
@@ -136,6 +155,10 @@ class ItemsRepository
 
     def format_date(date)
       date.present? ? date.strftime('%Y/%m/%d') : I18n.t('view.na')
+    end
+
+    def format_publication_date(date)
+      date.present? ? date.gsub('-', '/') : I18n.t('view.na')
     end
 
     def is_overdue?(due_date)
