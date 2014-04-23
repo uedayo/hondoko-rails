@@ -29,7 +29,7 @@ working_directory "/home/rbenv/hondoko-rails" # available in 0.94.0+
 # we use a shorter backlog for quicker failover when busy
 #listen "/path/to/.unicorn.sock", :backlog => 64
 listen "/tmp/nginx.sock", :backlog => 64
-listen 8080, :tcp_nopush => true
+listen 3000, :tcp_nopush => true
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 timeout 30

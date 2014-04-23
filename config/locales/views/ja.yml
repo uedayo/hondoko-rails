@@ -17,7 +17,7 @@ ja:
     login: ログイン
 
     # footer
-    footer: "%{service_name} by サ開20%ルール"
+    footer: "%{service_name} は Google Chrome でご利用ください"
 
     # title
     login_title: ほんどこ？
