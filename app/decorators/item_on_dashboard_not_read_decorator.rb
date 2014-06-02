@@ -1,0 +1,3 @@
+module ItemOnDashboardNotReadDecorator
+  include ItemBaseDecorator
+end

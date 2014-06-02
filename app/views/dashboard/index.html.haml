@@ -84,6 +84,30 @@
           .jumbotron
             %p= t('view.book_empty_message')
     / /block
+  .col-sm-6
+    / block
+    .block
+      %h2.header
+        %i.glyphicon.glyphicon-book
+        = t('view.not_read_items')
+      .block-content.collapse.in
+        - if @items_not_read.present?
+          %table.table.table-striped
+            %thead
+              %tr
+                %th
+                %th= tt('Book.title')
+                %th.hidden-xs= tt('Book.author')
+            %tbody
+              - @items_not_read.each do |item|
+                %tr
+                  %td= link_to image_tag("#{item.small_image}" || TWITTER_IMAGE, width: BOOK_SMALL_IMAGE_WIDTH), book_path(item.isbn)
+                  %td= link_to item.title_vol, book_path(item.isbn)
+                  %td.hidden-xs= item.author
+        - else
+          .jumbotron
+            %p= t('view.book_empty_message')
+    / /block
 .row
   .col-sm-6
     / block

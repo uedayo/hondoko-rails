@@ -131,6 +131,25 @@ class ItemsRepository
     item_entities
   end
 
+  def get_items_not_read
+    items = Item.find_not_read DASHBOARD_ITEMS_AMOUNT
+    item_entities = []
+    items.each do |item|
+      item_entity = ItemOnDashboardNotRead.new(
+          isbn: item['isbn'],
+          item_id: item['id'],
+          title: item['title'],
+          author: item['author'],
+          small_image: item['small_image'],
+          volume: item['volume'],
+          area_id: item['area_id'],
+          area_name: item['area_name'],
+      )
+      item_entities << item_entity
+    end
+    item_entities
+  end
+
   def get_item_status(item_id)
     item = Item.find_detail item_id
     check_status item

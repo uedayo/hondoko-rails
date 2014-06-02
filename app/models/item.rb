@@ -116,4 +116,17 @@ class Item < ActiveRecord::Base
     )
     hash.map() { |item| OpenStruct.new(item) }
   end
+
+  def self.find_not_read limit
+    hash = ActiveRecord::Base.connection.select(<<-SQL
+        SELECT b.id book_id, item_id, volume, area_id, area_name, isbn, title, author, small_image  FROM (
+        SELECT book_id, item_id, volume, area_id, name area_name FROM (
+        SELECT book_id, items.id item_id, volume, area_id FROM items WHERE NOT EXISTS (
+        SELECT NULL from check_outs WHERE items.id = check_outs.item_id) LIMIT #{limit}
+        ) recent_item LEFT OUTER JOIN  areas ON recent_item.area_id = areas.id
+        ) recent_item_area LEFT OUTER JOIN books b ON recent_item_area.book_id = b.id ORDER BY RAND();
+    SQL
+    )
+    hash.map() { |item| OpenStruct.new(item) }
+  end
 end

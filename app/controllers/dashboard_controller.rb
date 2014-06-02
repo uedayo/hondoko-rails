@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
     @items_added = item_repo.get_items_recently_added
     @items_checked_in = item_repo.get_items_recently_checked_in
     @items_well_read = item_repo.get_items_well_read
+    @items_not_read = item_repo.get_items_not_read
     user_repo = UsersRepository.new
     @users_well_read = user_repo.find_well_read_in_number
     @users_owing = user_repo.find_owing
