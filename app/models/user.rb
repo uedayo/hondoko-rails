@@ -7,12 +7,14 @@ class User < ActiveRecord::Base
 
   def self.find_well_read_in_number limit
     hash = ActiveRecord::Base.connection.select(<<-SQL
-        SELECT user_id, check_in_count, last_name_kanji, first_name_kanji, screen_name, image_url, division_id, divisions.name division_name FROM (
-        SELECT user_id, check_in_count, last_name_kanji, first_name_kanji, screen_name, image_url, division_id FROM (
+        SELECT user_id, check_in_count, last_name_kanji, first_name_kanji, image_url, division_id, division_name FROM (
+        SELECT user_id, check_in_count, last_name_kanji, first_name_kanji, image_url, division_id, divisions.name division_name FROM (
+        SELECT user_id, check_in_count, last_name_kanji, first_name_kanji, image_url, division_id FROM (
         SELECT user_id, COUNT(*) check_in_count FROM check_ins i LEFT OUTER JOIN check_outs o ON
-        i.check_out_id = o.id GROUP BY user_id ORDER BY check_in_count DESC LIMIT #{limit}
+        i.check_out_id = o.id GROUP BY user_id
         ) read_counts LEFT OUTER JOIN users ON read_counts.user_id = users.id
-        ) user_read_counts LEFT OUTER JOIN divisions ON user_read_counts.division_id = divisions.id;
+        ) user_read_counts LEFT OUTER JOIN divisions ON user_read_counts.division_id = divisions.id
+        ) user_read_counts_division ORDER BY check_in_count DESC LIMIT #{limit};
     SQL
     )
     hash.map() { |item| OpenStruct.new(item) }
