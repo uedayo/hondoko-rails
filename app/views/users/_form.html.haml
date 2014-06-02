@@ -29,18 +29,6 @@
     .col-sm-10
       = f.text_field :first_name_roman, class: 'form-control input-lg width-auto', placeholder: t('view.first_name_roman_placeholder')
   .form-group
-    = f.label :screen_name, class: 'col-sm-2 control-label'
-    .col-sm-10
-      .input-group
-        %span.input-group-addon @
-        = f.text_field :screen_name, id: 'screen_name', class: 'form-control', placeholder: t('view.screen_name_placeholder')
-  .form-group
-    .col-sm-offset-2.col-sm-10
-      = link_to t('view.get_twitter_image'), "javascript: void(0)", id: 'get_twitter_image', class: 'btn-inline btn btn-default'
-  .form-group
-    .col-sm-offset-2.col-sm-10
-      = image_tag(@user.image_url, width: USER_LARGE_IMAGE_WIDTH, id: 'twitter_image', class: 'img-thumbnail')
-  .form-group
     = f.label :image_url, class: 'col-sm-2 control-label'
     .col-sm-10
       = f.text_field :image_url, id: 'image_url', class: 'form-control', placeholder: t('view.image_url_placeholder')

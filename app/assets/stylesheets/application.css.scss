@@ -46,6 +46,12 @@ ul.navbar-nav > li > span.hosts {
   padding: 20px 15px;
 }
 
+ul.navbar-nav > li.logout {
+  position: relative;
+  display: block;
+  padding: 5px 5px;
+}
+
 ul.dropdown-menu > li > a {
   padding: 8px 20px;
 }

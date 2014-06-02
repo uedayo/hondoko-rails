@@ -12,10 +12,6 @@
         %a.navbar-brand{href: "/"}= t('view.service_name')
       / Collect the nav links, forms, and other content for toggling
       #bs-example-navbar-collapse-1.collapse.navbar-collapse
-        %ul.nav.navbar-nav.nav-link.hidden-xs
-          %li
-            %span.hosts
-              %strong= ENV['hosts_shorten']
         %ul.nav.navbar-nav.navbar-right
           = form_for(:book, url: books_path, html: {id: "book_search_form", class: "navbar-form navbar-left", role: "search", method: "get"}) do |f|
             .search-form(style='padding:0 5px;')
@@ -41,11 +37,10 @@
                 = link_to edit_user_path(@current_user) do
                   %i.glyphicon.glyphicon-user
                   = t('view.profile_edit')
-              %li.divider
-              %li
-                = link_to logout_path, method: "delete" do
-                  %i.glyphicon.glyphicon-log-out
-                  = t('view.logout')
+          %li.logout
+            = link_to logout_path, method: "delete" do
+              %i.glyphicon.glyphicon-log-out
+              = t('view.logout')
           %li.dropdown
             %a.dropdown-toggle.login-user{"data-toggle" => "dropdown", :href => ""}
               %i.glyphicon.glyphicon-cog

@@ -97,14 +97,12 @@
             %thead
               %tr
                 %th= t('view.name_kanji')
-                %th.nowrap.hidden-xs= tt('User.screen_name')
                 %th.nowrap.hidden-xs= tt('User.division')
                 %th.nowrap= t('view.read_number')
             %tbody
               - @users_well_read.each do |user|
                 %tr
                   %td= link_to image_tag("#{user.profile_image_url}" || TWITTER_IMAGE, width: USER_SMALL_IMAGE_WIDTH, class: "img-rounded") + " " + user.name_kanji, user_path(user.id)
-                  %td.hidden-xs= link_to view_format(user.screen_name), user_path(user.id)
                   %td.hidden-xs= user.division
                   %td= user.read_count
         - else
